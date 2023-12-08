@@ -1,0 +1,510 @@
+@import url('https://fonts.cdnfonts.com/css/gentium-basic');
+@import url('https://fonts.cdnfonts.com/css/vogue');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@400;500&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    /* font-family: 'Nunito', sans-serif; */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    /* border: none; */
+    text-decoration: none;
+    transition: all .2s linear;
+    text-transform: capitalize;
+}
+
+
+/* html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+} */
+
+body {
+    background: white;
+    display: grid;
+    /* grid-template-rows: 500px 100px;
+    grid-template-columns: 1fr 30px 30px 30px 30px 30px 1fr; */
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* .head .menulist li a.active {
+    color: #960021;
+} */
+
+#wrapper {
+    width: 1440px;
+    height: auto;
+    margin: 0 auto;
+}
+
+header {
+    width: 100%;
+}
+
+#head {
+    width: 100%;
+    /* height: 3855px; */
+}
+
+.menu {
+    width: 100%;
+    height: 150px;
+    /* background: lavenderblush; */
+}
+
+#logo img {
+    width: 150px;
+    height: auto;
+    margin: 20px 0 0 650px;
+}
+
+#logo li {
+    list-style: none;
+    margin-left: 670px;
+    padding-top: 20px;
+    float: left;
+}
+
+#logo li a {
+    font-family: 'Gentium Basic', sans-serif;
+    font-size: 50px;
+    color: black;
+    text-decoration: none;
+    font-weight: normal;
+}
+
+#menu-list {
+    float: left;
+    margin-left: 380px;
+}
+
+#menu-list li {
+    list-style: none;
+    margin-left: 80px;
+    padding-top: 25px;
+    float: left;
+    vertical-align: baseline;
+}
+
+#menu-list li a {
+    font-family: 'Gentium Basic', sans-serif;
+    font-size: 15px;
+    color: black;
+    text-decoration: none;
+    font-weight: normal;
+}
+
+#menu-list li a:hover {
+    color: #960021;
+}
+
+
+/* a:hover,
+a:active {
+    text-decoration: underline overline;
+    color: #960021;
+} */
+
+.fa-bell {
+    font-size: 20px;
+    color: black;
+    margin: 25px 0 0 80px;
+}
+
+.fa-bell:hover {
+    cursor: pointer;
+    color: #960021;
+    transition: .3s;
+}
+
+
+/* .fa-user {
+    font-size: 20px;
+    color: black;
+    margin: 20px 0 0 30px;
+}
+
+.fa-user:hover {
+    cursor: pointer;
+    color: #960021;
+    transition: .3s;
+} */
+
+.dropbtn {
+    background: none;
+    border: none;
+    margin-left: 40px;
+}
+
+.dropbtn i {
+    background: none;
+    color: black;
+    /* padding: 16px; */
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.dropbtn:hover,
+.dropbtn:focus {
+    background: none;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 20px;
+}
+
+.dropdown-content a {
+    font-size: 15px;
+    font-family: 'Gentium Basic', sans-serif;
+    color: black;
+    padding: 15px 20px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown a:hover {
+    background-color: #ddd;
+}
+
+.show {
+    display: block;
+}
+
+
+/* end header */
+
+#myBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 100px;
+}
+
+#myBtn:hover {
+    background-color: #960021;
+    transition: 0.3s;
+}
+
+.back button {
+    border-radius: 50px;
+    border: none;
+    font-family: 'Gentium Basic', sans-serif;
+    font-size: 16px;
+    color: #000;
+    margin: 100px 0 0 15px;
+    background: none;
+}
+
+.back button:hover {
+    /* background-color: #960021; */
+    color: #960021;
+    transition: .3s;
+    cursor: pointer;
+}
+
+.fa-arrow-left {
+    font-size: 16px;
+    color: #000;
+    margin-left: 105px;
+    /* background: none; */
+}
+
+.fa-arrow-left:hover {
+    /* background-color: #960021; */
+    color: #960021;
+    transition: .3s;
+    cursor: pointer;
+}
+
+.manage {
+    width: 1230px;
+    height: auto;
+    padding-bottom: 40px;
+    background-color: #eee;
+    box-shadow: 2px 2px 14px 0px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    margin: 50px 0 0 100px;
+}
+
+.manage img {
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+}
+
+.pf13 img {
+    width: 160px;
+    height: auto;
+    margin: -50px 0 0 150px;
+}
+
+#tname {
+    font-family: 'Gentium Basic', sans-serif;
+    font-size: 20px;
+    margin-left: 70px;
+}
+
+#name {
+    width: 1120px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: none;
+    border-radius: 50px;
+    box-sizing: border-box;
+    margin: 20px 0 20px 50px;
+    font-family: 'Gentium Basic', sans-serif;
+    font-size: 16px;
+    text-transform: none;
+    box-shadow: 2px 2px 14px 0px rgba(210, 210, 210, 0.2);
+}
+
+#taddress {
+    font-family: 'Gentium Basic', sans-serif;
+    font-size: 20px;
+    margin-left: 70px;
+}
+
+#address {
+    width: 1120px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: none;
+    border-radius: 50px;
+    box-sizing: border-box;
+    margin: 20px 0 20px 50px;
+    font-family: 'Gentium Basic', sans-serif;
+    font-size: 16px;
+    text-transform: none;
+    box-shadow: 2px 2px 14px 0px rgba(210, 210, 210, 0.2);
+}
+
+#temail {
+    font-family: 'Gentium Basic', sans-serif;
+    font-size: 20px;
+    margin-left: 70px;
+}
+
+#email {
+    width: 1120px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: none;
+    border-radius: 50px;
+    box-sizing: border-box;
+    margin: 20px 0 20px 50px;
+    font-family: 'Gentium Basic', sans-serif;
+    font-size: 16px;
+    text-transform: none;
+    box-shadow: 2px 2px 14px 0px rgba(210, 210, 210, 0.2);
+}
+
+#ttel {
+    font-family: 'Gentium Basic', sans-serif;
+    font-size: 20px;
+    margin-left: 70px;
+}
+
+#tel {
+    width: 1120px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: none;
+    border-radius: 50px;
+    box-sizing: border-box;
+    margin: 20px 0 20px 50px;
+    font-family: 'Gentium Basic', sans-serif;
+    font-size: 16px;
+    text-transform: none;
+    box-shadow: 2px 2px 14px 0px rgba(210, 210, 210, 0.2);
+}
+
+#tbirthday {
+    font-family: 'Gentium Basic', sans-serif;
+    font-size: 20px;
+    margin-left: 70px;
+}
+
+#birthday {
+    width: 250px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: none;
+    border-radius: 50px;
+    box-sizing: border-box;
+    margin: 20px 0 20px 50px;
+    font-family: 'Gentium Basic', sans-serif;
+    font-size: 16px;
+    box-shadow: 2px 2px 14px 0px rgba(210, 210, 210, 0.2);
+}
+
+#submit {
+    width: 180px;
+    background-color: #960021;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-family: 'Gentium Basic', sans-serif;
+    font-size: 20px;
+    margin: 20px 0 0 990px;
+}
+
+#submit:hover {
+    background-color: #000;
+}
+
+
+/* start footer */
+
+#footer {
+    margin-top: 50px;
+    width: 100%;
+    height: 300px;
+    background-color: black;
+}
+
+.help p {
+    font-family: 'Gentium Basic', sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    color: white;
+    margin-left: 100px;
+    padding-top: 70px;
+}
+
+.help h1 {
+    font-family: 'Gentium Basic', sans-serif;
+    font-weight: lighter;
+    font-size: 16px;
+    color: white;
+    margin-left: 100px;
+    padding-top: 26px;
+}
+
+.help img {
+    width: 69px;
+    height: auto;
+    float: left;
+    margin-left: 408px;
+    margin-top: -70px;
+}
+
+.help h2 {
+    font-family: 'Gentium Basic', sans-serif;
+    font-weight: lighter;
+    font-size: 16px;
+    color: white;
+    margin-left: 408px;
+    padding-top: -20px;
+}
+
+.help h3 {
+    font-family: 'Gentium Basic', sans-serif;
+    font-weight: lighter;
+    font-size: 16px;
+    color: white;
+    margin-left: 408px;
+    padding-top: 20px;
+    float: left;
+}
+
+.help h4 {
+    font-family: 'Gentium Basic', sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    color: white;
+    margin-left: 700px;
+    margin-top: -85px;
+}
+
+#signup {
+    font-family: 'Gentium Basic', sans-serif;
+    font-weight: lighter;
+    font-size: 16px;
+    color: white;
+    margin-left: 700px;
+    margin-top: 20px;
+}
+
+#username {
+    width: 253px;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    color: #979797;
+    font-family: 'Gentium Basic', sans-serif;
+    font-size: 16px;
+    margin: 20px 0 0 200px;
+    padding-left: 10px;
+    /* background-color: none; */
+}
+
+#search {
+    width: 253px;
+    height: 30px;
+    /* background-color: white; */
+    border: none;
+    border-radius: 5px;
+    padding-left: 10px;
+    color: #979797;
+    font-family: 'Gentium Basic', sans-serif;
+    font-size: 16px;
+    margin-left: 1088px;
+    margin-top: -125px;
+    float: left;
+}
+
+.fa-search {
+    color: black;
+    font-size: 16px;
+    margin-left: 1315px;
+    margin-top: -117px;
+    float: left;
+}
+
+.fa-search:hover {
+    color: #960021;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.help h5 {
+    font-family: 'Gentium Basic', sans-serif;
+    font-weight: lighter;
+    font-size: 16px;
+    color: white;
+    margin-left: 100px;
+    margin-top: 65px;
+}

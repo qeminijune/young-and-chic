@@ -1,0 +1,767 @@
+@import url('https://fonts.cdnfonts.com/css/gentium-basic');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    /* font-family: 'Nunito', sans-serif; */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    /* border: none; */
+    text-decoration: none;
+    transition: all .2s linear;
+    text-transform: capitalize;
+}
+
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+}
+
+body {
+    background: white;
+}
+
+
+/* .head .menulist li a.active {
+    color: #960021;
+} */
+
+#wrapper {
+    width: 1440px;
+    height: auto;
+    margin: 0 auto;
+}
+
+.container {
+    align-items: center;
+}
+
+
+/* .container input {
+    display: none;
+} */
+
+.container .label-img {
+    /* width: 1043px; */
+    aspect-ratio: 16/9;
+    background: #ccc;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all .5s;
+    flex: 1;
+    margin-top: 50px;
+}
+
+.label-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.label-img {
+    overflow: hidden;
+    object-fit: cover;
+}
+
+header {
+    width: 100%;
+}
+
+#head {
+    width: 100%;
+    /* height: 3855px; */
+}
+
+.menu {
+    width: 100%;
+    height: 150px;
+    /* background: lavenderblush; */
+}
+
+#logo img {
+    width: 150px;
+    height: auto;
+    margin: 20px 0 0 650px;
+}
+
+#logo li {
+    list-style: none;
+    margin-left: 670px;
+    padding-top: 20px;
+    float: left;
+}
+
+#logo li a {
+    font-family: 'Gentium Basic', sans-serif;
+    font-size: 50px;
+    color: black;
+    text-decoration: none;
+    font-weight: normal;
+}
+
+#menu-list {
+    float: left;
+    margin-left: 350px;
+}
+
+#menu-list li {
+    list-style: none;
+    margin-left: 80px;
+    padding-top: 25px;
+    float: left;
+    vertical-align: baseline;
+}
+
+#menu-list li a {
+    font-family: 'Gentium Basic', sans-serif;
+    font-size: 15px;
+    color: black;
+    text-decoration: none;
+    font-weight: normal;
+}
+
+#menu-list li a:hover {
+    color: #960021;
+}
+
+a:hover,
+a:active {
+    text-decoration: underline overline;
+    color: #960021;
+}
+
+.active li a {
+    color: #960021;
+    text-decoration: underline;
+    float: left;
+    font-family: 'Gentium Basic', sans-serif;
+    font-size: 15px;
+    margin-left: 80px;
+    padding-top: 25px;
+}
+
+.logout {
+    font-size: 15px;
+    font-family: 'Gentium Basic', sans-serif;
+    margin-left: 80px;
+    text-decoration: none;
+    color: black;
+}
+
+
+/* .fa-bell {
+    font-size: 20px;
+    color: black;
+    margin: 10px 0 0 40px;
+}
+
+.fa-bell:hover {
+    cursor: pointer;
+    color: #960021;
+    transition: .3s;
+} */
+
+.fa-user {
+    font-size: 20px;
+    color: black;
+    margin: 10px 0 0 30px;
+}
+
+.fa-user:hover {
+    cursor: pointer;
+    color: #960021;
+    transition: .3s;
+}
+
+.dropbtn {
+    background: none;
+    border: none;
+    margin-left: 40px;
+}
+
+.dropbtn i {
+    background: none;
+    color: black;
+    /* padding: 16px; */
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.dropbtn:hover,
+.dropbtn:focus {
+    background: none;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 20px;
+}
+
+.dropdown-content a {
+    font-size: 15px;
+    font-family: 'Gentium Basic', sans-serif;
+    color: black;
+    padding: 15px 20px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown a:hover {
+    background-color: #ddd;
+}
+
+.show {
+    display: block;
+}
+
+
+/* end header */
+
+.banner img {
+    width: 1440px;
+    height: 576px;
+    margin-top: 30px;
+}
+
+.banner p {
+    font-family: 'Gentium Basic', sans-serif;
+    font-size: 56px;
+    text-align: center;
+    color: white;
+    margin-top: -350px;
+    font-weight: normal;
+}
+
+.banner h1 {
+    font-family: 'Gentium Basic', sans-serif;
+    font-size: 24px;
+    text-align: center;
+    color: white;
+    margin-top: 20px;
+    font-weight: normal;
+}
+
+.freelance h1 {
+    font-family: 'Gentium Basic', sans-serif;
+    font-size: 20px;
+    color: black;
+    margin-top: 22px;
+    margin-left: 100px;
+    font-weight: normal;
+}
+
+.freelance p {
+    font-family: 'Gentium Basic', sans-serif;
+    font-size: 20px;
+    color: black;
+    margin-top: -32px;
+    margin-left: 250px;
+}
+
+.freelance hr {
+    width: 1241px;
+    margin-left: 99px;
+    margin-top: 20px;
+    color: #D9DADB;
+}
+
+.box {
+    margin-top: 20px;
+    margin-left: 99px;
+}
+
+
+/* .fa-search {
+    margin: 7px 0 0 -25px;
+    color: #888;
+    cursor: pointer;
+    float: left;
+}
+
+.fa-search:hover {
+    color: #fff;
+} */
+
+#search-job {
+    width: 100%;
+    height: 60px;
+    background-color: #F4F4F4;
+    border: none;
+    border-radius: 10px;
+    padding-left: 31px;
+    color: #979797;
+    font-family: 'Gentium Basic', sans-serif;
+    font-size: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+}
+
+.container .title {
+    font-size: 56px;
+    color: black;
+    margin-top: 10px;
+    /* text-transform: uppercase; */
+    text-align: center;
+    font-family: 'Gentium Basic', sans-serif;
+    font-weight: normal;
+    /* float: left; */
+}
+
+.button button {
+    width: 170px;
+    height: 45px;
+    border-radius: 30px;
+    font-family: 'Gentium Basic', sans-serif;
+    font-weight: normal;
+    font-size: 20px;
+    margin-top: -50px;
+    margin-left: 990px;
+    border: none;
+    float: left;
+}
+
+.button button:hover {
+    background: #960021;
+    color: #fff;
+    cursor: pointer;
+}
+
+.container .products-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 30px;
+}
+
+.container .products-container .product {
+    text-align: center;
+    padding: 3rem 2rem;
+    background: #fff;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+    outline: .1rem solid #ccc;
+    outline-offset: -1.5rem;
+    cursor: pointer;
+}
+
+.container .products-container .product:hover {
+    outline: .2rem solid #222;
+    outline-offset: 0;
+}
+
+.container .products-container .product img {
+    height: 25rem;
+    width: 100%;
+    object-fit: cover;
+}
+
+.container .products-container .product:hover img {
+    transform: scale(.9);
+}
+
+.container .products-container .product h3 {
+    padding: .5rem 0;
+    font-size: 24px;
+    color: black;
+    font-family: 'Gentium Basic', sans-serif;
+    font-weight: normal;
+}
+
+.container .products-container .product:hover h3 {
+    color: #960021;
+}
+
+.container .products-container .product .price {
+    font-size: 16px;
+    color: black;
+    font-family: 'Gentium Basic', sans-serif;
+    font-weight: normal;
+}
+
+.container .products-container .product h4 {
+    font-size: 14px;
+    color: #4B5157;
+    font-family: 'Gentium Basic', sans-serif;
+    font-weight: normal;
+}
+
+.products-preview {
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-height: 100vh;
+    width: 100%;
+    background: rgba(0, 0, 0, .8);
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.products-preview .preview {
+    display: none;
+    padding: 2rem;
+    text-align: center;
+    background: #fff;
+    position: relative;
+    margin: 2rem;
+    width: 40rem;
+    border-radius: 30px;
+}
+
+.products-preview .preview.active {
+    display: inline-block;
+}
+
+.products-preview .preview img {
+    height: 30rem;
+    border-radius: 30px;
+}
+
+.products-preview .preview .fa-times {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    cursor: pointer;
+    color: black;
+    font-size: 3rem;
+}
+
+.products-preview .preview .fa-times:hover {
+    transform: rotate(90deg);
+}
+
+.products-preview .preview h3 {
+    color: black;
+    padding: .5rem 0;
+    font-size: 24px;
+    margin-top: 10px;
+}
+
+
+/* .products-preview .preview .stars {
+    padding: 1rem 0;
+    font-size: 1.7rem;
+}
+
+.products-preview .preview .stars i {
+    color: #960021;
+} */
+
+
+/* .products-preview .preview .stars span {
+    color: #999;
+} */
+
+.products-preview .preview p {
+    line-height: 1.5;
+    padding: 1rem 0;
+    font-size: 14px;
+    color: #777;
+}
+
+.products-preview .preview .price {
+    padding: 1rem 0;
+    font-size: 2.5rem;
+    color: #960021;
+    font-size: 16px;
+}
+
+.products-preview .preview .buttons {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+    width: 160px;
+    height: 50px;
+}
+
+.products-preview .preview .buttons a {
+    flex: 1 1 16rem;
+    padding-top: 13px;
+    font-size: 1.8rem;
+    color: white;
+    /* border: .1rem solid #444; */
+    border-radius: 30px;
+    background: #960021;
+}
+
+.products-preview .preview .button1 {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-top: -50px;
+    width: 160px;
+    height: 50px;
+    float: right;
+}
+
+.products-preview .preview .button1 a {
+    flex: 1 1 16rem;
+    padding-top: 13px;
+    font-size: 1.8rem;
+    color: #960021;
+    border: .1rem solid #960021;
+    border-radius: 30px;
+}
+
+.products-preview .preview .buttons a:hover {
+    background: #111;
+}
+
+.products-preview .preview .button1 a:hover {
+    background: #960021;
+    color: #fff;
+}
+
+@media (max-width:991px) {
+    html {
+        font-size: 55%;
+    }
+}
+
+@media (max-width:768px) {
+    .products-preview .preview img {
+        height: 25rem;
+    }
+}
+
+@media (max-width:450px) {
+    html {
+        font-size: 50%;
+    }
+}
+
+#footer {
+    margin-top: 50px;
+    width: 100%;
+    height: 300px;
+    background-color: black;
+}
+
+.help p {
+    font-family: 'Gentium Basic', sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    color: white;
+    margin-left: 100px;
+    padding-top: 50px;
+}
+
+.help h1 {
+    font-family: 'Gentium Basic', sans-serif;
+    font-weight: lighter;
+    font-size: 16px;
+    color: white;
+    margin-left: 100px;
+    padding-top: 26px;
+}
+
+.help img {
+    width: 69px;
+    height: auto;
+    float: left;
+    margin-left: 408px;
+    margin-top: -80px;
+}
+
+.help h2 {
+    font-family: 'Gentium Basic', sans-serif;
+    font-weight: lighter;
+    font-size: 16px;
+    color: white;
+    margin-left: 408px;
+    padding-top: -20px;
+}
+
+.help h3 {
+    font-family: 'Gentium Basic', sans-serif;
+    font-weight: lighter;
+    font-size: 16px;
+    color: white;
+    margin-left: 408px;
+    padding-top: 20px;
+    float: left;
+}
+
+.help h4 {
+    font-family: 'Gentium Basic', sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    color: white;
+    margin-left: 700px;
+    margin-top: -85px;
+}
+
+#signup {
+    font-family: 'Gentium Basic', sans-serif;
+    font-weight: lighter;
+    font-size: 16px;
+    color: white;
+    margin-left: 700px;
+    margin-top: 20px;
+}
+
+#username {
+    width: 253px;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    color: #979797;
+    font-family: 'Gentium Basic', sans-serif;
+    font-size: 16px;
+    margin: 20px 0 0 200px;
+    padding-left: 10px;
+    /* background-color: none; */
+}
+
+#search {
+    width: 253px;
+    height: 30px;
+    /* background-color: white; */
+    border: none;
+    border-radius: 5px;
+    padding-left: 10px;
+    color: #979797;
+    font-family: 'Gentium Basic', sans-serif;
+    font-size: 16px;
+    margin-left: 1088px;
+    margin-top: -125px;
+    float: left;
+}
+
+.fa-search {
+    color: black;
+    font-size: 16px;
+    margin-left: 1315px;
+    margin-top: -117px;
+    float: left;
+}
+
+.fa-search:hover {
+    color: #960021;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.help h5 {
+    font-family: 'Gentium Basic', sans-serif;
+    font-weight: lighter;
+    font-size: 16px;
+    color: white;
+    margin-left: 100px;
+    margin-top: 45px;
+}
+
+
+/* Bootstrap 5 CSS and icons included */
+
+.bs-stepper-circle {
+    background-color: none;
+    border-color: 1px solid #960021;
+}
+
+.step-trigger button {
+    background-color: #960021;
+}
+
+.form-label {
+    font-family: 'Gentium Basic', sans-serif;
+    font-size: 15px;
+}
+
+:root {
+    --colorPrimaryNormal: #960021;
+    --colorPrimaryDark: #00979f;
+    --colorPrimaryGlare: #00cdd7;
+    --colorPrimaryHalf: #80d9dd;
+    --colorPrimaryQuarter: #bfecee;
+    --colorPrimaryEighth: #dff5f7;
+    --colorPrimaryPale: #f3f5f7;
+    --colorPrimarySeparator: #f3f5f7;
+    --colorPrimaryOutline: #dff5f7;
+    --colorButtonNormal: #00b3bb;
+    --colorButtonHover: #00cdd7;
+    --colorLinkNormal: #00979f;
+    --colorLinkHover: #00cdd7;
+}
+
+.upload_dropZone {
+    color: #0f3c4b;
+    background-color: var(--colorPrimaryPale, #c8dadf);
+    outline: 2px dashed var(--colorPrimaryHalf, #960021);
+    outline-offset: -12px;
+    transition: outline-offset 0.2s ease-out, outline-color 0.3s ease-in-out, background-color 0.2s ease-out;
+}
+
+.upload_dropZone.highlight {
+    outline-offset: -4px;
+    outline-color: var(--colorPrimaryNormal, #0576bd);
+    background-color: var(--colorPrimaryEighth, #c8dadf);
+}
+
+.upload_svg {
+    fill: var(--colorPrimaryNormal, #0576bd);
+}
+
+.btn-upload {
+    color: #fff;
+    background-color: var(--colorPrimaryNormal);
+}
+
+.btn-upload:hover,
+.btn-upload:focus {
+    color: #fff;
+    background-color: var(--colorPrimaryGlare);
+}
+
+.upload_img {
+    width: calc(33.333% - (2rem / 3));
+    object-fit: contain;
+}
+
+.content h1 {
+    font-size: 25px;
+    font-family: 'Gentium Basic', sans-serif;
+}
+
+.col-auto button {
+    width: 120px;
+    height: 40px;
+    background-color: none;
+    font-size: 15px;
+    font-family: 'Gentium Basic', sans-serif;
+    color: #960021;
+    border-radius: 50px;
+    border: 1px solid #960021;
+    float: left;
+}
+
+
+/* .save button {
+    width: 150px;
+    height: 45px;
+    background-color: #960021;
+    font-size: 15px;
+    font-family: 'Gentium Basic', sans-serif;
+    color: white;
+    border-radius: 50px;
+    border: none;
+} */
