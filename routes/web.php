@@ -3,6 +3,7 @@
 use App\Http\Controllers\AllEventController;
 use App\Http\Controllers\Auth\AuthUserController;
 use App\Http\Controllers\BookmarksController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\Event\EventController;
 use Illuminate\Support\Facades\Route;
 
@@ -13,6 +14,7 @@ use App\Http\Controllers\ManageProfileController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\SaveJobsController;
 use App\Http\Controllers\UploadController;
+use App\Http\Controllers\WorkController;
 use App\Http\Middleware\CheckTypeUser;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Response;
@@ -51,6 +53,8 @@ Route::middleware([
     Route::get('/manage', [ManageProfileController::class, "index"])->name('mn.profile');
     Route::get('/bookmarks', [BookmarksController::class, "index"])->name('bookmarks');
     Route::get('/savejobs', [SaveJobsController::class, "index"])->name('savejobs');
+    Route::get('/comment', [CommentController::class, "index"])->name('comment');
+    Route::post('/work', [WorkController::class, "store"])->name('work.store');
     Route::get('/apply/{id}', [NotificationController::class, "apply"])->name('apply');
 });
 

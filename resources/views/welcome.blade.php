@@ -8,7 +8,6 @@
             <img src="/images/banner-home.png">
         </div>
     </section>
-    <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
     <section>
         <video id="myvideo" autoplay loop muted controls>
             <source src="video/event.mp4" type="video/mp4">
@@ -216,4 +215,39 @@
             <div class="d5"><img src="images/Rectangle 706.jpg"></div>
         </div>
     </section>
+
+@endsection
+@section("script")
+<script>
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        let dots = document.getElementsByClassName("dot");
+        if (n > slides.length) {
+            slideIndex = 1
+        }
+        if (n < 1) {
+            slideIndex = slides.length
+        }
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+    }
+</script>
 @endsection

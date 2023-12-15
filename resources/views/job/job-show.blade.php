@@ -10,11 +10,11 @@
             right: 0;
         }
 
-        .dropdown {
+        .filterjob {
             margin: -6px 10px;
         }
 
-        .py-1 {
+        .ftjob {
             width: 220px;
             height: 40px;
             background-color: #f4f4f4;
@@ -25,11 +25,11 @@
             border-radius: 10px;
             cursor: pointer;
             /* margin-top: 20px; */
-            font-family: "Gentium Book Basic", sans-serif;
+            font-family: "Gentium Basic", sans-serif;
         }
 
-        .py-1:hover,
-        .py-1:focus {
+        .ftjob:hover,
+        .ftjob:focus {
             background-color: #960021;
             color: white;
         }
@@ -66,9 +66,8 @@
                     value="{{ Request::get('search') }}" />
                 {{-- class="placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-l py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm"
             placeholder="Search for anything..." --}}
-                <span class="dropdown" id="job">
-
-                    <select id="filter" class="py-1 border-slate-300 border-s-0 rounded-r" name="filter"
+                <span class="dropdown filterjob" id="job">
+                    <select id="filter" class="ftjob py-1 border-slate-300 border-s-0 rounded-r" name="filter"
                         data-bs-toggle="dropdown" aria-expanded="false">
                         <option {{ Request::get('filter') == '' ? 'selected' : '' }} value="">All Team</option>
                         <option {{ Request::get('filter') == 'model' ? 'selected' : '' }} value="model">Model
@@ -92,7 +91,7 @@
 
     <section>
         <div class="container">
-            <h3 class="title">Freelance Jobs</h3>
+            {{-- <h3 class="title">Freelance Jobs</h3> --}}
             @if (Auth::user()->type_user == 'designer')
                 <!-- Modal -->
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"

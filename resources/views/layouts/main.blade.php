@@ -42,6 +42,26 @@
     </script>
 
     <style>
+        #myBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 100px;
+}
+
+#myBtn:hover {
+    background-color: #960021;
+    transition: 0.3s;
+}
         .dropdown-menu {
             width: 300px;
             height: auto;
@@ -64,6 +84,7 @@
 <body>
     <div id="wrapper">
         <header>
+            <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
             <div id="head">
                 <div class="menu">
                     <div id="logo">
@@ -118,13 +139,13 @@
                             @endif
                             {{-- <i class="fas fa-user"></i> --}}
                             <div class="dropdown">
-                                <button onclick="myFunction()" class="dropbtn">Account</button>
+                                <button onclick="myFunction()" class="dropbtn"><i class="fa-solid fa-user"></i></button>
                                 <div id="myDropdown" class="dropdown-content">
                                     <a href="{{ route('upload') }}">Profile</a>
                                     <a href="{{ route('mn.profile') }}">Manage profile</a>
                                     <a href="{{ route('bookmarks') }}">Bookmarks</a>
                                     <a href="{{ route('savejobs') }}">Save a Jobs</a>
-                                    <a href="#">Log out</a>
+                                    {{-- <a href="#">Log out</a> --}}
                                 </div>
                             </div>
                         </div>
@@ -193,38 +214,7 @@
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
 </script>
 <script src="https://cdn.jsdelivr.net/npm/bs-stepper/dist/js/bs-stepper.min.js"></script>
-<script>
-    let slideIndex = 1;
-    showSlides(slideIndex);
 
-    function plusSlides(n) {
-        showSlides(slideIndex += n);
-    }
-
-    function currentSlide(n) {
-        showSlides(slideIndex = n);
-    }
-
-    function showSlides(n) {
-        let i;
-        let slides = document.getElementsByClassName("mySlides");
-        let dots = document.getElementsByClassName("dot");
-        if (n > slides.length) {
-            slideIndex = 1
-        }
-        if (n < 1) {
-            slideIndex = slides.length
-        }
-        for (i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";
-        }
-        for (i = 0; i < dots.length; i++) {
-            dots[i].className = dots[i].className.replace(" active", "");
-        }
-        slides[slideIndex - 1].style.display = "block";
-        dots[slideIndex - 1].className += " active";
-    }
-</script>
 @yield('script')
 
 </html>

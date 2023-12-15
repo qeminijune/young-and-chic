@@ -229,6 +229,14 @@ a:active {
     display: block;
 }
 
+.fa-bell {
+    margin: -15px 0 0 20px;
+}
+
+.fa-user {
+    margin: -15px 0 0 20px;
+}
+
 
 /* end header */
 
@@ -298,7 +306,7 @@ a:active {
 } */
 
 #search-job {
-    width: 100%;
+    width: 1240px;
     height: 60px;
     background-color: #F4F4F4;
     border: none;
@@ -308,6 +316,16 @@ a:active {
     font-family: 'Gentium Basic', sans-serif;
     font-size: 20px;
 }
+
+
+/* .filterjob {
+    font-family: 'Gentium Basic', sans-serif;
+    font-size: 20px;
+    border: none;
+    background-color: none;
+    margin-left: 1070px;
+    border: none;
+} */
 
 .container {
     max-width: 1200px;
@@ -333,7 +351,6 @@ a:active {
     font-family: 'Gentium Basic', sans-serif;
     font-weight: normal;
     font-size: 20px;
-    margin-top: -50px;
     margin-left: 990px;
     border: none;
     float: left;
