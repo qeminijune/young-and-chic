@@ -14,4 +14,7 @@ class Work extends Model
     public function user() {
         return $this -> belongsTo(User::class, "user_id", "id");
     }
+    public function comments() {
+        return $this -> hasMany(Comments::class, "work_id", "id")->orderBy("created_at", "desc");
+    }
 }

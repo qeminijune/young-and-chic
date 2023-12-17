@@ -53,7 +53,9 @@ Route::middleware([
     Route::get('/manage', [ManageProfileController::class, "index"])->name('mn.profile');
     Route::get('/bookmarks', [BookmarksController::class, "index"])->name('bookmarks');
     Route::get('/savejobs', [SaveJobsController::class, "index"])->name('savejobs');
-    Route::get('/comment', [CommentController::class, "index"])->name('comment');
+    Route::get('/comment/{id}', [CommentController::class, "index"])->name('comment');
+    Route::post('/comment/{id}', [CommentController::class, "create_comment"])->name('comment.create');
+    Route::post('/rating/{id}', [CommentController::class, "create_rating"])->name('rating.create');
     Route::post('/work', [WorkController::class, "store"])->name('work.store');
     Route::get('/apply/{id}', [NotificationController::class, "apply"])->name('apply');
 });

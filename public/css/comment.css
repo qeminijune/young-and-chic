@@ -245,6 +245,29 @@ a:active {
     cursor: pointer;
 }
 
+.work {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    row-gap: 20px;
+    column-gap: 8px;
+    padding: 20px;
+}
+
+.work .post:first-child {
+    height: 350px;
+    grid-column: span 3;
+    border-radius: 20px;
+    background-color: #960021;
+}
+
+.work .post {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 20px;
+    background-color: #979797;
+}
+
 .detail {
     max-width: 1230px;
     height: auto;
@@ -313,7 +336,7 @@ a:active {
     font-weight: lighter;
     font-size: 34px;
     color: black;
-    margin: -32px 0 0 150px;
+    margin: -40px 0 0 150px;
 }
 
 .star1 {
@@ -327,20 +350,13 @@ a:active {
     font-weight: lighter;
     font-size: 34px;
     color: black;
-    margin: -30px 0 0 190px;
+    margin: -35px 0 0 190px;
 }
 
-.comment button {
-    background: none;
-    border: none;
-    font-size: 25px;
+.comment {
+    font-size: 22px;
     color: black;
-    margin: -32px 0 0 300px;
-    float: left;
-}
-
-.comment button:hover {
-    cursor: pointer;
+    margin: -7px 0 0 250px;
 }
 
 .detail h5 {
@@ -348,13 +364,65 @@ a:active {
     font-weight: lighter;
     font-size: 28px;
     color: black;
-    margin: -30px 0 0 340px;
+    margin: -32px 0 0 300px;
 }
 
 .bookmark {
     font-size: 22px;
     color: black;
-    margin: -27px 0 0 480px;
+    margin: -35px 0 0 420px;
+}
+
+.rate {
+    margin: -13px 0 0 13px;
+}
+
+.rate>input:checked~label {
+    color: #960021;
+}
+
+.box-cm {
+    box-sizing: border-box;
+    padding: 50px;
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+#cm {
+    width: 100%;
+    height: auto;
+    border-color: #bbb;
+    border-radius: 10px;
+    font-family: 'priyati', sans-serif;
+    font-size: 28px;
+    padding: 20px;
+}
+
+.btn-post button {
+    width: 130px;
+    height: 40px;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-family: 'Gentium Basic', sans-serif;
+    font-size: 20px;
+    background-color: #960021;
+}
+
+.btn-post button:hover {
+    background-color: #000;
+    transition: 1s;
+}
+
+.pf-cm img {
+    width: 60px;
+    height: auto;
+    /* margin: 40px 0 0 40px; */
+}
+
+.btn-post {
+    align-self: flex-end;
 }
 
 .line1 hr {
@@ -374,7 +442,7 @@ a:active {
     font-weight: bold;
     font-size: 16px;
     color: black;
-    margin: -100px 0 0 90px;
+    margin: -107px 0 0 90px;
 }
 
 .cmt1 h1 {
@@ -400,7 +468,7 @@ a:active {
 
 .cmt1 hr {
     max-width: 1140px;
-    margin: 40px 0 0 40px;
+    margin: 20px 0 0 40px;
     border: 0.5px solid #bbb;
 }
 

@@ -87,10 +87,10 @@
             <hr>
         </div>
         @forelse ($works as $work)
-            <a href="{{ route('comment') }}">
+            <a href="{{ route('comment', $work->id) }}">
                 <div class="works">
                     <div class="pf">
-                        <img src="images/profile.png">
+                        <img src="/images/profile.png">
                     </div>
                     <h1>{{ $work->user->name }}</h1>
                     <i class="fa-solid fa-ellipsis"></i>
