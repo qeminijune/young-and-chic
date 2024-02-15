@@ -10,7 +10,7 @@
         </div>
         <h1>EVENT</h1>
         <img src="/images/event-home.jpg">
-        <h2>YOUNG & CHIC</h2>
+        <h2>ONLINE EVENT</h2>
         <h3>A DAY OF FASHION</h3>
     </div>
 </section>
@@ -32,7 +32,7 @@
             <img src="images/event-postit.png">
         </div> -->
 
-        <h6>Click HashTag<br>เพื่อดู Post เพิ่มเติม</h6>
+        <h6>คลิก # เพื่อดูผลงานที่ดีไซน์เนอร์คนอื่นร่วมสนุกใน event ทั้งหมด!!</h6>
     </div>
 </section>
 @endsection

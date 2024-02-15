@@ -37,7 +37,7 @@ body {
 } */
 
 #wrapper {
-    width: 1440px;
+    max-width: 1440px;
     height: auto;
     margin: 0 auto;
 }
@@ -80,7 +80,7 @@ header {
 
 #menu-list {
     float: left;
-    margin-left: 380px;
+    margin-left: 350px;
 }
 
 #menu-list li {
@@ -103,6 +103,32 @@ header {
     color: #960021;
 }
 
+.login {
+    font-size: 15px;
+    font-family: 'Gentium Basic', sans-serif;
+    color: black;
+    text-decoration: none;
+    margin-left: 40px;
+}
+
+.login:hover {
+    color: #960021;
+    text-decoration: none;
+}
+
+.register {
+    font-size: 15px;
+    font-family: 'Gentium Basic', sans-serif;
+    color: black;
+    text-decoration: none;
+    margin-left: 40px;
+}
+
+.register:hover {
+    color: #960021;
+    text-decoration: none;
+}
+
 
 /* a:hover,
 a:active {
@@ -113,7 +139,7 @@ a:active {
 .fa-bell {
     font-size: 20px;
     color: black;
-    margin: 25px 0 0 80px;
+    margin: 10px 0 0 80px;
 }
 
 .fa-bell:hover {
@@ -193,7 +219,7 @@ a:active {
 .event button {
     border-radius: 50px;
     border: none;
-    font-family: 'Gentium Basic', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 16px;
     color: #000;
     margin: 50px 0 0 15px;
@@ -222,31 +248,31 @@ a:active {
 }
 
 .create_post {
-    /* width: px; */
+    display: flex;
+    align-items: center;
     height: auto;
     padding: 20px;
 }
 
 .create_post label {
-    font-family: 'Gentium Basic', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 16px;
     color: #000;
 }
 
 .create_post textarea {
-    width: 460px;
-    height: 150px;
-    font-family: 'priyati', sans-serif;
+    width: 458px;
+    height: 80px;
+    font-family: 'Poppins', sans-serif;
     font-size: 22px;
     padding: 10px;
 }
 
 .create_post input {
-    width: 100px;
     height: 30px;
-    font-family: 'Gentium Basic', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 16px;
-    margin: 10px 0 0 10px;
+    /* margin: 10px 0 0 10px; */
 }
 
 .create_post hr {
@@ -254,22 +280,28 @@ a:active {
 }
 
 .create_post button {
-    width: 100px;
     height: 30px;
-    font-family: 'Gentium Basic', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 16px;
     background-color: #960021;
     border: none;
     border-radius: 50px;
     color: white;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.chooseimg h5 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    color: #960021;
 }
 
 .work {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    row-gap: 20px;
-    column-gap: 8px;
-    padding: 20px;
+    row-gap: 10px;
+    column-gap: 10px;
 }
 
 .work .post:first-child {
@@ -281,49 +313,49 @@ a:active {
 
 .work .post {
     width: 100%;
-    height: 260px;
+    height: 100%;
     object-fit: cover;
     border-radius: 20px;
     background-color: #979797;
 }
 
 .topic-pfupload img {
-    margin-top: 50px;
     width: 100%;
+    margin-top: 30px;
+}
+
+.profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .profile img {
-    width: 223px;
+    width: 70%;
     height: auto;
-    margin: -100px 0 0 150px;
 }
 
 .profile p {
-    font-family: 'Gentium Basic', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 24px;
-    margin: 30px 0 0 215px;
-}
-
-.star {
-    margin: 20px 0 0 125px;
+    text-align: center;
 }
 
 .star i {
     font-size: 35px;
     color: #960021;
-    margin-left: 10px;
 }
 
 .uploadbtn {
     width: 200px;
     height: 60px;
-    font-family: 'Gentium Basic', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 20px;
     color: #960021;
     border: solid 1px #960021;
     background: none;
     border-radius: 50px;
-    margin: 30px 0 0 165px;
+    margin: 20px;
 }
 
 .uploadbtn:hover {
@@ -332,131 +364,240 @@ a:active {
     color: white;
 }
 
-.profile h1 {
-    font-family: 'Gentium Basic', sans-serif;
+.box-discrip {
+    font-family: 'Poppins', sans-serif;
     font-size: 20px;
     color: black;
-    margin: 20px 0 0 120px;
+}
+
+.profile h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    color: black;
 }
 
 .profile h2 {
-    font-family: 'Gentium Basic', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 20px;
     color: black;
-    margin: -23px 0 0 210px;
 }
 
 .profile h3 {
-    font-family: 'Gentium Basic', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 20px;
     color: black;
-    margin: -23px 0 0 270px;
 }
 
 .profile h4 {
-    font-family: 'Gentium Basic', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 20px;
     color: black;
-    margin: -23px 0 0 380px;
+}
+
+.abtme {
+    flex: 0 1 300px;
+    min-width: 0;
+}
+
+.content-right {
+    flex: 1;
+    min-width: 0;
 }
 
 .abtme p {
-    font-family: 'Gentium Basic', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: bold;
     font-size: 20px;
     color: black;
-    margin: 40px 0 0 100px;
+    margin-top: 20px;
 }
 
 hr {
-    width: 350px;
-    margin: 20px 0 0 100px;
     border: 0.5px solid #bbb;
 }
 
 .fa-cake-candles {
     font-size: 20px;
     color: black;
-    margin: 20px 0 0 100px;
 }
 
 .abtme h1 {
-    font-family: 'Gentium Basic', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: lighter;
     font-size: 20px;
     color: black;
-    margin: -23px 0 0 150px;
 }
 
 .fa-location-dot {
     font-size: 20px;
     color: black;
-    margin: 20px 0 0 100px;
 }
 
 .abtme h2 {
-    font-family: 'Gentium Basic', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: lighter;
     font-size: 20px;
     color: black;
-    margin: -23px 0 0 150px;
 }
 
 .fa-envelope {
     font-size: 20px;
     color: black;
-    margin: 20px 0 0 100px;
 }
 
 .abtme h3 {
-    font-family: 'Gentium Basic', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: lighter;
     font-size: 20px;
     color: black;
-    margin: -23px 0 0 150px;
 }
 
 .fa-phone {
     font-size: 20px;
     color: black;
-    margin: 20px 0 0 100px;
 }
 
 .abtme h4 {
-    font-family: 'Gentium Basic', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: lighter;
     font-size: 20px;
     color: black;
-    margin: -23px 0 0 150px;
 }
 
 .fa-facebook {
     font-size: 20px;
     color: black;
-    margin: 20px 0 0 100px;
     float: left;
 }
 
 .fa-instagram {
     font-size: 20px;
     color: black;
-    margin: 20px 0 0 50px;
     float: left;
 }
 
 .fa-x-twitter {
     font-size: 20px;
     color: black;
-    margin: 20px 0 0 50px;
+}
+
+.box-comment {
+    display: flex;
+    gap: 20px;
+}
+
+.wrap-content {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+#content {
+    display: flex;
+    gap: 40px;
+}
+
+#btnteam {
+    height: 80px;
+    cursor: pointer;
+    display: flex;
+    gap: 20px;
+    padding: 16px 0;
+}
+
+.box-fl {
+    display: flex;
+    gap: 10px;
+}
+
+.born {
+    display: flex;
+    gap: 20px;
+}
+
+.address {
+    display: flex;
+    gap: 20px;
+}
+
+.mail {
+    display: flex;
+    gap: 20px;
+}
+
+.phone {
+    display: flex;
+    gap: 20px;
+}
+
+.fa-circle-info {
+    margin-left: 100px;
+}
+
+.social {
+    display: flex;
+    gap: 20px;
+}
+
+.box-pf {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.work-name {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.btnjointeam {
+    height: 80px;
+    border: solid 1px black;
+    border-radius: 50px;
+    background-color: white;
+    padding: 25px;
+}
+
+.btnjointeam a {
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    color: #000;
+}
+
+.btnjointeam i {
+    font-size: 20px;
+    color: #000;
+    padding-right: 20px;
+}
+
+.btnlastpj {
+    height: 80px;
+    border: solid 1px black;
+    border-radius: 50px;
+    background-color: white;
+    padding: 25px;
+}
+
+.btnlastpj a {
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    color: #000;
+}
+
+.btnlastpj i {
+    font-size: 20px;
+    color: #000;
+    padding-right: 20px;
 }
 
 #box {
-    width: 800px;
+    flex: 1;
+    padding: 16px 46px;
     height: auto;
     box-shadow: 2px 2px 14px 0px rgba(0, 0, 0, 0.2);
     background-color: white;
     border-radius: 10px;
-    margin: -700px 0 0 530px;
+    margin-top: 40px;
 }
 
 a {
@@ -472,110 +613,110 @@ a:hover {
 }
 
 #box p {
-    font-family: 'Gentium Basic', sans-serif;
-    font-weight: lighter;
+    font-family: 'Poppins', sans-serif;
     font-size: 20px;
     color: #960021;
-    padding: 20px 0 0 40px;
+    /* padding: 20px 0 0 40px; */
 }
 
 .line hr {
-    width: 726px;
-    margin: 20px 0 0 40px;
     border: 0.5px solid #bbb;
 }
 
 .pf img {
     width: 60px;
     height: auto;
-    margin: 20px 0 0 40px;
 }
 
 .works h1 {
-    font-family: 'Gentium Basic', sans-serif;
-    font-weight: lighter;
+    font-family: 'Poppins', sans-serif;
     font-size: 20px;
     color: black;
-    margin: -45px 0 0 120px;
 }
 
 .fa-ellipsis {
     font-size: 25px;
-    margin-left: 730px;
 }
 
 .works h2 {
-    font-family: 'priyati', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: lighter;
-    font-size: 28px;
+    font-size: 16px;
     color: black;
-    margin: 20px 0 0 40px;
+    padding: 10px 0;
 }
 
 .work1 img {
-    width: auto;
+    width: 100%;
     height: 630px;
-    margin: 20px 0 0 40px;
 }
 
 .works h3 {
-    font-family: 'priyati', sans-serif;
-    font-weight: lighter;
-    font-size: 28px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
     color: black;
-    margin: 20px 0 0 40px;
+    padding: 10px 0;
 }
 
 .works h4 {
-    font-family: 'priyati', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: lighter;
-    font-size: 28px;
+    font-size: 16px;
     color: black;
-    margin: -33px 0 0 130px;
+}
+
+.star {
+    display: flex;
+    gap: 10px;
+    /* padding-left: 23px; */
 }
 
 .star1 {
     font-size: 22px;
     color: #960021;
-    margin: 10px 0 0 40px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
 }
 
 .star1 h1 {
-    font-family: 'priyati', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: lighter;
-    font-size: 28px;
+    font-size: 16px;
     color: black;
-    margin: -30px 0 0 40px;
+    margin: 0;
 }
 
 .comment {
     font-size: 22px;
     color: black;
-    margin: -37px 0 0 150px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.comment h5 {
+    margin: 0;
 }
 
 .works h5 {
-    font-family: 'priyati', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: lighter;
-    font-size: 28px;
+    font-size: 16px;
     color: black;
-    margin: -30px 0 0 190px;
 }
 
 .bookmark {
     font-size: 22px;
     color: black;
-    margin: -37px 0 0 330px;
 }
 
 .line1 hr {
-    width: 726px;
-    margin: 20px 0 0 40px;
     border: 0.5px solid #bbb;
 }
 
 .work2 img {
-    width: auto;
+    width: 100%;
     height: 575px;
     margin: 20px 0 0 40px;
 }
@@ -591,7 +732,7 @@ a:hover {
 }
 
 .help p {
-    font-family: 'Gentium Basic', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: bold;
     font-size: 20px;
     color: white;
@@ -600,7 +741,7 @@ a:hover {
 }
 
 .help h1 {
-    font-family: 'Gentium Basic', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: lighter;
     font-size: 16px;
     color: white;
@@ -617,7 +758,7 @@ a:hover {
 }
 
 .help h2 {
-    font-family: 'Gentium Basic', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: lighter;
     font-size: 16px;
     color: white;
@@ -626,7 +767,7 @@ a:hover {
 }
 
 .help h3 {
-    font-family: 'Gentium Basic', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: lighter;
     font-size: 16px;
     color: white;
@@ -636,7 +777,7 @@ a:hover {
 }
 
 .help h4 {
-    font-family: 'Gentium Basic', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: bold;
     font-size: 20px;
     color: white;
@@ -645,7 +786,7 @@ a:hover {
 }
 
 #signup {
-    font-family: 'Gentium Basic', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: lighter;
     font-size: 16px;
     color: white;
@@ -659,7 +800,7 @@ a:hover {
     border: none;
     border-radius: 5px;
     color: #979797;
-    font-family: 'Gentium Basic', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 16px;
     margin: 20px 0 0 200px;
     padding-left: 10px;
@@ -674,7 +815,7 @@ a:hover {
     border-radius: 5px;
     padding-left: 10px;
     color: #979797;
-    font-family: 'Gentium Basic', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 16px;
     margin-left: 1088px;
     margin-top: -125px;
@@ -696,7 +837,7 @@ a:hover {
 }
 
 .help h5 {
-    font-family: 'Gentium Basic', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: lighter;
     font-size: 16px;
     color: white;

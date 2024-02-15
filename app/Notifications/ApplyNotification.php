@@ -12,15 +12,16 @@ class ApplyNotification extends Notification
     use Queueable;
     private $job;
     private $user;
-
+    private $type;
 
     /**
      * Create a new notification instance.
      */
-    public function __construct($job, $user)
+    public function __construct($job, $user, $type)
     {
         $this->job=$job;
         $this->user=$user;
+        $this->type=$type;
     }
 
     /**
@@ -54,6 +55,7 @@ class ApplyNotification extends Notification
         return [
             "job"=>$this->job,
             "user"=>$this->user,
+            "type"=>$this->type,
         ];
     }
 }

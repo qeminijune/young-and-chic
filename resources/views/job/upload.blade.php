@@ -8,123 +8,169 @@
             <div class="event">
                 <a href="/"><i class="fas fa-arrow-left"></i><button>GO BACK</button></a>
             </div>
-            <img src="images/banner-upload.jpg">
+            <img src="/images/banner-upload.jpg">
         </div>
     </section>
 
-    <section>
-        <div class="profile">
-            <img src="images/profile-stroke.png">
-            <p>{{ Auth::user()->name }}</p>
-            <div class="star">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-            </div>
-            {{-- <button type="button" class="uploadbtn" data-toggle="modal" data-target="#uploadModal">Upload Works</button> --}}
-            <!-- Button trigger modal -->
-            <button type="button" class="uploadbtn" data-bs-toggle="modal" data-bs-target="#uploadModal">
-                Upload Work
-            </button>
-
-            <!-- Modal -->
-            <div class="modal fade" id="uploadModal" tabindex="-1" aria-labelledby="uploadModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-body create_post">
-                            <form method="POST" action="{{ route('work.store') }}" enctype="multipart/form-data">
-                                @csrf
-                                <div>
-                                    <label>Discription</label>
-                                    <textarea name="detail" rows="4"></textarea>
-                                </div>
-                                <div>
-                                    <label>Choose Images</label>
-                                    <input type="file" name="images[]" multiple>
-                                </div>
-                                <hr>
-                                <button type="submit">Submit</button>
-                            </form>
+    <div class="wrap-content">
+        <section id="content">
+            <div class="abtme">
+                <section>
+                    <div class="profile">
+                        <img src="/images/profile-stroke.png">
+                        <p>{{ $user->name }}</p>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
                         </div>
+                        {{-- <button type="button" class="uploadbtn" data-toggle="modal" data-target="#uploadModal">Upload Works</button> --}}
+                        <!-- Button trigger modal -->
+                        <button type="button" class="uploadbtn" data-bs-toggle="modal" data-bs-target="#uploadModal">
+                            Upload Work
+                        </button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="uploadModal" tabindex="-1" aria-labelledby="uploadModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-body create_post">
+                                        <form method="POST" action="{{ route('work.store') }}"
+                                            enctype="multipart/form-data">
+                                            @csrf
+                                            <div class="box-discrip">
+                                                <label>Discription</label>
+                                                <textarea name="detail" rows="4"></textarea>
+                                            </div>
+                                            <div class="chooseimg">
+                                                <h5>*File size does not exceed 2 MB.</h5>
+                                                <label>Choose Images</label>
+                                                <input type="file" name="images[]" multiple>
+                                            </div>
+                                            <hr>
+                                            <button type="submit">Submit</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {{-- <div class="box-fl">
+                            <h1>Following</h1>
+                            <h2>30</h2>
+                            <h3>Followers</h3>
+                            <h4>4k</h4>
+                        </div> --}}
                     </div>
+                </section>
+                <p>About Me</p>
+                <hr>
+                <div class="mail">
+                    <i class="fa-solid fa-envelope"></i>
+                    <h3>{{ $user->email }}</h3>
                 </div>
+                <hr>
+                <div class="phone">
+                    <i class="fa-solid fa-phone"></i>
+                    <h4>091-XXX-XXXX <i class="fa-solid fa-circle-info"></i></h4>
+                </div>
+                <hr>
+                <div class="address">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <h2>2239 Hog Camp Road Schaumburg</h2>
+                </div>
+                <hr>
+                <div class="born">
+                    <i class="fa-solid fa-cake-candles"></i>
+                    <h1>Born June 26, 2000</h1>
+                </div>
+                <hr>
+                <div class="social">
+                    <i class="fa-brands fa-facebook"></i>
+                    <i class="fa-brands fa-instagram"></i>
+                    <i class="fa-brands fa-x-twitter"></i>
+                </div>
+                <hr>
             </div>
-            <h1>Following</h1>
-            <h2>30</h2>
-            <h3>Followers</h3>
-            <h4>4k</h4>
-        </div>
-    </section>
+            <div class="content-right">
+                <section id="btnteam">
+                    @if (!empty($job))
+                        @if ($job->user_id == Auth::user()->id)
+                            <div class="btnjointeam">
+                                <a href="{{ route('jointeam', $job->id) }}"><i class="fa-solid fa-user-group"></i>Fine My
+                                    Team</a>
+                            </div>
+                        @else
+                            <div class="btnjointeam">
+                                <a href="{{ route('jointeam', $job->id) }}"><i class="fa-solid fa-user-group"></i>Join with
+                                    Me</a>
+                            </div>
+                        @endif
+                    @endif
 
-    <section>
-        <div class="abtme">
-            <p>About Me</p>
-            <hr>
-            <i class="fa-solid fa-cake-candles"></i>
-            <h1>Born June 26, 2000</h1>
-            <hr>
-            <i class="fa-solid fa-location-dot"></i>
-            <h2>2239 Hog Camp Road Schaumburg</h2>
-            <hr>
-            <i class="fa-solid fa-envelope"></i>
-            <h3>{{ Auth::user()->email }}</h3>
-            <hr>
-            <i class="fa-solid fa-phone"></i>
-            <h4>091-XXX-XXXX</h4>
-            <hr>
-            <i class="fa-brands fa-facebook"></i>
-            <i class="fa-brands fa-instagram"></i>
-            <i class="fa-brands fa-x-twitter"></i>
-            <hr>
-        </div>
-    </section>
+                    <div class="btnlastpj">
+                        <a href="/lastproject"><i class="fas fa-business-time"></i>Project Collab</a>
+                    </div>
+                </section>
 
-    <section id="box">
-        <p>My Works</p>
-        <div class="line">
-            <hr>
-        </div>
-        @forelse ($works as $work)
-            <a href="{{ route('comment', $work->id) }}">
-                <div class="works">
-                    <div class="pf">
-                        <img src="/images/profile.png">
-                    </div>
-                    <h1>{{ $work->user->name }}</h1>
-                    <i class="fa-solid fa-ellipsis"></i>
-                    <h2>{{ $work->detail }}</h2>
-                    <div class="work">
-                        @forelse ($work->images as $index=>$image)
-                            @if ($index < 3)
-                                <img src="{{ "$image->url" }}" class="post" />
-                            @endif
-                            @if ($index == 3)
-                                <div class="post"></div>
-                            @endif
-                        @empty
-                        @endforelse
-                    </div>
-                    <h3>{{ $work->user->name }}</h3>
-                    <h4>{{ \Carbon\Carbon::parse($work->created_at)->format('d/m/Y') }}</h4>
-                    <div class="star1">
-                        <i class="fas fa-star"></i>
-                        <h1>200</h1>
-                    </div>
-                    <div class="comment">
-                        <i class="fa-regular fa-comment"></i>
-                    </div>
-                    <h5>90 Comments</h5>
-                    <div class="bookmark">
-                        <i class="fa-regular fa-bookmark"></i>
-                    </div>
-                    <div class="line1">
+                <section id="box">
+                    <p>My Portfolio</p>
+                    <div class="line">
                         <hr>
                     </div>
-                </div>
-            </a>
-        @empty
-        @endforelse
-    </section>
+                    @forelse ($works as $work)
+                        <a href="{{ route('comment', $work->id) }}">
+                            <div class="works">
+                                <div class="work-name">
+                                    <div class="box-pf">
+                                        <div class="pf">
+                                            <img src="/images/profile.png">
+                                        </div>
+                                        <h1>{{ $work->user->name }}</h1>
+                                    </div>
+                                    <i class="fa-solid fa-ellipsis"></i>
+                                </div>
+
+                                <h2>{{ $work->detail }}</h2>
+                                <div class="work">
+                                    @forelse ($work->images as $index=>$image)
+                                        @if ($index < 3)
+                                            <img src="/{{ "$image->url" }}" class="post" />
+                                        @endif
+                                        @if ($index == 3)
+                                            <div class="post"></div>
+                                        @endif
+                                    @empty
+                                    @endforelse
+                                </div>
+
+                                <h3>{{ $work->user->name }}
+                                    {{ \Carbon\Carbon::parse($work->created_at)->format('d/m/Y') }}</h3>
+                                <div class="box-comment">
+                                    <div class="star1">
+                                        <i class="fas fa-star"></i>
+                                        <h1>200</h1>
+                                    </div>
+                                    <div class="comment">
+                                        <i class="fa-regular fa-comment"></i>
+                                        <h5>{{ count($work->comments) }}</h5>
+                                    </div>
+                                </div>
+
+                                {{-- <div class="bookmark">
+                                    <i class="fa-regular fa-bookmark"></i>
+                                </div> --}}
+                                <div class="line1">
+                                    <hr>
+                                </div>
+                            </div>
+                        </a>
+                    @empty
+                    @endforelse
+                </section>
+            </div>
+        </section>
+    </div>
 @endsection

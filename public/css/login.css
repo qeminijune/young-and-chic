@@ -37,6 +37,12 @@ header {
     margin-top: 30px;
 }
 
+.login-google a {
+    font-size: 15px;
+    font-family: 'Gentium Basic', sans-serif;
+    color: #960021;
+}
+
 #logo img {
     width: 211px;
     height: auto;

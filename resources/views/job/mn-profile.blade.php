@@ -18,6 +18,16 @@
                 <div class="pf13">
                     <img src="/images/pf13.png">
                 </div>
+
+                {{-- <form action="upload.php" method="post" enctype="multipart/form-data">
+                    <label for="fileToUpload">
+                  <div class="profile-pic" style="background-image: url('https://randomuser.me/api/portraits/med/men/65.jpg')">
+                      <span class="fas fa-camera"></span>
+                      <span>Change Image</span>
+                  </div>
+                  </label>
+                  <input type="File" name="fileToUpload" id="fileToUpload">
+                </form> --}}
                 <form action="/upload.html">
                     <label for="fname" id="tname">Name</label><br>
                     <input type="text" id="name" name="fname" placeholder="Enter your name..."><br>

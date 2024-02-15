@@ -40,7 +40,7 @@
         </div>
         <i class="fa-regular fa-comment"></i>
         <h5>90 Comments</h5>
-        <i class="fa-regular fa-bookmark"></i>
+        {{-- <i class="fa-regular fa-bookmark"></i> --}}
     </div>
 </section>
 <hr>
@@ -72,7 +72,7 @@
         </div>
         <i class="fa-regular fa-comment"></i>
         <h5>90 Comments</h5>
-        <i class="fa-regular fa-bookmark"></i>
+        {{-- <i class="fa-regular fa-bookmark"></i> --}}
     </div>
 </section>
 <hr>
@@ -104,7 +104,7 @@
         </div>
         <i class="fa-regular fa-comment"></i>
         <h5>90 Comments</h5>
-        <i class="fa-regular fa-bookmark"></i>
+        {{-- <i class="fa-regular fa-bookmark"></i> --}}
     </div>
 </section>
 <hr>
@@ -145,7 +145,7 @@
         </div>
         <i class="fa-regular fa-comment"></i>
         <h5>90 Comments</h5>
-        <i class="fa-regular fa-bookmark"></i>
+        {{-- <i class="fa-regular fa-bookmark"></i> --}}
     </div>
 </section>
 <hr>

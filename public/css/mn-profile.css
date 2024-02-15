@@ -80,7 +80,7 @@ header {
 
 #menu-list {
     float: left;
-    margin-left: 380px;
+    margin-left: 350px;
 }
 
 #menu-list li {
@@ -103,6 +103,32 @@ header {
     color: #960021;
 }
 
+.login {
+    font-size: 15px;
+    font-family: 'Gentium Basic', sans-serif;
+    color: black;
+    text-decoration: none;
+    margin-left: 40px;
+}
+
+.login:hover {
+    color: #960021;
+    text-decoration: none;
+}
+
+.register {
+    font-size: 15px;
+    font-family: 'Gentium Basic', sans-serif;
+    color: black;
+    text-decoration: none;
+    margin-left: 40px;
+}
+
+.register:hover {
+    color: #960021;
+    text-decoration: none;
+}
+
 
 /* a:hover,
 a:active {
@@ -113,7 +139,7 @@ a:active {
 .fa-bell {
     font-size: 20px;
     color: black;
-    margin: 25px 0 0 80px;
+    margin: 10px 0 0 80px;
 }
 
 .fa-bell:hover {
@@ -508,3 +534,38 @@ a:active {
     margin-left: 100px;
     margin-top: 65px;
 }
+
+
+/* .profile-pic {
+    border-radius: 50%;
+    height: 160px;
+    width: 160px;
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: multiply;
+    vertical-align: middle;
+    text-align: center;
+    color: transparent;
+    transition: all .3s ease;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.profile-pic:hover {
+    background-color: rgba(0, 0, 0, .5);
+    z-index: 10000;
+    color: #fff;
+    transition: all .3s ease;
+    text-decoration: none;
+}
+
+.profile-pic span {
+    display: inline-block;
+    padding-top: 4.5em;
+    padding-bottom: 4.5em;
+}
+
+form input[type="file"] {
+    display: none;
+    cursor: pointer;
+} */

@@ -4,15 +4,20 @@ use App\Http\Controllers\AllEventController;
 use App\Http\Controllers\Auth\AuthUserController;
 use App\Http\Controllers\BookmarksController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\DiscoverController;
+use App\Http\Controllers\DiscoverMakeupController;
 use App\Http\Controllers\Event\EventController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\HashTagController;
 use App\Http\Controllers\Job\JobController;
+use App\Http\Controllers\JoinTeamController;
+use App\Http\Controllers\LastProjectController;
 use App\Http\Controllers\ManageProfileController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\SaveJobsController;
+use App\Http\Controllers\TeammateController;
 use App\Http\Controllers\UploadController;
 use App\Http\Controllers\WorkController;
 use App\Http\Middleware\CheckTypeUser;
@@ -46,10 +51,16 @@ Route::middleware([
     })->name('dashboard');
     Route::get('/jobshow', [JobController::class, "index"])->name('jobshow');
     Route::post('/jobshow', [JobController::class, "store"])->name('jobshow.store');
+    Route::get('/discover', [DiscoverController::class, "index"])->name('discover');
+    Route::get('/discovermakeup', [DiscoverMakeupController::class, "index"])->name('discovermakeup');
     Route::get('/event', [EventController::class, "index"])->name('event');
     Route::get('/allevent', [AllEventController::class, "index"])->name('all.event');
     Route::get('/hashtag', [HashTagController::class, "index"])->name('hashtag');
-    Route::get('/upload', [UploadController::class, "index"])->name('upload');
+    Route::get('/upload/{id}', [UploadController::class, "index"])->name('upload');
+    Route::get('/jointeam/{id}', [JoinTeamController::class, "index"])->name('jointeam');
+    Route::post('/jointeam/{id}/close', [JoinTeamController::class, "close"])->name('jointeam.close');
+    Route::get('/lastproject', [LastProjectController::class, "index"])->name('lastproject');
+    Route::get('/teammate', [TeammateController::class, "index"])->name('teammate');
     Route::get('/manage', [ManageProfileController::class, "index"])->name('mn.profile');
     Route::get('/bookmarks', [BookmarksController::class, "index"])->name('bookmarks');
     Route::get('/savejobs', [SaveJobsController::class, "index"])->name('savejobs');
@@ -58,6 +69,7 @@ Route::middleware([
     Route::post('/rating/{id}', [CommentController::class, "create_rating"])->name('rating.create');
     Route::post('/work', [WorkController::class, "store"])->name('work.store');
     Route::get('/apply/{id}', [NotificationController::class, "apply"])->name('apply');
+    Route::post('/apply/{id}', [NotificationController::class, "approve"])->name('approve');
 });
 
 Route::middleware([

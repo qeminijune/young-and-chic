@@ -62,7 +62,7 @@
                 </button>
             </div>
             <div>
-                <a style="background-color: skyblue;" href="{{url('auth/google')}}">
+                <a class="rounded-md" style="color: #960021;" href="{{url('auth/google')}}">
                     Login With Google</a>
             </div>
         </form>

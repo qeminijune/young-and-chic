@@ -20,6 +20,7 @@ return new class extends Migration
             $table->text("description");
             $table->text("full_description");
             $table->integer("user_id");
+            $table->string("status")->default("start");
             $table->timestamps();
         });
     }

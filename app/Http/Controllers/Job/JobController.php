@@ -11,7 +11,7 @@ class JobController extends Controller
 {
     public function index(Request $request)
     {
-        $jobs = Job::whereDoesntHave('apply');
+        $jobs = Job::whereDoesntHave('apply')->where("status", "start");
         if ($request->input("filter")) {
             $jobs = $jobs->where("participants", $request->input("filter"));
         }
@@ -56,6 +56,6 @@ class JobController extends Controller
         $job->user_id = Auth::user()->id;
         $job->save();
 
-        return back()->with('success', 'Post job successful.');
+        return redirect()->route("jointeam", $job->id)->with('success', 'Post job successful.');
     }
 }
