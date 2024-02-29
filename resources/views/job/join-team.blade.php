@@ -19,7 +19,7 @@
                 <div class="box-pf">
                     <div class="pf-name">
                         <div class="pf">
-                            <img src="{{ $job->user->profile_photo_url }}" alt="">
+                            <img src="{{ $job->user->image ? $job->user->image : $job->user->profile_photo_url }}" alt="">
                         </div>
                         <p>{{ $job->user->name }}</p>
                         <h5>(Young Designer)</h5>
@@ -65,7 +65,7 @@
                                 @csrf
                                 @if ($userApply->status == 'wait')
                                     <div class="ap1">
-                                        <img src="{{ $userApply->user->profile_photo_url }}">
+                                        <img src="{{ $userApply->user->image ? $userApply->user->image : $userApply->user->profile_photo_url }}">
                                         <a href="{{ route('upload', $userApply->user->id) }}">
                                             <h1>{{ $userApply->user->name }}</h1>
                                         </a>
@@ -111,7 +111,7 @@
                     @if ($userApply->status == 'approve')
                         <div class="approved-item">
                             <div class="box-approved">
-                                <img src="{{ $userApply->user->profile_photo_url }}">
+                                <img src="{{ $userApply->user->image ? $userApply->user->image : $userApply->user->profile_photo_url }}">
                                 <a href="{{ route('upload', $userApply->user->id) }}">
                                     <h1>{{ $userApply->user->name }}</h1>
                                 </a>

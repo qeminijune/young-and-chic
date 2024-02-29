@@ -16,11 +16,14 @@ use App\Http\Controllers\JoinTeamController;
 use App\Http\Controllers\LastProjectController;
 use App\Http\Controllers\ManageProfileController;
 use App\Http\Controllers\NotificationController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SaveJobsController;
 use App\Http\Controllers\TeammateController;
 use App\Http\Controllers\UploadController;
 use App\Http\Controllers\WorkController;
 use App\Http\Middleware\CheckTypeUser;
+use App\Models\Ratings;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Response;
 
@@ -36,7 +39,15 @@ use Illuminate\Support\Facades\Response;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $rating = Ratings::with("user", "work", "work.images")->select('ratings.work_id', 'works.user_id', DB::raw('AVG(ratings.rating) as rating'))
+        ->join('works', 'works.id', '=', 'ratings.work_id')
+        ->whereYear('ratings.created_at', now()->year)
+        ->whereMonth('ratings.created_at', now()->month)
+        ->groupBy('works.user_id')
+        ->orderByDesc('rating')
+        ->first();
+    // dd($rating->toArray());
+    return view('welcome', compact("rating"));
 });
 
 Route::middleware([
@@ -60,8 +71,10 @@ Route::middleware([
     Route::get('/jointeam/{id}', [JoinTeamController::class, "index"])->name('jointeam');
     Route::post('/jointeam/{id}/close', [JoinTeamController::class, "close"])->name('jointeam.close');
     Route::get('/lastproject', [LastProjectController::class, "index"])->name('lastproject');
+    Route::get('/profile', [ProfileController::class, "index"])->name('profile');
     Route::get('/teammate', [TeammateController::class, "index"])->name('teammate');
     Route::get('/manage', [ManageProfileController::class, "index"])->name('mn.profile');
+    Route::post('/manage/profile', [ManageProfileController::class,"update"])->name('mn.profile.update');
     Route::get('/bookmarks', [BookmarksController::class, "index"])->name('bookmarks');
     Route::get('/savejobs', [SaveJobsController::class, "index"])->name('savejobs');
     Route::get('/comment/{id}', [CommentController::class, "index"])->name('comment');
@@ -83,11 +96,10 @@ Route::middleware([
 });
 
 
-route::get('auth/google',[GoogleController::class,'googlepage']);
-route::get('/auth/google/callback',[GoogleController::class,'googlecallback']);
+route::get('auth/google', [GoogleController::class, 'googlepage']);
+route::get('/auth/google/callback', [GoogleController::class, 'googlecallback']);
 
-Route::get('images/{filename}', function ($filename)
-{
+Route::get('images/{filename}', function ($filename) {
 
     $path = storage_path('app/images/' . $filename);
     if (!File::exists($path)) {

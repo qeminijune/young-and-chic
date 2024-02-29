@@ -120,7 +120,7 @@
     <section>
         <div class="topic-pfupload">
             <div class="back">
-                <a href="{{ route('upload') }}"><i class="fas fa-arrow-left"></i><button>GO BACK</button></a>
+                <a href="{{ URL::previous() }}"><i class="fas fa-arrow-left"></i><button>GO BACK</button></a>
             </div>
         </div>
     </section>
@@ -181,15 +181,15 @@
                 <hr>
             </div>
             <div class="pf">
-                <img src="/images/profile.png">
+                <img src="/images/pj2.jpg">
             </div>
             <h1>{{ $work->user->name }}</h1>
             <h2>{{ $work->detail }}</h2>
             <div class="work">
                 @forelse ($work->images as $index=>$image)
                     @if ($index < 3)
-                        <img src="{{ "/$image->url" }}" class="post" style="width:100%" onclick="openModal();currentSlide(1)"
-                        class="hover-shadow cursor"/>
+                        <img src="{{ "/$image->url" }}" class="post" style="width:100%"
+                            onclick="openModal();currentSlide(1)" class="hover-shadow cursor" />
                     @endif
                     @if ($index == 3)
                         <div class="post"></div>
@@ -201,28 +201,28 @@
             <h4>{{ \Carbon\Carbon::parse($work->created_at)->format('d/m/Y') }}</h4>
 
             <div class="col mt-4">
-                {{-- @if(!empty($rating)) --}}
+                {{-- @if (!empty($rating)) --}}
                 <form id="rate" class="" action="{{ route('rating.create', $work) }}" method="POST"
                     autocomplete="off">
                     @csrf
 
                     <input type="hidden" value="{{ !empty($rating) ? $rating->id : '' }}" name="id">
-
+                    {{-- {{dd($work->toArray())}} --}}
                     <div class="rate">
                         <input type="radio" id="star5" class="rate" name="rating" value="5"
-                            {{ !empty($rating)&&$rating->rating <= 5 ? 'checked' : '' }} />
+                            {{ !empty($rating) && $rating->rating <= 5 ? 'checked' : '' }} />
                         <label for="star5" title="text">5 stars</label>
                         <input type="radio" id="star4" class="rate" name="rating" value="4"
-                            {{ !empty($rating)&&$rating->rating <= 4 ? 'checked' : '' }} />
+                            {{ !empty($rating) && $rating->rating <= 4 ? 'checked' : '' }} />
                         <label for="star4" title="text">4 stars</label>
                         <input type="radio" id="star3" class="rate" name="rating" value="3"
-                            {{ !empty($rating)&&$rating->rating <= 3 ? 'checked' : '' }} />
+                            {{ !empty($rating) && $rating->rating <= 3 ? 'checked' : '' }} />
                         <label for="star3" title="text">3 stars</label>
                         <input type="radio" id="star2" class="rate" name="rating" value="2"
-                            {{ !empty($rating)&&$rating->rating <= 2 ? 'checked' : '' }} />
+                            {{ !empty($rating) && $rating->rating <= 2 ? 'checked' : '' }} />
                         <label for="star2" title="text">2 stars</label>
                         <input type="radio" id="star1" class="rate" name="rating" value="1"
-                            {{ !empty($rating)&&$rating->rating <= 1 ? 'checked' : '' }} />
+                            {{ !empty($rating) && $rating->rating <= 1 ? 'checked' : '' }} />
                         <label for="star1" title="text">1 star</label>
                     </div>
                 </form>
@@ -231,7 +231,10 @@
                     const form = document.getElementById("rate")
                     const ratings = document.querySelectorAll('.rate')
                     ratings.forEach(r => {
-                        r.addEventListener('click', () => form.submit())
+                        r.addEventListener('click', () => {
+                            const data = $('#rate').serialize();
+                            $.post("/rating/" + {{ $work->id }}, data);
+                        })
                     })
                 </script>
             </div>
@@ -249,7 +252,7 @@
                 @csrf
                 <div class="box-cm">
                     <div class="pf-cm">
-                        <img src="/images/profile.png">
+                        <img src="/images/pj2.jpg">
                     </div>
                     <textarea name="comment" id="cm">
                     </textarea>
@@ -268,7 +271,9 @@
                     <h2>{{ $comment->comment }}</h2>
                 </div>
             @empty
-                no comment
+                <div class="no-cm">
+                    no comment
+                </div>
             @endforelse
         </div>
     </section>

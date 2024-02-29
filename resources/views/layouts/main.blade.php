@@ -19,7 +19,7 @@
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bs-stepper/dist/css/bs-stepper.min.css">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/job.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/all-event.css') }}">
+    {{-- <link rel="stylesheet" type="text/css" href="{{ asset('css/all-event.css') }}"> --}}
     @yield('head')
     <!-- custom js file link  -->
     <script src="{{ asset('js/script.js') }}" defer></script>
@@ -100,71 +100,77 @@
                             <img src="/images/logo-final 2.png">
                         </a>
                     </div>
-                    <div id="menu-list">
-                        <li>
-                            <a href="/foryou.html">For You</a>
-                        </li>
-                        <li><a href="{{ route('jobshow') }}">Fine a Team</a></li>
-                        {{-- <li><a href="{{ route('discover') }}">Discover</a></li> --}}
-                        <li><a href="/profile.html">Profile</a></li>
-                    </div>
-                    {{-- <div class="active">
-                        <li><a href="{{route("job.show")}}">Jobs</a></li>
-                    </div> --}}
-                    @if (Route::has('login'))
-                        <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
-                            @if (Auth::check())
-                                <span class="dropdown">
-                                    <button class="btn dropdown-toggle show" type="button" data-bs-toggle="dropdown"
-                                        aria-expanded="false">
-                                        <i class="fas fa-bell"></i>
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                        @forelse (Auth::user()->unreadNotifications as $noti)
-                                            @if (!empty($noti['data']['type']) && $noti['data']['type'] == 'approve')
-                                                <li><a class="dropdown-item" href="#"><img
-                                                            src="/images/{{ $noti['data']['job']['image'] }}"
-                                                            width="60"> Get you on the Team | {{ $noti->created_at }} </a>
-                                                </li>
-                                            @else
-                                                <li><a class="dropdown-item"
-                                                        href="#">{{ $noti['data']['user']['name'] . ' Apply for a Team on your post ' . $noti['data']['job']['image'] . ' | ' . $noti->created_at }}</a>
-                                                </li>
-                                            @endif
-                                            <hr>
-                                        @empty
-                                        @endforelse
-                                    </ul>
-                                </span>
-                            @endif
-
-                            @auth
-                                {{-- <a href="{{ url('/dashboard') }}"
-                                    class="logout font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log
-                                    Out</a> --}}
-                                <div class="dropdown">
-                                    <button onclick="myFunction()" class="dropbtn"><i class="fa-solid fa-user"></i></button>
-                                    <div id="myDropdown" class="dropdown-content">
-                                        <a href="{{ route('upload', Auth::user()->id) }}">Profile</a>
-                                        <a href="{{ route('mn.profile') }}">Manage profile</a>
-                                        {{-- <a href="{{ route('bookmarks') }}">Bookmarks</a> --}}
-                                        {{-- <a href="{{ route('savejobs') }}">Save a Jobs</a> --}}
-                                        <a href="{{ url('/dashboard') }}">Log out</a>
-                                    </div>
-                                </div>
-                            @else
-                                <a href="{{ route('login') }}"
-                                    class="login font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Sign
-                                    In</a>
-
-                                @if (Route::has('register'))
-                                    <a href="{{ route('register') }}"
-                                        class="register ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Sign Up</a>
-                                @endif
-                            @endauth
-                            {{-- <i class="fas fa-user"></i> --}}
+                    <div class="box-menu">
+                        <div id="menu-list">
+                            {{-- <li>
+                                <a href="/foryou.html">For You</a>
+                            </li> --}}
+                            <li><a href="{{ route('jobshow') }}">Fine a Team</a></li>
+                            {{-- <li><a href="{{ route('discover') }}">Discover</a></li> --}}
+                            <li><a href="{{ route('profile') }}">Profile</a></li>
                         </div>
-                    @endif
+                        @if (Route::has('login'))
+                            <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
+                                @if (Auth::check())
+                                    <span class="dropdown">
+                                        <button class="btn dropdown-toggle show" type="button"
+                                            data-bs-toggle="dropdown" aria-expanded="false">
+                                            <i class="fas fa-bell"></i>
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            @forelse (Auth::user()->unreadNotifications as $noti)
+                                                @if (!empty($noti['data']['type']) && $noti['data']['type'] == 'approve')
+                                                    <li><a class="dropdown-item" href="#"><img
+                                                                src="/images/{{ $noti['data']['job']['image'] }}"
+                                                                width="60"> Get you on the Team |
+                                                            {{ $noti->created_at }} </a>
+                                                    </li>
+                                                @else
+                                                    <li><a class="dropdown-item"
+                                                            href="#">{{ $noti['data']['user']['name'] . ' Apply for a Team on your post ' . $noti['data']['job']['image'] . ' | ' . $noti->created_at }}</a>
+                                                    </li>
+                                                @endif
+                                                <hr>
+                                            @empty
+                                            @endforelse
+                                        </ul>
+                                    </span>
+                                @endif
+
+                                @auth
+                                    {{-- <a href="{{ url('/dashboard') }}"
+                                        class="logout font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log
+                                        Out</a> --}}
+                                    <div class="dropdown">
+                                        <button onclick="myFunction()" class="dropbtn"><i
+                                                class="fa-solid fa-user"></i></button>
+                                        <div id="myDropdown" class="dropdown-content">
+                                            <a href="{{ route('upload', Auth::user()->id) }}">Profile account</a>
+                                            <a href="{{ route('mn.profile') }}">Manage profile</a>
+                                            {{-- <a href="{{ route('bookmarks') }}">Bookmarks</a> --}}
+                                            {{-- <a href="{{ route('savejobs') }}">Save a Jobs</a> --}}
+                                            <form method="POST" action="{{ route('logout') }}" x-data>
+                                                @csrf
+                                                <a href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();">Log
+                                                    out</a>
+                                            </form>
+                                        </div>
+                                    </div>
+                                @else
+                                    <a href="{{ route('login') }}"
+                                        class="login font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Sign
+                                        In</a>
+
+                                    @if (Route::has('register'))
+                                        <a href="{{ route('register') }}"
+                                            class="register ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Sign
+                                            Up</a>
+                                    @endif
+                                @endauth
+                                {{-- <i class="fas fa-user"></i> --}}
+                            </div>
+                        @endif
+                    </div>
                 </div>
             </div>
         </header>
@@ -174,26 +180,29 @@
         <footer>
             <div id="footer">
                 <div class="help">
-                    <p>HELP</p>
-                    <h1>Team & Condition</h1>
-                    <a href="index.html">
-                        <img src="/images/logo-white 1.png">
-                    </a>
-
-                    <h2>About Us</h2>
-                    <h3>Privacy Policy</h3>
-
-                    <h4>Newsletter</h4>
-                    <!-- <h1>Sign Up to receive news update</h1> -->
-                    <div id="signup">
-                        <label for="fname">Sign Up to receive news update</label><br>
+                    <div class="help-ft">
+                        <p>HELP</p>
+                        <h1>Team & Condition</h1>
                     </div>
-                    <input type="text" id="username" name="username" value=""
-                        placeholder="Enter email address"><br>
-
-                    <input id="search" type="text" name="search" placeholder="Search... "><i
-                        class="fas fa-search"></i>
-
+                    <div class="abt-us">
+                        <a href="index.html">
+                            <img src="/images/logo-white 1.png">
+                        </a>
+                        <h2>About Us</h2>
+                        <h3>Privacy Policy</h3>
+                    </div>
+                    <div class="newsletter">
+                        <h4>Newsletter</h4>
+                        <div id="signup">
+                            <label for="fname">Sign Up to receive news update</label><br>
+                        </div>
+                        <input type="text" id="username" name="username" value=""
+                            placeholder="Enter email address"><br>
+                    </div>
+                    <div class="search-footer">
+                        <input id="search" type="text" name="search" placeholder="Search... "><i
+                            class="fas fa-search"></i>
+                    </div>
                     <h5>COPYRIGHT © ALL RIGHTS RESERVED LOGO</h5>
                 </div>
             </div>

@@ -8,7 +8,7 @@
             <div class="event">
                 <a href="/"><i class="fas fa-arrow-left"></i><button>GO BACK</button></a>
             </div>
-            <img src="/images/banner-upload.jpg">
+            <img src="{{ $user->bg ? $user->bg : '/images/bg-create-pic.png' }}">
         </div>
     </section>
 
@@ -17,14 +17,16 @@
             <div class="abtme">
                 <section>
                     <div class="profile">
-                        <img src="/images/profile-stroke.png">
+                        <img src="{{ $user->image ? $user->image : $user->profile_photo_path }}">
                         <p>{{ $user->name }}</p>
                         <div class="star">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
+                            @foreach (range(1, 5) as $index => $_)
+                                @if ($averageRating >= $index + 1)
+                                    <i class="fas fa-star"></i>
+                                @else
+                                    <i class="fa-regular fa-star"></i>
+                                @endif
+                            @endforeach
                         </div>
                         {{-- <button type="button" class="uploadbtn" data-toggle="modal" data-target="#uploadModal">Upload Works</button> --}}
                         <!-- Button trigger modal -->
@@ -46,7 +48,7 @@
                                                 <textarea name="detail" rows="4"></textarea>
                                             </div>
                                             <div class="chooseimg">
-                                                <h5>*File size does not exceed 2 MB.</h5>
+                                                <h9>*File size does not exceed 2 MB.</h9><br>
                                                 <label>Choose Images</label>
                                                 <input type="file" name="images[]" multiple>
                                             </div>
@@ -67,6 +69,17 @@
                 </section>
                 <p>About Me</p>
                 <hr>
+                <div class="box-role">
+                    <div class="role">
+                        <h5>Role</h5>
+                        <h6>Young Designer</h6>
+                    </div>
+                    <div class="skill">
+                        <h7>Skill</h7>
+                        <h8>tailor, makeup artist</h8>
+                    </div>
+                </div>
+                <hr>
                 <div class="mail">
                     <i class="fa-solid fa-envelope"></i>
                     <h3>{{ $user->email }}</h3>
@@ -74,17 +87,17 @@
                 <hr>
                 <div class="phone">
                     <i class="fa-solid fa-phone"></i>
-                    <h4>091-XXX-XXXX <i class="fa-solid fa-circle-info"></i></h4>
+                    <h4>{{ $user->tel ? $user->tel : 'N/A' }} <i class="fa-solid fa-circle-info"></i></h4>
                 </div>
                 <hr>
                 <div class="address">
                     <i class="fa-solid fa-location-dot"></i>
-                    <h2>2239 Hog Camp Road Schaumburg</h2>
+                    <h2>{{ $user->address ? $user->address : 'N/A' }}</h2>
                 </div>
                 <hr>
                 <div class="born">
                     <i class="fa-solid fa-cake-candles"></i>
-                    <h1>Born June 26, 2000</h1>
+                    <h1>Born {{ $user->birthday ? \Carbon\Carbon::parse($user->birthday)->format('F j, Y') : 'N/A' }}</h1>
                 </div>
                 <hr>
                 <div class="social">
@@ -126,7 +139,7 @@
                                 <div class="work-name">
                                     <div class="box-pf">
                                         <div class="pf">
-                                            <img src="/images/profile.png">
+                                            <img src="{{ $work->user->image ? $work->user->image : $work->user->profile_photo_url }}" alt=" ">
                                         </div>
                                         <h1>{{ $work->user->name }}</h1>
                                     </div>

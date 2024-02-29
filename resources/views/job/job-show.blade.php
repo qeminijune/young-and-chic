@@ -14,13 +14,11 @@
         <div class="banner">
             <img src="images/banner-job.jpg">
         </div>
-
         {{-- <div class="freelance">
             <h1>Freelance</h1>
             <p>Full-Time</p>
             <hr>
         </div> --}}
-
         <form action="/jobshow" method="GET">
             <div class="box-search">
                 <div class="box">

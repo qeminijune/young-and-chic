@@ -13,7 +13,7 @@
     /* border: none; */
     text-decoration: none;
     transition: all .2s linear;
-    text-transform: capitalize;
+    text-transform: none;
 }
 
 
@@ -52,40 +52,39 @@ header {
 }
 
 .menu {
+    display: flex;
+    flex-direction: column;
     width: 100%;
     height: 150px;
     /* background: lavenderblush; */
 }
 
+#logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
 #logo img {
     width: 150px;
     height: auto;
-    margin: 20px 0 0 650px;
 }
 
-#logo li {
-    list-style: none;
-    margin-left: 670px;
-    padding-top: 20px;
-    float: left;
-}
-
-#logo li a {
-    font-family: 'Gentium Basic', sans-serif;
-    font-size: 50px;
-    color: black;
-    text-decoration: none;
-    font-weight: normal;
+.box-menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
 #menu-list {
-    float: left;
-    margin-left: 350px;
+    display: flex;
+    flex-direction: row;
+    gap: 80px;
 }
 
 #menu-list li {
     list-style: none;
-    margin-left: 80px;
     padding-top: 25px;
     float: left;
     vertical-align: baseline;
@@ -164,7 +163,7 @@ a:active {
 .dropbtn {
     background: none;
     border: none;
-    margin-left: 40px;
+    margin-left: 80px;
 }
 
 .dropbtn i {
@@ -281,12 +280,57 @@ a:active {
 .manage img {
     width: 100%;
     border-radius: 10px 10px 0 0;
+    object-fit: cover;
 }
 
-.pf13 img {
-    width: 160px;
-    height: auto;
+.manage label {
+    display: block;
+    font-size: 20px;
+    font-family: 'Gentium Basic', sans-serif;
+}
+
+.edit-name {
+    margin: 20px 0 0 70px;
+}
+
+.pf13 {
     margin: -50px 0 0 150px;
+}
+
+.pf13 div {
+    width: 160px;
+    height: 160px;
+    position: relative;
+}
+
+.bg div {
+    width: 100%;
+    height: 260px;
+    position: relative;
+}
+
+.upload img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.upload img.pic {
+    border-radius: 50%;
+    border: 5px solid #fff;
+}
+
+.upload:not([data-label="profile"]):before {
+    content: " ";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30px;
+    height: 30px;
+    background: url(../../images/create-pic.png);
+    background-size: contain;
+    cursor: pointer;
 }
 
 #tname {
@@ -303,7 +347,7 @@ a:active {
     border: none;
     border-radius: 50px;
     box-sizing: border-box;
-    margin: 20px 0 20px 50px;
+    margin-left: 50px;
     font-family: 'Gentium Basic', sans-serif;
     font-size: 16px;
     text-transform: none;
@@ -324,7 +368,7 @@ a:active {
     border: none;
     border-radius: 50px;
     box-sizing: border-box;
-    margin: 20px 0 20px 50px;
+    margin-left: 50px;
     font-family: 'Gentium Basic', sans-serif;
     font-size: 16px;
     text-transform: none;
@@ -345,7 +389,7 @@ a:active {
     border: none;
     border-radius: 50px;
     box-sizing: border-box;
-    margin: 20px 0 20px 50px;
+    margin-left: 50px;
     font-family: 'Gentium Basic', sans-serif;
     font-size: 16px;
     text-transform: none;
@@ -366,7 +410,7 @@ a:active {
     border: none;
     border-radius: 50px;
     box-sizing: border-box;
-    margin: 20px 0 20px 50px;
+    margin-left: 50px;
     font-family: 'Gentium Basic', sans-serif;
     font-size: 16px;
     text-transform: none;
@@ -387,7 +431,7 @@ a:active {
     border: none;
     border-radius: 50px;
     box-sizing: border-box;
-    margin: 20px 0 20px 50px;
+    margin: 20px 0 0 50px;
     font-family: 'Gentium Basic', sans-serif;
     font-size: 16px;
     box-shadow: 2px 2px 14px 0px rgba(210, 210, 210, 0.2);
@@ -412,7 +456,7 @@ a:active {
 }
 
 
-/* start footer */
+/* footer */
 
 #footer {
     margin-top: 50px;
@@ -427,7 +471,7 @@ a:active {
     font-size: 20px;
     color: white;
     margin-left: 100px;
-    padding-top: 70px;
+    padding-top: 50px;
 }
 
 .help h1 {
@@ -444,7 +488,7 @@ a:active {
     height: auto;
     float: left;
     margin-left: 408px;
-    margin-top: -70px;
+    margin-top: -80px;
 }
 
 .help h2 {
@@ -488,7 +532,7 @@ a:active {
     width: 253px;
     height: 30px;
     border: none;
-    border-radius: 5px;
+    border-radius: 50px;
     color: #979797;
     font-family: 'Gentium Basic', sans-serif;
     font-size: 16px;
@@ -502,7 +546,7 @@ a:active {
     height: 30px;
     /* background-color: white; */
     border: none;
-    border-radius: 5px;
+    border-radius: 50px;
     padding-left: 10px;
     color: #979797;
     font-family: 'Gentium Basic', sans-serif;
@@ -531,8 +575,9 @@ a:active {
     font-weight: lighter;
     font-size: 16px;
     color: white;
-    margin-left: 100px;
-    margin-top: 65px;
+    text-align: center;
+    /* margin-left: 100px; */
+    margin-top: 45px;
 }
 
 

@@ -21,39 +21,43 @@
         </div>
     </section>
 
-    <section>
-        <div class="work-de">
-            <img src="/images/y-designer-bam.png">
-            <h1>Working Of The Month</h1>
-            <h2>Best Young Designer<br>Of The Month</h2>
-            <h3>(February)</h3>
-            <h4>BamBam</h4>
-            <a href="#"><button>View Working</button></a>
+    <section class="wrap-flex">
+        <div class="work-de flex">
+            <div class="flex-item" style="flex:0 0 400px">
+                <div class="pf-designer">
+                    <img class="image" src="{{ $rating->user->image }}">
+                    <img class="mark" src="/images/mark.png">
+                </div>
+            </div>
+            <div class="flex-item">
+                <h1>Working Of The Month</h1>
+                <h2>Best Young Designer<br>Of The Month</h2>
+                <h3>({{ \Carbon\Carbon::now()->format('F') }})</h3>
+                <a href="{{ route('upload', $rating->user->id) }}"><button>View Profile {{ $rating->user->name }}</button></a>
+            </div>
         </div>
     </section>
 
     <section id="slide">
-        <input class="slide" type="radio" name="position" />
-        <input class="slide" type="radio" name="position" checked />
-        <input class="slide" type="radio" name="position" />
-        <input class="slide" type="radio" name="position" />
-        <input class="slide" type="radio" name="position" />
+        @forelse ($rating->work->images as $index=>$image)
+            <input class="slide" type="radio" name="position" {{ $index == 0 ? 'checked' : '' }} />
+        @empty
+        @endforelse
         <main id="carousel">
-            <div class="item"></div>
-            <div class="item"></div>
-            <div class="item"></div>
-            <div class="item"></div>
-            <div class="item"></div>
+            @forelse ($rating->work->images as $image)
+                <div class="item" style="background-image: url({{ $image->url }})"></div>
+            @empty
+            @endforelse
         </main>
     </section>
-    <div class="view-all">
+    {{-- <div class="view-all">
         <a href="#"><button>View All Works By Young Designer</button><i class="fas fa-chevron-right"></i></a>
-    </div>
+    </div> --}}
 
     <section>
         <div class="de-work">
             <hr>
-            <p>Young Designer's Works (350)</p>
+            <p>Young Designer's Works (21)</p>
             <div class="p1"><img src="images/Frame 28.jpg"></div>
             <div class="p2"><img src="images/Frame 29.jpg"></div>
             <div class="p3"><img src="images/Frame 30.jpg"></div>
