@@ -29,8 +29,10 @@
                         <hr>
                         <h3>{{ $job->name }}</h3>
                         <h4>{{ $job->description }}</h4>
-
-                        <a class="btn-viewtm" href="{{ route('jointeam', $job->id) }}">View teammate</a>
+                        <h5>{{ $job->full_description }}</h5>
+                        <div class="btn-viewtm">
+                            <a href="{{ route('jointeam', $job->id) }}">View teammate</a>
+                        </div>
                     </div>
                 @empty
                     ไม่มีงาน

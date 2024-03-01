@@ -1,6 +1,7 @@
 @extends('layouts.main')
 @section('head')
     <link rel="stylesheet" type="text/css" href="{{ asset('css/comment.css') }}">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     {{-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> --}}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -126,55 +127,6 @@
     </section>
 
     <section>
-        <div id="myModal" class="modal">
-            <span class="close cursor" onclick="closeModal()">&times;</span>
-            <div class="modal-content">
-
-                <div class="mySlides">
-                    <div class="numbertext">1 / 4</div>
-                    <img src="/images/Frame 34.jpg" style="width:100%">
-                </div>
-
-                <div class="mySlides">
-                    <div class="numbertext">2 / 4</div>
-                    <img src="/images/Frame 24.jpg" style="width:100%">
-                </div>
-
-                <div class="mySlides">
-                    <div class="numbertext">3 / 4</div>
-                    <img src="/images/Frame 14.jpg" style="width:100%">
-                </div>
-
-                <div class="mySlides">
-                    <div class="numbertext">4 / 4</div>
-                    <img src="/images/Frame 27.jpg" style="width:100%">
-                </div>
-
-                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                <a class="next" onclick="plusSlides(1)">&#10095;</a>
-
-                <div class="caption-container">
-                    <p id="caption"></p>
-                </div>
-                {{-- <div class="column">
-                    <img class="demo cursor" src="/images/Frame 34.jpg" style="width:100%" onclick="currentSlide(1)"
-                        alt="Nature and sunrise">
-                </div>
-                <div class="column">
-                    <img class="demo cursor" src="/images/Frame 24.jpgg" style="width:100%" onclick="currentSlide(2)"
-                        alt="Snow">
-                </div>
-                <div class="column">
-                    <img class="demo cursor" src="/images/Frame 14.jpg" style="width:100%" onclick="currentSlide(3)"
-                        alt="Mountains and fjords">
-                </div>
-                <div class="column">
-                    <img class="demo cursor" src="/images/Frame 27.jpg" style="width:100%" onclick="currentSlide(4)"
-                        alt="Northern Lights">
-                </div> --}}
-            </div>
-        </div>
-
         <div class="detail">
             <p>Post</p>
             <div class="line">
@@ -187,11 +139,47 @@
             <h2>{{ $work->detail }}</h2>
             <div class="work">
                 @forelse ($work->images as $index=>$image)
-                    @if ($index < 3)
-                        <img src="{{ "/$image->url" }}" class="post" style="width:100%"
-                            onclick="openModal();currentSlide(1)" class="hover-shadow cursor" />
+                    @if ($index < 4)
+                        {{-- <img src="{{ "/$image->url" }}" class="post" style="width:100%"
+                            onclick="openModal();currentSlide(1)" class="hover-shadow cursor" /> --}}
+                        {{-- <div class="col">
+                            <img id="myImg" src="{{ "/$image->url" }}" class="post" style="width:100%;max-width:400px"
+                                onclick="onClick(this)">
+                            <div id="myModal" class="Modal">
+                                The Close Button
+                                <span class="close">&times;</span>
+
+                                Modal Content (The Image)
+                                <img class="modal-content" id="img01" style="width:100%">
+
+                                Modal Caption (Image Text)
+                                <div id="caption"></div>
+                            </div>
+                        </div> --}}
+
+                        <img id="myImg" src="{{ "/$image->url" }}" class="post" alt="" style="width:100%;border-radius:30px">
+
+                        <!-- The Modal -->
+                        <div id="myModal" class="modal">
+                            <span class="close">&times;</span>
+                            <img class="modal-content" id="img01">
+                            <div id="caption"></div>
+                        </div>
+                        {{-- <div class="w3-row-padding">
+                            <div class="w3-container w3-third">
+                                <img src="{{ "/$image->url" }}" style="width:100%;cursor:pointer" onclick="onClick(this)"
+                                    class="post w3-hover-opacity">
+                            </div>
+                        </div>
+
+                        <div id="modal01" class="w3-modal" onclick="this.style.display='none'">
+                            <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
+                            <div class="w3-modal-content w3-animate-zoom">
+                                <img id="img01" style="width:100%">
+                            </div>
+                        </div> --}}
                     @endif
-                    @if ($index == 3)
+                    @if ($index == 4)
                         <div class="post"></div>
                     @endif
                 @empty
@@ -281,13 +269,13 @@
     </section>
 
     <script>
-        function openModal() {
-            document.getElementById("myModal").style.display = "block";
-        }
+        // function openModal() {
+        //     document.getElementById("myModal").style.display = "block";
+        // }
 
-        function closeModal() {
-            document.getElementById("myModal").style.display = "none";
-        }
+        // function closeModal() {
+        //     document.getElementById("myModal").style.display = "none";
+        // }
 
         var slideIndex = 1;
         showSlides(slideIndex);
@@ -321,5 +309,58 @@
             dots[slideIndex - 1].className += " active";
             captionText.innerHTML = dots[slideIndex - 1].alt;
         }
+    </script>
+
+    <script>
+        // Get the modal
+        var modal = document.getElementById("myModal");
+
+        // Get the image and insert it inside the modal - use its "alt" text as a caption
+        var img = document.getElementById("myImg");
+        var modalImg = document.getElementById("img01");
+        var captionText = document.getElementById("caption");
+        img.onclick = function() {
+            modal.style.display = "block";
+            modalImg.src = this.src;
+            captionText.innerHTML = this.alt;
+        }
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+    </script>
+
+    <script>
+        function onClick(element) {
+            document.getElementById("img01").src = element.src;
+            document.getElementById("modal01").style.display = "block";
+        }
+    </script>
+
+<script>
+    // Get the modal
+    var modal = document.getElementById("myModal");
+
+    // Get the image and insert it inside the modal - use its "alt" text as a caption
+    var img = document.getElementById("myImg");
+    var modalImg = document.getElementById("img01");
+    var captionText = document.getElementById("caption");
+    img.onclick = function(){
+      modal.style.display = "block";
+      modalImg.src = this.src;
+      captionText.innerHTML = this.alt;
+    }
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+      modal.style.display = "none";
+    }
     </script>
 @endsection

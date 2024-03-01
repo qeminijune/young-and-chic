@@ -74,10 +74,10 @@
                         <h5>Role</h5>
                         <h6>{{ $user->type_user ? $user->type_user : 'N/A' }}</h6>
                     </div>
-                    <div class="skill">
+                    {{-- <div class="skill">
                         <h7>Skill</h7>
                         <h8>tailor, makeup artist</h8>
-                    </div>
+                    </div> --}}
                 </div>
                 <hr>
                 <div class="mail">
@@ -87,7 +87,8 @@
                 <hr>
                 <div class="phone">
                     <i class="fa-solid fa-phone"></i>
-                    <h4>{{ $user->tel ? $user->tel : 'N/A' }} <i class="fa-solid fa-circle-info"></i></h4>
+                    <h4>{{ $user->tel ? $user->tel : 'N/A' }}</h4>
+                    {{-- <i class="fa-solid fa-circle-info"></i> --}}
                 </div>
                 <hr>
                 <div class="address">
@@ -164,7 +165,7 @@
                                 <div class="box-comment">
                                     <div class="star1">
                                         <i class="fas fa-star"></i>
-                                        <h1>200</h1>
+                                        <h1>{{ $work->ratings }}</h1>
                                     </div>
                                     <div class="comment">
                                         <i class="fa-regular fa-comment"></i>

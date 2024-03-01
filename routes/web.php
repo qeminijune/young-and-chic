@@ -62,11 +62,7 @@ Route::middleware([
     })->name('dashboard');
     Route::get('/jobshow', [JobController::class, "index"])->name('jobshow');
     Route::post('/jobshow', [JobController::class, "store"])->name('jobshow.store');
-    Route::get('/discover', [DiscoverController::class, "index"])->name('discover');
-    Route::get('/discovermakeup', [DiscoverMakeupController::class, "index"])->name('discovermakeup');
     Route::get('/event', [EventController::class, "index"])->name('event');
-    Route::get('/allevent', [AllEventController::class, "index"])->name('all.event');
-    Route::get('/hashtag', [HashTagController::class, "index"])->name('hashtag');
     Route::get('/upload/{id}', [UploadController::class, "index"])->name('upload');
     Route::get('/jointeam/{id}', [JoinTeamController::class, "index"])->name('jointeam');
     Route::post('/jointeam/{id}/close', [JoinTeamController::class, "close"])->name('jointeam.close');
@@ -75,8 +71,6 @@ Route::middleware([
     Route::get('/teammate', [TeammateController::class, "index"])->name('teammate');
     Route::get('/manage', [ManageProfileController::class, "index"])->name('mn.profile');
     Route::post('/manage/profile', [ManageProfileController::class,"update"])->name('mn.profile.update');
-    Route::get('/bookmarks', [BookmarksController::class, "index"])->name('bookmarks');
-    Route::get('/savejobs', [SaveJobsController::class, "index"])->name('savejobs');
     Route::get('/comment/{id}', [CommentController::class, "index"])->name('comment');
     Route::post('/comment/{id}', [CommentController::class, "create_comment"])->name('comment.create');
     Route::post('/rating/{id}', [CommentController::class, "create_rating"])->name('rating.create');
