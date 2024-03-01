@@ -181,7 +181,7 @@
                 <hr>
             </div>
             <div class="pf">
-                <img src="/images/pj2.jpg">
+                <img src="{{ $work->user->image ? $work->user->image : $work->user->profile_photo_path }}" alt="">
             </div>
             <h1>{{ $work->user->name }}</h1>
             <h2>{{ $work->detail }}</h2>
@@ -197,8 +197,10 @@
                 @empty
                 @endforelse
             </div>
-            <h3>{{ $work->user->name }}</h3>
-            <h4>{{ \Carbon\Carbon::parse($work->created_at)->format('d/m/Y') }}</h4>
+            <div class="date">
+                <h3>{{ $work->user->name }}</h3>
+                <h4>{{ \Carbon\Carbon::parse($work->created_at)->format('d/m/Y') }}</h4>
+            </div>
 
             <div class="col mt-4">
                 {{-- @if (!empty($rating)) --}}
@@ -252,7 +254,7 @@
                 @csrf
                 <div class="box-cm">
                     <div class="pf-cm">
-                        <img src="/images/pj2.jpg">
+                        <img src="{{ $work->user->image ? $work->user->image : $work->user->profile_photo_path }}">
                     </div>
                     <textarea name="comment" id="cm">
                     </textarea>
@@ -265,7 +267,7 @@
             @forelse ($work->comments as $comment)
                 <div class="cmt1">
                     <hr>
-                    <img src="/images/lolla2.png">
+                    <img src="{{ $comment->user->image ? $comment->user->image : $comment->user->profile_photo_path }}">
                     <p>{{ $comment->user->name }}</p>
                     <h1>{{ \Carbon\Carbon::parse($comment->created_at)->format('d/m/Y') }}</h1>
                     <h2>{{ $comment->comment }}</h2>

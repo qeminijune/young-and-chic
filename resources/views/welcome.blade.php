@@ -14,6 +14,9 @@
 
     <section>
         <div class="box-desparti">
+            <div class="banner-objective">
+                <img src="images/banner-object-home.png" alt="">
+            </div>
             <div class="banner-parti">
                 <img src="images/banner-participant.png">
                 <a href="{{ route('register') }}"><button>Sign up now</button></a>

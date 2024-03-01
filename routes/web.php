@@ -70,7 +70,7 @@ Route::middleware([
     Route::get('/upload/{id}', [UploadController::class, "index"])->name('upload');
     Route::get('/jointeam/{id}', [JoinTeamController::class, "index"])->name('jointeam');
     Route::post('/jointeam/{id}/close', [JoinTeamController::class, "close"])->name('jointeam.close');
-    Route::get('/lastproject', [LastProjectController::class, "index"])->name('lastproject');
+    Route::get('/lastproject/{id}', [LastProjectController::class, "index"])->name('lastproject');
     Route::get('/profile', [ProfileController::class, "index"])->name('profile');
     Route::get('/teammate', [TeammateController::class, "index"])->name('teammate');
     Route::get('/manage', [ManageProfileController::class, "index"])->name('mn.profile');

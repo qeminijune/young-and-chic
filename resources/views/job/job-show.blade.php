@@ -295,7 +295,7 @@
                         @forelse ($jobs as $job)
                             <div class="product" data-name="p-1">
                                 <img src="/images/{{ $job->image }}" alt="">
-                                <p>#Name Project</p>
+                                {{-- <p>#Name Project</p> --}}
                                 <div class="find-role">
                                     <p>Find</p>
                                     <a href="{{ route('jointeam', $job->id) }}">

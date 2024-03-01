@@ -1,5 +1,9 @@
-@import url('https://fonts.cdnfonts.com/css/gentium-basic');
+/* @import url('https://fonts.cdnfonts.com/css/gentium-basic'); */
+
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600&display=swap');
+@import url('https://fonts.cdnfonts.com/css/priyati');
+@import url('https://fonts.cdnfonts.com/css/vogue');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@400;500&display=swap');
 @font-face {
     font-family: LINESEED;
     src: url("../font/LINESeedSansTH_W_Rg.woff");
@@ -107,7 +111,7 @@ header {
 
 
 /* #logo li a {
-    font-family: 'Gentium Basic', sans-serif;
+    font-family: LINESEED;
     font-size: 50px;
     color: black;
     text-decoration: none;
@@ -154,11 +158,11 @@ header {
 }
 
 #menu-list li a {
-    font-family: 'Gentium Basic', sans-serif;
+    font-family: LINESEED;
     font-size: 15px;
     color: black;
     text-decoration: none;
-    font-weight: normal;
+    font-weight: bold;
 }
 
 #menu-list li a:hover {
@@ -167,7 +171,7 @@ header {
 
 .login {
     font-size: 15px;
-    font-family: 'Gentium Basic', sans-serif;
+    font-family: LINESEED;
     color: black;
     text-decoration: none;
     margin-left: 40px;
@@ -180,7 +184,7 @@ header {
 
 .register {
     font-size: 15px;
-    font-family: 'Gentium Basic', sans-serif;
+    font-family: LINESEED;
     color: black;
     text-decoration: none;
     margin-left: 40px;
@@ -260,7 +264,7 @@ a:active {
 
 .dropdown-content a {
     font-size: 15px;
-    font-family: 'Gentium Basic', sans-serif;
+    font-family: LINESEED;
     color: black;
     padding: 15px 20px;
     text-decoration: none;
@@ -284,7 +288,7 @@ a:active {
 }
 
 .banner p {
-    font-family: 'Gentium Basic', sans-serif;
+    font-family: LINESEED;
     font-size: 56px;
     text-align: center;
     color: white;
@@ -293,7 +297,7 @@ a:active {
 }
 
 .banner h1 {
-    font-family: 'Gentium Basic', sans-serif;
+    font-family: LINESEED;
     font-size: 24px;
     text-align: center;
     color: white;
@@ -302,7 +306,7 @@ a:active {
 }
 
 .freelance h1 {
-    font-family: 'Gentium Basic', sans-serif;
+    font-family: LINESEED;
     font-size: 20px;
     color: black;
     margin-top: 22px;
@@ -311,7 +315,7 @@ a:active {
 }
 
 .freelance p {
-    font-family: 'Gentium Basic', sans-serif;
+    font-family: LINESEED;
     font-size: 20px;
     color: black;
     margin-top: -32px;
@@ -353,7 +357,7 @@ a:active {
     border-radius: 10px;
     cursor: pointer;
     /* margin-top: 20px; */
-    font-family: "Gentium Basic", sans-serif;
+    font-family: LINESEED;
 }
 
 .ftjob:hover,
@@ -394,7 +398,7 @@ a:active {
     border-radius: 10px;
     padding-left: 31px;
     color: #979797;
-    font-family: 'Gentium Basic', sans-serif;
+    font-family: LINESEED;
     font-size: 20px;
 }
 
@@ -405,7 +409,7 @@ a:active {
 
 /*
 .box span {
-    font-family: 'Gentium Basic', sans-serif;
+    font-family: LINESEED;
     font-size: 20px;
     border: none;
     background-color: none;
@@ -448,7 +452,7 @@ a:active {
     margin-top: 10px;
     /* text-transform: uppercase; */
     text-align: center;
-    font-family: 'Gentium Basic', sans-serif;
+    font-family: LINESEED;
     font-weight: normal;
     /* float: left; */
 }
@@ -460,10 +464,11 @@ a:active {
 }
 
 .findteam p {
-    font-family: 'Gentium Basic', sans-serif;
+    font-family: LINESEED;
     font-size: 32px;
     text-align: center;
     padding-right: 230px;
+    font-weight: bold;
 }
 
 .button {
@@ -475,9 +480,9 @@ a:active {
     width: 150px;
     height: 45px;
     border-radius: 30px;
-    font-family: 'Gentium Basic', sans-serif;
+    font-family: LINESEED;
     color: #960021;
-    font-weight: normal;
+    font-weight: bold;
     font-size: 20px;
     border: solid 2px #960021;
     background-color: white;
@@ -534,7 +539,7 @@ a:active {
     padding: .5rem 0;
     font-size: 24px;
     color: black;
-    font-family: 'Gentium Basic', sans-serif;
+    font-family: LINESEED;
     font-weight: normal;
     margin-left: 10px;
 }
@@ -550,7 +555,7 @@ a:active {
 .container .products-container .product .price {
     font-size: 16px;
     color: black;
-    font-family: 'Gentium Basic', sans-serif;
+    font-family: LINESEED;
     font-weight: normal;
     margin-left: 10px;
 }
@@ -558,7 +563,7 @@ a:active {
 .container .products-container .product h4 {
     font-size: 14px;
     color: black;
-    font-family: 'Gentium Basic', sans-serif;
+    font-family: LINESEED;
     font-weight: normal;
     margin-left: 10px;
 }
@@ -667,7 +672,7 @@ a:active {
     display: flex;
     gap: 1.5rem;
     flex-wrap: wrap;
-    margin-top: -50px;
+    /* margin-top: -50px; */
     width: 160px;
     height: 50px;
     float: right;
@@ -719,67 +724,87 @@ a:active {
     background-color: black;
 }
 
-.help p {
-    font-family: 'Gentium Basic', sans-serif;
+.box-footer {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin: 0 50px;
+    /* align-content: center; */
+    /* margin-top: 50px; */
+    /* margin-left: 100px; */
+}
+
+.help-ft {
+    margin-top: 70px;
+}
+
+.help-ft p {
+    font-family: LINESEED;
     font-weight: bold;
     font-size: 20px;
     color: white;
-    margin-left: 100px;
-    padding-top: 50px;
+    /* padding-top: 50px; */
 }
 
-.help h1 {
-    font-family: 'Gentium Basic', sans-serif;
+.help-ft h1 {
+    font-family: LINESEED;
     font-weight: lighter;
     font-size: 16px;
     color: white;
-    margin-left: 100px;
-    padding-top: 26px;
+    margin-top: 30px;
+    /* padding-top: 26px; */
 }
 
-.help img {
+.abt-us {
+    margin-top: 70px;
+}
+
+.abt-us img {
     width: 69px;
     height: auto;
     float: left;
-    margin-left: 408px;
-    margin-top: -80px;
+    /* margin-left: 408px; */
+    /* margin-top: -80px; */
 }
 
-.help h2 {
-    font-family: 'Gentium Basic', sans-serif;
+.abt-us h6 {
+    font-family: LINESEED;
     font-weight: lighter;
     font-size: 16px;
     color: white;
-    margin-left: 408px;
-    padding-top: -20px;
+    margin-top: 30px;
+    /* padding-top: -20px; */
 }
 
-.help h3 {
-    font-family: 'Gentium Basic', sans-serif;
+.abt-us h3 {
+    font-family: LINESEED;
     font-weight: lighter;
     font-size: 16px;
     color: white;
-    margin-left: 408px;
-    padding-top: 20px;
-    float: left;
+    margin-top: 30px;
+    /* padding-top: 20px; */
+    /* float: left; */
 }
 
-.help h4 {
-    font-family: 'Gentium Basic', sans-serif;
+.newsletter {
+    margin-top: 45px;
+}
+
+.newsletter h4 {
+    font-family: LINESEED;
     font-weight: bold;
     font-size: 20px;
     color: white;
-    margin-left: 700px;
-    margin-top: -85px;
+    margin-top: 30px;
 }
 
 #signup {
-    font-family: 'Gentium Basic', sans-serif;
+    font-family: LINESEED;
     font-weight: lighter;
     font-size: 16px;
     color: white;
-    margin-left: 700px;
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
 #username {
@@ -788,10 +813,10 @@ a:active {
     border: none;
     border-radius: 50px;
     color: #979797;
-    font-family: 'Gentium Basic', sans-serif;
+    font-family: LINESEED;
     font-size: 16px;
-    margin: 20px 0 0 200px;
-    padding-left: 10px;
+    margin-top: 10px;
+    padding-left: 20px;
     /* background-color: none; */
 }
 
@@ -801,21 +826,19 @@ a:active {
     /* background-color: white; */
     border: none;
     border-radius: 50px;
-    padding-left: 10px;
+    padding-left: 20px;
     color: #979797;
-    font-family: 'Gentium Basic', sans-serif;
+    font-family: LINESEED;
     font-size: 16px;
-    margin-left: 1088px;
-    margin-top: -125px;
-    float: left;
+    margin-top: 70px;
 }
 
 .fa-search {
     color: black;
     font-size: 16px;
-    margin-left: 1315px;
-    margin-top: -117px;
-    float: left;
+    /* margin-left: 1315px; */
+    /* margin-top: -117px; */
+    /* float: left; */
 }
 
 .fa-search:hover {
@@ -824,8 +847,8 @@ a:active {
     transition: 0.5s;
 }
 
-.help h5 {
-    font-family: 'Gentium Basic', sans-serif;
+.copyright h5 {
+    font-family: LINESEED;
     font-weight: lighter;
     font-size: 16px;
     color: white;
@@ -847,19 +870,19 @@ a:active {
 }
 
 .head-postjob p {
-    font-family: 'Gentium Basic', sans-serif;
+    font-family: LINESEED;
     font-weight: bold;
     font-size: 18px;
     text-transform: none;
 }
 
 .form-label {
-    font-family: 'Gentium Basic', sans-serif;
+    font-family: LINESEED;
     font-size: 15px;
 }
 
 .chooseimg h5 {
-    font-family: 'Gentium Basic', sans-serif;
+    font-family: LINESEED;
     font-size: 12px;
     color: #960021;
 }
@@ -924,7 +947,7 @@ a:active {
 
 .content h1 {
     font-size: 25px;
-    font-family: 'Gentium Basic', sans-serif;
+    font-family: LINESEED;
 }
 
 .col-auto a {
@@ -932,7 +955,7 @@ a:active {
     height: 40px;
     background-color: none;
     font-size: 15px;
-    font-family: 'Gentium Basic', sans-serif;
+    font-family: LINESEED;
     color: #960021;
     border-radius: 50px;
     border: 1px solid #960021;
@@ -948,7 +971,7 @@ a:active {
     height: 40px;
     background-color: none;
     font-size: 15px;
-    font-family: 'Gentium Basic', sans-serif;
+    font-family: LINESEED;
     color: #960021;
     border-radius: 50px;
     border: 1px solid #960021;
@@ -966,7 +989,7 @@ a:active {
     height: 45px;
     background-color: #960021;
     font-size: 15px;
-    font-family: 'Gentium Basic', sans-serif;
+    font-family: LINESEED;
     color: white;
     border-radius: 50px;
     border: none;
@@ -1101,7 +1124,7 @@ a:active {
 
 .find-role p {
     font-size: 16px;
-    font-family: 'Gentium Basic', sans-serif;
+    font-family: LINESEED;
     color: #4B5157;
     margin-top: 9px;
 }
@@ -1115,7 +1138,7 @@ a:active {
 
 .type p {
     font-size: 14px;
-    font-family: 'Gentium Basic', sans-serif;
+    font-family: LINESEED;
     color: #4B5157;
     margin-top: 2px;
 }
@@ -1129,13 +1152,13 @@ a:active {
 
 .em-type p {
     font-size: 14px;
-    font-family: 'Gentium Basic', sans-serif;
+    font-family: LINESEED;
     color: #4B5157;
     margin-top: -2px;
 }
 
 .product p {
-    font-family: 'Gentium Basic', sans-serif;
+    font-family: LINESEED;
     color: #999;
     font-size: 12px;
 }

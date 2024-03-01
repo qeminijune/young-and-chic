@@ -60,8 +60,10 @@
             background-color: black;
             color: white;
             cursor: pointer;
-            padding: 15px;
+            /* padding: 15px; */
             border-radius: 100px;
+            width: 50px;
+            height: 50px;
         }
 
         #myBtn:hover {
@@ -77,7 +79,7 @@
         }
 
         .dropdown-item {
-            font-family: 'Gentium Basic', sans-serif;
+            font-family: LINESEED;
             font-size: 13px;
             text-transform: none;
         }
@@ -92,7 +94,7 @@
 <body>
     <div id="wrapper">
         <header>
-            <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+            <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fa-solid fa-angle-up"></i></button>
             <div id="head">
                 <div class="menu">
                     <div id="logo">
@@ -122,7 +124,7 @@
                                                 @if (!empty($noti['data']['type']) && $noti['data']['type'] == 'approve')
                                                     <li><a class="dropdown-item" href="#"><img
                                                                 src="/images/{{ $noti['data']['job']['image'] }}"
-                                                                width="60"> Get you on the Team |
+                                                                width="60" height="60" style="border-radius: 5px; object-fit: cover"> Get you on the Team |
                                                             {{ $noti->created_at }} </a>
                                                     </li>
                                                 @else
@@ -151,21 +153,28 @@
                                             {{-- <a href="{{ route('savejobs') }}">Save a Jobs</a> --}}
                                             <form method="POST" action="{{ route('logout') }}" x-data>
                                                 @csrf
-                                                <a href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();">Log
+                                                <a href="{{ route('logout') }}"
+                                                    onclick="event.preventDefault(); this.closest('form').submit();">Log
                                                     out</a>
                                             </form>
                                         </div>
                                     </div>
                                 @else
-                                    <a href="{{ route('login') }}"
-                                        class="login font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Sign
-                                        In</a>
-
-                                    @if (Route::has('register'))
-                                        <a href="{{ route('register') }}"
-                                            class="register ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Sign
-                                            Up</a>
-                                    @endif
+                                    <div class="box-login">
+                                        <div class="box-signin">
+                                            <a href="{{ route('login') }}"
+                                                class="login font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Sign
+                                                In</a>
+                                        </div>
+                                        @if (Route::has('register'))
+                                            <div class="box-signup">
+                                                <a href="{{ route('register') }}"
+                                                    class="register p-3 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
+                                                    style="background-color: #000">Sign
+                                                    Up</a>
+                                            </div>
+                                        @endif
+                                    </div>
                                 @endauth
                                 {{-- <i class="fas fa-user"></i> --}}
                             </div>
@@ -179,7 +188,7 @@
         </section>
         <footer>
             <div id="footer">
-                <div class="help">
+                <div class="box-footer">
                     <div class="help-ft">
                         <p>HELP</p>
                         <h1>Team & Condition</h1>
@@ -188,7 +197,7 @@
                         <a href="index.html">
                             <img src="/images/logo-white 1.png">
                         </a>
-                        <h2>About Us</h2>
+                        <h6>About Us</h6>
                         <h3>Privacy Policy</h3>
                     </div>
                     <div class="newsletter">
@@ -203,6 +212,8 @@
                         <input id="search" type="text" name="search" placeholder="Search... "><i
                             class="fas fa-search"></i>
                     </div>
+                </div>
+                <div class="copyright">
                     <h5>COPYRIGHT © ALL RIGHTS RESERVED LOGO</h5>
                 </div>
             </div>

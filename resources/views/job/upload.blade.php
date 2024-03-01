@@ -72,7 +72,7 @@
                 <div class="box-role">
                     <div class="role">
                         <h5>Role</h5>
-                        <h6>Young Designer</h6>
+                        <h6>{{ $user->type_user ? $user->type_user : 'N/A' }}</h6>
                     </div>
                     <div class="skill">
                         <h7>Skill</h7>
@@ -124,7 +124,7 @@
                     @endif
 
                     <div class="btnlastpj">
-                        <a href="/lastproject"><i class="fas fa-business-time"></i>Project Collab</a>
+                        <a href="/lastproject/{{ $user->id }}"><i class="fas fa-business-time"></i>Project Collab</a>
                     </div>
                 </section>
 
