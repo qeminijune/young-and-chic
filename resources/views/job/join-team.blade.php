@@ -15,7 +15,9 @@
         <div class="box-content">
             <div class="jointeam-box">
                 {{-- {{dd($job->toArray())}} --}}
-                <img src="/images/{{ $job->image }}" alt="">
+                <div class="box-image">
+                    <img src="/images/{{ $job->image }}" alt="">
+                </div>
                 <div class="box-pf">
                     <div class="pf-name">
                         <div class="pf">

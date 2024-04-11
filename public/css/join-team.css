@@ -276,13 +276,28 @@ a:active {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-left: 50px;
 }
 
-.jointeam-box img {
+.jointeam-box {
+    display: flex;
+    flex-direction: column;
+}
+
+.box-image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* margin-left: 50px; */
+}
+
+.box-image img {
     width: 500px;
     height: auto;
     margin-top: 30px;
     border-radius: 30px;
+    object-fit: cover;
 }
 
 .box-pf {

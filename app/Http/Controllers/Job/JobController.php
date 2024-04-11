@@ -21,7 +21,7 @@ class JobController extends Controller
                     ->orWhere('full_description', 'like', '%' . $request->input('search') . '%');
             });
         }
-        $jobs = $jobs->paginate(12);
+        $jobs = $jobs->paginate(18);
         $userId = Auth::user()->id;
         // dd($jobs->toArray());
         return view("job.job-show", compact("jobs"));
