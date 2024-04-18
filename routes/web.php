@@ -46,7 +46,6 @@ Route::get('/', function () {
         ->groupBy('works.user_id')
         ->orderByDesc('rating')
         ->first();
-    // dd($rating->toArray());
     return view('welcome', compact("rating"));
 });
 

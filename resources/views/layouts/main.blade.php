@@ -22,29 +22,29 @@
     {{-- <link rel="stylesheet" type="text/css" href="{{ asset('css/all-event.css') }}"> --}}
     @yield('head')
     <!-- custom js file link  -->
-    <script src="{{ asset('js/script.js') }}" defer></script>
+    {{-- <script src="{{ asset('js/script.js') }}" defer></script> --}}
 
     <script>
         /* When the user clicks on the button,toggle between hiding and showing the dropdown content */
-        function myFunction() {
-            document.getElementById("myDropdown").classList.toggle("show");
-        }
+        // function myFunction() {
+        //     document.getElementById("myDropdown").classList.toggle("show");
+        // }
 
-        function filterFunction() {
-            var input, filter, ul, li, a, i;
-            input = document.getElementById("myInput");
-            filter = input.value.toUpperCase();
-            div = document.getElementById("myDropdown");
-            a = div.getElementsByTagName("a");
-            for (i = 0; i < a.length; i++) {
-                txtValue = a[i].textContent || a[i].innerText;
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                    a[i].style.display = "";
-                } else {
-                    a[i].style.display = "none";
-                }
-            }
-        }
+        // function filterFunction() {
+        //     var input, filter, ul, li, a, i;
+        //     input = document.getElementById("myInput");
+        //     filter = input.value.toUpperCase();
+        //     div = document.getElementById("myDropdown");
+        //     a = div.getElementsByTagName("a");
+        //     for (i = 0; i < a.length; i++) {
+        //         txtValue = a[i].textContent || a[i].innerText;
+        //         if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        //             a[i].style.display = "";
+        //         } else {
+        //             a[i].style.display = "none";
+        //         }
+        //     }
+        // }
     </script>
 
     <style>
@@ -71,30 +71,30 @@
             transition: 0.3s;
         }
 
-        .dropdown-menu {
-            /* width: 300px; */
+        /* .dropdown-menu {
+            width: 300px;
             height: auto;
             border-radius: 10px;
+        } */
 
-        }
-
-        .dropdown-item {
+        /* .dropdown-item {
             font-family: LINESEED;
             font-size: 13px;
             text-transform: none;
-        }
+        } */
 
-        .btn {
+        /* .btn {
             margin-top: 10px;
             border: none
-        }
+        } */
     </style>
 </head>
 
 <body>
-    <div id="wrapper">
-        <header>
-            <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fa-solid fa-angle-up"></i></button>
+    <div>
+        {{-- <header>
+            <button onclick="topFunction()" id="myBtn" title="Go to top"><i
+                    class="fa-solid fa-angle-up"></i></button>
             <div id="head">
                 <div class="menu">
                     <div id="logo">
@@ -104,11 +104,7 @@
                     </div>
                     <div class="box-menu">
                         <div id="menu-list">
-                            {{-- <li>
-                                <a href="/foryou.html">For You</a>
-                            </li> --}}
                             <li><a href="{{ route('jobshow') }}">Fine a Team</a></li>
-                            {{-- <li><a href="{{ route('discover') }}">Discover</a></li> --}}
                             <li><a href="{{ route('profile') }}">Profile</a></li>
                         </div>
                         @if (Route::has('login'))
@@ -124,7 +120,9 @@
                                                 @if (!empty($noti['data']['type']) && $noti['data']['type'] == 'approve')
                                                     <li><a class="dropdown-item" href="#"><img
                                                                 src="/images/{{ $noti['data']['job']['image'] }}"
-                                                                width="60" height="60" style="border-radius: 5px; object-fit: cover"> Get you on the Team |
+                                                                width="60" height="60"
+                                                                style="border-radius: 5px; object-fit: cover"> Get you
+                                                            on the Team |
                                                             {{ $noti->created_at }} </a>
                                                     </li>
                                                 @else
@@ -140,17 +138,12 @@
                                 @endif
 
                                 @auth
-                                    {{-- <a href="{{ url('/dashboard') }}"
-                                        class="logout font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log
-                                        Out</a> --}}
                                     <div class="dropdown">
                                         <button onclick="myFunction()" class="dropbtn"><i
                                                 class="fa-solid fa-user"></i></button>
                                         <div id="myDropdown" class="dropdown-content">
                                             <a href="{{ route('upload', Auth::user()->id) }}">Profile account</a>
                                             <a href="{{ route('mn.profile') }}">Manage profile</a>
-                                            {{-- <a href="{{ route('bookmarks') }}">Bookmarks</a> --}}
-                                            {{-- <a href="{{ route('savejobs') }}">Save a Jobs</a> --}}
                                             <form method="POST" action="{{ route('logout') }}" x-data>
                                                 @csrf
                                                 <a href="{{ route('logout') }}"
@@ -176,45 +169,217 @@
                                         @endif
                                     </div>
                                 @endauth
-                                {{-- <i class="fas fa-user"></i> --}}
                             </div>
                         @endif
                     </div>
                 </div>
             </div>
+        </header> --}}
+        <header>
+            <button onclick="topFunction()" id="myBtn" title="Go to top"><i
+                    class="fa-solid fa-angle-up"></i></button>
+            <nav class="navbar navbar-expand-md bg-body">
+                <div class="container">
+                    <div class="row flex-grow-1 justify-content-between align-items-center gy-4">
+                        <div class="col-auto d-md-none">
+                            <button class="btn" type="button" data-bs-toggle="offcanvas"
+                                data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar"
+                                aria-label="Toggle navigation">
+                                <i class="fa-solid fa-bars fs-1"></i>
+                            </button>
+                        </div>
+                        <div class="col col-md-12 text-md-center">
+                            <a class="navbar-brand" href="/">
+                                <img class="logo" src="/images/logo-final 2.png">
+                            </a>
+                        </div>
+                        <div class="col-auto d-md-none">
+                            {{-- notification --}}
+                            @if (Auth::check())
+                                <span class="dropdown">
+                                    <a class="fs-1" type="button" role="button" data-bs-toggle="dropdown"
+                                        aria-expanded="false">
+                                        <i class="fas fa-bell"></i>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-end">
+                                        @forelse (Auth::user()->unreadNotifications as $noti)
+                                            @if (!empty($noti['data']['type']) && $noti['data']['type'] == 'approve')
+                                                <li><a class="dropdown-item" href="#"><img
+                                                            src="/images/{{ $noti['data']['job']['image'] }}"
+                                                            width="60" height="60"
+                                                            style="border-radius: 5px; object-fit: cover">
+                                                        Get you
+                                                        on the Team |
+                                                        {{ $noti->created_at }} </a>
+                                                </li>
+                                            @else
+                                                <li><a class="dropdown-item"
+                                                        href="#">{{ $noti['data']['user']['name'] . ' Apply for a Team on your post ' . $noti['data']['job']['image'] . ' | ' . $noti->created_at }}</a>
+                                                </li>
+                                            @endif
+                                            <hr>
+                                        @empty
+                                        @endforelse
+                                    </ul>
+                                </span>
+                            @endif
+                        </div>
+                        {{-- sign in and sign up --}}
+
+                        @auth()
+                            <div class="col-auto d-md-none">
+                                <div class="dropdown">
+                                    <a class="fs-1" type="button" role="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                <img class="avatar" src="{{ Auth::user()->image ? Auth::user()->image : Auth::user()->profile_photo_path }}" alt="" >
+                                </a>
+                                    <div class="dropdown-menu dropdown-menu-end">
+                                       <li> <a class="dropdown-item" href="{{ route('upload', Auth::user()->id) }}">Profile
+                                        account</a></li>
+                                       <li> <a class="dropdown-item" href="{{ route('mn.profile') }}">Manage profile</a></li>
+                                        {{-- <a href="{{ route('bookmarks') }}">Bookmarks</a> --}}
+                                        {{-- <a href="{{ route('savejobs') }}">Save a Jobs</a> --}}
+                                        <li>
+                                            <formmethod="POST" action="{{ route('logout') }}" x-data>
+                                                @csrf
+                                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                                    onclick="event.preventDefault(); this.closest('form').submit();">Log
+                                                    out</a>
+                                            </formmethod=>
+                                        </li>
+                                    </div>
+                                </div>
+                            </div>
+                        @else
+                            <div class="col-auto d-md-none">
+                                <a href="{{ route('login') }}">
+                                    <i class="fa-regular fa-circle-user"></i>
+                                </a>
+                            </div>
+                        @endauth
+                        <div class="col-12 d-none d-md-block">
+                            <ul
+                                class="navbar-nav mx-auto mb-2 mb-md-0 align-items-center justify-content-md-center gap-md-4">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('jobshow') }}">Find a Team</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('profile') }}">Profile</a>
+                                </li>
+                                @if (Route::has('login'))
+                                    {{-- notification --}}
+                                    @if (Auth::check())
+                                        <li class="nav-item dropdown">
+                                            <button class="nav-link" type="button" data-bs-toggle="dropdown"
+                                                aria-expanded="false">
+                                                <i class="fas fa-bell"></i>
+                                            </button>
+                                            <ul class="dropdown-menu">
+                                                @forelse (Auth::user()->unreadNotifications as $noti)
+                                                    @if (!empty($noti['data']['type']) && $noti['data']['type'] == 'approve')
+                                                        <li><a class="dropdown-item" href="#"><img
+                                                                    src="/images/{{ $noti['data']['job']['image'] }}"
+                                                                    width="60" height="60"
+                                                                    style="border-radius: 5px; object-fit: cover">
+                                                                Get you
+                                                                on the Team |
+                                                                {{ $noti->created_at }} </a>
+                                                        </li>
+                                                    @else
+                                                        <li><a class="dropdown-item"
+                                                                href="#">{{ $noti['data']['user']['name'] . ' Apply for a Team on your post ' . $noti['data']['job']['image'] . ' | ' . $noti->created_at }}</a>
+                                                        </li>
+                                                    @endif
+                                                    <hr>
+                                                @empty
+                                                @endforelse
+                                            </ul>
+                                        </li>
+                                    @endif
+
+                                    {{-- sign in and sign up --}}
+                                    @auth
+                                        <li class="nav-item dropdown">
+                                            <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown"
+                                                aria-expanded="false">
+                                                <img class="avatar" src="{{ Auth::user()->image ? Auth::user()->image : Auth::user()->profile_photo_path }}" alt="" >
+                                            </a>
+                                            <ul class="dropdown-menu">
+                                                <li> <a class="dropdown-item"
+                                                        href="{{ route('upload', Auth::user()->id) }}">Profile
+                                                        account</a></li>
+                                                <li><a class="dropdown-item" href="{{ route('mn.profile') }}">Manage
+                                                        profile</a></li>
+                                                {{-- <a href="{{ route('bookmarks') }}">Bookmarks</a> --}}
+                                                {{-- <a href="{{ route('savejobs') }}">Save a Jobs</a> --}}
+                                                <li>
+                                                    <form method="POST" action="{{ route('logout') }}" x-data>
+                                                        @csrf
+                                                        <a class="dropdown-item" href="{{ route('logout') }}"
+                                                            onclick="event.preventDefault(); this.closest('form').submit();">Log
+                                                            out</a>
+                                                    </form>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    @else
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('login') }}"
+                                                class="login font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Sign
+                                                In</a>
+                                        </li>
+                                        @if (Route::has('register'))
+                                            <li class="nav-item">
+                                                <a href="{{ route('register') }}" class="nav-link">
+                                                    <button class="btn btn-dark">
+                                                        Sign Up
+                                                    </button>
+                                                </a>
+                                            </li>
+                                        @endif
+                                    @endauth
+                                @endif
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="offcanvas offcanvas-start bg-primary d-md-none" tabindex="-1" id="offcanvasNavbar"
+                        aria-labelledby="offcanvasNavbarLabel">
+                        <div class="offcanvas-header">
+                            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
+                                <img src="/images/logo-final-white.svg" class="logo" alt="">
+                            </h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="offcanvas-body">
+                            <ul class="navbar-nav mx-auto mb-2 mb-md-0 align-items-lg-center gap-md-4">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('jobshow') }}">Find a Team</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('profile') }}">Profile</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </nav>
         </header>
         <section>
             @yield('content')
         </section>
         <footer>
             <div id="footer">
-                <div class="box-footer">
-                    <div class="help-ft">
-                        <p>HELP</p>
-                        <h1>Team & Condition</h1>
-                    </div>
-                    <div class="abt-us">
-                        <a href="index.html">
-                            <img src="/images/logo-white 1.png">
-                        </a>
-                        <h6>About Us</h6>
-                        <h3>Privacy Policy</h3>
-                    </div>
-                    <div class="newsletter">
-                        <h4>Newsletter</h4>
-                        <div id="signup">
-                            <label for="fname">Sign Up to receive news update</label><br>
-                        </div>
-                        <input type="text" id="username" name="username" value=""
-                            placeholder="Enter email address"><br>
-                    </div>
-                    <div class="search-footer">
-                        <input id="search" type="text" name="search" placeholder="Search... "><i
-                            class="fas fa-search"></i>
-                    </div>
+                <div class="text-center mb-4">
+                    <img src="/images/logo-final-white.svg" class="logo" alt="">
                 </div>
-                <div class="copyright">
-                    <h5>COPYRIGHT © ALL RIGHTS RESERVED LOGO</h5>
+                <div class="d-flex justify-content-center gap-5">
+                    <a href="{{ route('jobshow') }}" class="link-light  link-underline-opacity-0">find a team</a>
+                    <a href="{{ route('profile') }}" class="link-light  link-underline-opacity-0">profile</a>
+                </div>
+                <div class="copyright mt-5">
+                    <p class="text-center text-white fs-6">COPYRIGHT © ALL RIGHTS RESERVED LOGO</p>
                 </div>
             </div>
         </footer>
