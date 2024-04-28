@@ -11,7 +11,7 @@
                     <div class="image-area">
                         <div class="img-wrapper">
                             <img src="{{ $user->image ? $user->image : "https://www.gravatar.com/avatar/" . md5( strtolower( trim( $user->email ) ) ) . "?d=" . urlencode( "https://i.pravatar.cc/" . rand( 1, 1000 )) . "&s=" . 1028;}}" alt="Atul Prajapati">
-                            <h2><a href="{{ route('upload', $user->id) }}" style="color: white;text-decoration: none">{{ $user->name }}</a> ({{ $user->type_user }})</h2>
+                            <p class="text"><a href="{{ route('upload', $user->id) }}" style="color: white;text-decoration: none">{{ $user->name }}</a> ({{ $user->type_user }})</p>
                             <ul>
                                 <li><a href="https://www.facebook.com/"><i class="fab fa-facebook"></i></a></li>
                                 <li><a href="https://www.instagram.com/atulkprajapati2000/"><i

@@ -206,9 +206,9 @@ a:active {
     display: block;
 }
 
-.dropdown a:hover {
+/* .dropdown a:hover {
     background-color: #ddd;
-}
+} */
 
 .show {
     display: block;
@@ -238,7 +238,7 @@ a:active {
     transition: 0.3s;
 }
 
-.back button {
+/* .back button {
     border-radius: 50px;
     border: none;
     font-family: LINESEED;
@@ -246,28 +246,25 @@ a:active {
     color: #000;
     margin: 100px 0 0 15px;
     background: none;
-}
+} */
 
-.back button:hover {
-    /* background-color: #960021; */
+/* .back button:hover {
     color: #960021;
     transition: .3s;
     cursor: pointer;
-}
+} */
 
-.fa-arrow-left {
+/* .fa-arrow-left {
     font-size: 16px;
     color: #000;
     margin-left: 105px;
-    /* background: none; */
-}
+} */
 
-.fa-arrow-left:hover {
-    /* background-color: #960021; */
+/* .fa-arrow-left:hover {
     color: #960021;
     transition: .3s;
     cursor: pointer;
-}
+} */
 
 .manage {
     width: 1230px;

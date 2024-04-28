@@ -6,12 +6,13 @@ use App\Http\Controllers\Controller;
 use App\Models\Job;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Kreait\Laravel\Firebase\Facades\Firebase;
 
 class JobController extends Controller
 {
     public function index(Request $request)
     {
-        $jobs = Job::whereDoesntHave('apply')->where("status", "start");
+        $jobs = Job::with(["userApply"=>function($q){$q->where("user_id", Auth::user()->id);}])->whereDoesntHave('apply')->where("status", "start");
         if ($request->input("filter")) {
             $jobs = $jobs->where("participants", $request->input("filter"));
         }
@@ -22,8 +23,7 @@ class JobController extends Controller
             });
         }
         $jobs = $jobs->paginate(18);
-        $userId = Auth::user()->id;
-        // dd($jobs->toArray());
+        // dd(Auth::user()->unreadNotifications->toArray());
         return view("job.job-show", compact("jobs"));
     }
 
@@ -34,7 +34,6 @@ class JobController extends Controller
 
     public function store(Request $request)
     {
-
         $request->validate([
             'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
             'participant' => 'required|max:255',
@@ -45,7 +44,9 @@ class JobController extends Controller
         ]);
         // dd($request->input());
         $imageName = time() . '.' . $request->image->extension();
-        $request->image->storeAs('images', $imageName);
+        // $request->image->storeAs('images', $imageName);
+        $uploadImage = fopen($request->file('image'), 'r');
+        Firebase::storage()->getBucket()->upload($uploadImage, ["name" => $imageName]);
         $job = new Job();
         $job->participants = $request->input("participant");
         $job->image = $imageName;

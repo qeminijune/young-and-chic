@@ -21,13 +21,16 @@
 
             <div class="block">
                 <x-label for="email" value="{{ __('Email') }}" />
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
+                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')"
+                    required autofocus autocomplete="username" />
             </div>
 
             <div class="flex items-center justify-end mt-4">
-                <x-button>
+                <button
+                    class="w-full text-white bg-[#960021] hover:bg-[#960021]/90 focus:ring-4 focus:outline-none focus:ring-[#960021]/50 rounded-full text-sm px-5 py-3 font-bold text-center flex justify-center gap-2 items-center dark:focus:ring-[#960021]/55 transition ease-in-out duration-300"
+                    type="submit">
                     {{ __('Email Password Reset Link') }}
-                </x-button>
+                </button>
             </div>
         </form>
     </x-authentication-card>

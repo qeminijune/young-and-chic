@@ -23,9 +23,12 @@ use App\Http\Controllers\UploadController;
 use App\Http\Controllers\WorkController;
 use App\Http\Middleware\CheckTypeUser;
 use App\Models\Ratings;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Response;
+use Kreait\Laravel\Firebase\Facades\Firebase;
+use Symfony\Component\HttpFoundation\StreamedResponse;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +42,7 @@ use Illuminate\Support\Facades\Response;
 */
 
 Route::get('/', function () {
+    $expiresAt = new \DateTime("+20 seconds");
     $rating = Ratings::with("user", "work", "work.images")->select('ratings.work_id', 'works.user_id', DB::raw('AVG(ratings.rating) as rating'))
         ->join('works', 'works.id', '=', 'ratings.work_id')
         ->whereYear('ratings.created_at', now()->year)
@@ -93,19 +97,28 @@ route::get('auth/google', [GoogleController::class, 'googlepage']);
 route::get('/auth/google/callback', [GoogleController::class, 'googlecallback']);
 
 Route::get('images/{filename}', function ($filename) {
+    // $path = storage_path('app/images/' . $filename);
+    // if (!File::exists($path)) {
+    //     abort(404);
+    // }
 
-    $path = storage_path('app/images/' . $filename);
-    if (!File::exists($path)) {
+    // $file = File::get($path);
+    // $type = File::mimeType($path);
+
+    // $response = Response::make($file, 200);
+    // $response->header("Content-Type", $type);
+    $expiresAt = new \DateTime('tomorrow');
+    $bucket = Firebase::storage()->getBucket();
+
+    $object = $bucket->object($filename);
+
+    if (!$object->exists()) {
         abort(404);
     }
 
-    $file = File::get($path);
-    $type = File::mimeType($path);
-
-    $response = Response::make($file, 200);
-    $response->header("Content-Type", $type);
-
-    return $response;
+    $object = $object->signedUrl($expiresAt);
+    
+    return new RedirectResponse($object);
 });
 
 

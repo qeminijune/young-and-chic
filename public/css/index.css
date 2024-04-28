@@ -21,14 +21,6 @@
     overflow-x: hidden;
 } */
 
-body {
-    background: white;
-    font-family: LINESEED;
-    font-size: 16px;
-    /* grid-template-rows: 500px 100px;
-    grid-template-columns: 1fr 30px 30px 30px 30px 30px 1fr; */
-}
-
 /* .head .menulist li a.active {
     color: #960021;
 } */
@@ -41,11 +33,6 @@ body {
 
 hr {
     border: 0.5px solid black;
-}
-
-.logo {
-    width: 150px;
-    height: auto;
 }
 
 .young-designer-grid {
@@ -65,10 +52,6 @@ hr {
 }
 
 @media screen and (max-width: 767px) {
-    .logo {
-        width: 50px;
-        height: auto;
-    }
     .young-designer-grid {
         grid-template-columns: repeat(2, minmax(140px, 1fr));
         grid-auto-rows: 312px;
@@ -1149,12 +1132,6 @@ input:nth-of-type(5):checked ~ main#carousel {
 }
 
 /* footer */
-
-#footer {
-    margin-top: 24px;
-    padding: 70px 0px 45px 0px;
-    background-color: black;
-}
 
 .box-footer {
     display: flex;

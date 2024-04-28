@@ -4,34 +4,45 @@
 @import url('https://fonts.cdnfonts.com/css/priyati');
 @import url('https://fonts.cdnfonts.com/css/vogue');
 @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@400;500&display=swap');
-* {
+/* * {
     margin: 0;
     padding: 0;
-    /* font-family: 'Nunito', sans-serif; */
+    font-family: 'Nunito', sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     outline: none;
-    /* border: none; */
+    border: none;
     text-decoration: none;
     transition: all .2s linear;
     text-transform: none;
-}
+} */
 
-#wrapper {
+/* #wrapper {
     width: 1440px;
     height: auto;
     margin: 0 auto;
-}
+} */
 
-header {
+/* header {
     width: 100%;
+} */
+
+.login{
+   position: relative;
+   height: 100vh;
 }
 
 .login img {
-    width: auto;
-    height: 100vh;
-    float: left;
+    max-width: 300px;
+    width: 100%;
+}
+
+.auth-bg{
+    background-image: url('/images/pic-login.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .login1 img {

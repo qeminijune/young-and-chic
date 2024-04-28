@@ -18,7 +18,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bs-stepper/dist/css/bs-stepper.min.css">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/job.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/common.css') }}">
     {{-- <link rel="stylesheet" type="text/css" href="{{ asset('css/all-event.css') }}"> --}}
     @yield('head')
     <!-- custom js file link  -->
@@ -197,28 +197,80 @@
                             {{-- notification --}}
                             @if (Auth::check())
                                 <span class="dropdown">
-                                    <a class="fs-1" type="button" role="button" data-bs-toggle="dropdown"
+                                    <a class="" type="button" role="button" data-bs-toggle="dropdown"
                                         aria-expanded="false">
-                                        <i class="fas fa-bell"></i>
+                                        <i class="fas fa-bell position-relative">
+                                            @if (Auth::user()->unreadNotifications->count() > 0)
+                                                <span
+                                                    class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                                    {{ Auth::user()->unreadNotifications->count() }}
+                                                    <span class="visually-hidden">New alerts</span>
+                                                </span>
+                                            @endif
+                                        </i>
                                     </a>
-                                    <ul class="dropdown-menu dropdown-menu-end">
-                                        @forelse (Auth::user()->unreadNotifications as $noti)
+                                    <ul class="dropdown-menu dropdown-menu-end list-notification">
+                                        <li><h6 class="dropdown-header">Notifiations</h6></li>
+                                        @forelse (Auth::user()->notifications as $noti)
                                             @if (!empty($noti['data']['type']) && $noti['data']['type'] == 'approve')
-                                                <li><a class="dropdown-item" href="#"><img
-                                                            src="/images/{{ $noti['data']['job']['image'] }}"
-                                                            width="60" height="60"
-                                                            style="border-radius: 5px; object-fit: cover">
-                                                        Get you
-                                                        on the Team |
-                                                        {{ $noti->created_at }} </a>
+                                                <li>
+                                                    <a class="dropdown-item white-space-normal {{ $noti->read_at ? '' : 'active' }} p-3"
+                                                        href={{ route('jointeam', $noti['data']['job']['id']) }}>
+                                                        <div class="row gx-3">
+                                                            <div class="col-auto">
+                                                                <img src="{{ $noti['data']['job']['image'] }}"
+                                                                    width="60" height="60"
+                                                                    style="border-radius: 5px; object-fit: cover">
+                                                            </div>
+                                                            <div class="col">
+                                                                <div class="row">
+                                                                    <div class="col">
+                                                                        <p class="mb-2 fs-md-14px">
+                                                                            {{ $noti['data']['user']['name'] }} Get you
+                                                                            on the Team</p>
+                                                                    </div>
+                                                                    <div class="col-12 col-md-auto">
+                                                                        <span class="mb-2 fs-md-12px">
+                                                                            {{ \Carbon\Carbon::parse($noti->created_at)->diffForHumans() }}
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
                                                 </li>
                                             @else
-                                                <li><a class="dropdown-item"
-                                                        href="#">{{ $noti['data']['user']['name'] . ' Apply for a Team on your post ' . $noti['data']['job']['image'] . ' | ' . $noti->created_at }}</a>
+                                                <li>
+                                                    <a class="dropdown-item white-space-normal {{ $noti->read_at ? '' : 'active' }} p-3"
+                                                        href={{ route('jointeam', $noti['data']['job']['id']) }}>
+                                                        <div class="row gx-3">
+                                                            <div class="col-auto">
+                                                                <img src="{{ $noti['data']['job']['image'] }}"
+                                                                    width="60" height="60"
+                                                                    style="border-radius: 5px; object-fit: cover">
+                                                            </div>
+                                                            <div class="col">
+                                                                <div class="row">
+                                                                    <div class="col">
+                                                                        <p class="mb-2 fs-md-14px">
+                                                                            {{ $noti['data']['user']['name'] }} Apply
+                                                                            for a Team on your post</p>
+                                                                    </div>
+                                                                    <div class="col-12 col-md-auto">
+                                                                        <span class="mb-2 fs-md-12px">
+                                                                            {{ \Carbon\Carbon::parse($noti->created_at)->diffForHumans() }}
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
                                                 </li>
                                             @endif
-                                            <hr>
                                         @empty
+                                            <li>
+                                                <p class="p-3">No notification</p>
+                                            </li>
                                         @endforelse
                                     </ul>
                                 </span>
@@ -229,23 +281,27 @@
                         @auth()
                             <div class="col-auto d-md-none">
                                 <div class="dropdown">
-                                    <a class="fs-1" type="button" role="button" data-bs-toggle="dropdown"
-                                    aria-expanded="false">
-                                <img class="avatar" src="{{ Auth::user()->image ? Auth::user()->image : Auth::user()->profile_photo_path }}" alt="" >
-                                </a>
+                                    <a class="" type="button" role="button" data-bs-toggle="dropdown"
+                                        aria-expanded="false">
+                                        <img class="avatar"
+                                            src="{{ Auth::user()->image ? Auth::user()->image : (Auth::user()->profile_photo_path ? Auth::user()->profile_photo_path : 'https://ui-avatars.com/api/?name=' . Auth::user()->name) }}"
+                                            alt="">
+                                    </a>
                                     <div class="dropdown-menu dropdown-menu-end">
-                                       <li> <a class="dropdown-item" href="{{ route('upload', Auth::user()->id) }}">Profile
-                                        account</a></li>
-                                       <li> <a class="dropdown-item" href="{{ route('mn.profile') }}">Manage profile</a></li>
+                                        <li> <a class="dropdown-item"
+                                                href="{{ route('upload', Auth::user()->id) }}">Profile
+                                                account</a></li>
+                                        <li> <a class="dropdown-item" href="{{ route('mn.profile') }}">Manage profile</a>
+                                        </li>
                                         {{-- <a href="{{ route('bookmarks') }}">Bookmarks</a> --}}
                                         {{-- <a href="{{ route('savejobs') }}">Save a Jobs</a> --}}
                                         <li>
-                                            <formmethod="POST" action="{{ route('logout') }}" x-data>
+                                            <form method="POST" action="{{ route('logout') }}" x-data>
                                                 @csrf
                                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                                     onclick="event.preventDefault(); this.closest('form').submit();">Log
                                                     out</a>
-                                            </formmethod=>
+                                            </form>
                                         </li>
                                     </div>
                                 </div>
@@ -272,26 +328,79 @@
                                         <li class="nav-item dropdown">
                                             <button class="nav-link" type="button" data-bs-toggle="dropdown"
                                                 aria-expanded="false">
-                                                <i class="fas fa-bell"></i>
+                                                <i class="fas fa-bell position-relative">
+                                                    @if (Auth::user()->unreadNotifications->count() > 0)
+                                                        <span
+                                                            class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                                            {{ Auth::user()->unreadNotifications->count() }}
+                                                            <span class="visually-hidden">New alerts</span>
+                                                        </span>
+                                                    @endif
+                                                </i>
                                             </button>
-                                            <ul class="dropdown-menu">
-                                                @forelse (Auth::user()->unreadNotifications as $noti)
+                                            <ul class="dropdown-menu list-notification">
+                                                <li><h6 class="dropdown-header">Notifications</h6></li>
+                                                @forelse (Auth::user()->notifications as $noti)
                                                     @if (!empty($noti['data']['type']) && $noti['data']['type'] == 'approve')
-                                                        <li><a class="dropdown-item" href="#"><img
-                                                                    src="/images/{{ $noti['data']['job']['image'] }}"
-                                                                    width="60" height="60"
-                                                                    style="border-radius: 5px; object-fit: cover">
-                                                                Get you
-                                                                on the Team |
-                                                                {{ $noti->created_at }} </a>
+                                                        <li>
+                                                            <a class="dropdown-item white-space-normal {{ $noti->read_at ? '' : 'active' }} p-3"
+                                                                href={{ route('jointeam', $noti['data']['job']['id']) }}>
+                                                                <div class="row gx-3">
+                                                                    <div class="col-auto">
+                                                                        <img src="{{ $noti['data']['job']['image'] }}"
+                                                                            width="60" height="60"
+                                                                            style="border-radius: 5px; object-fit: cover">
+                                                                    </div>
+                                                                    <div class="col">
+                                                                        <div class="row">
+                                                                            <div class="col">
+                                                                                <p class="mb-2 fs-md-14px">
+                                                                                    {{ $noti['data']['user']['name'] }}
+                                                                                    Get you
+                                                                                    on the Team</p>
+                                                                            </div>
+                                                                            <div class="col-12 col-lg-auto">
+                                                                                <span class="mb-2 fs-md-12px">
+                                                                                    {{ \Carbon\Carbon::parse($noti->created_at)->diffForHumans() }}
+                                                                                </span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </a>
                                                         </li>
                                                     @else
-                                                        <li><a class="dropdown-item"
-                                                                href="#">{{ $noti['data']['user']['name'] . ' Apply for a Team on your post ' . $noti['data']['job']['image'] . ' | ' . $noti->created_at }}</a>
+                                                        <li>
+                                                            <a class="dropdown-item white-space-normal {{ $noti->read_at ? '' : 'active' }} p-3"
+                                                                href={{ route('jointeam', $noti['data']['job']['id']) }}>
+                                                                <div class="row gx-3">
+                                                                    <div class="col-auto">
+                                                                        <img src="{{ $noti['data']['user']['image'] }}"
+                                                                            width="60" height="60"
+                                                                            style="border-radius: 5px; object-fit: cover">
+                                                                    </div>
+                                                                    <div class="col">
+                                                                        <div class="row">
+                                                                            <div class="col">
+                                                                                <p class="mb-2 fs-md-14px">
+                                                                                    {{ $noti['data']['user']['name'] }}
+                                                                                    Apply for a Team on your post</p>
+                                                                            </div>
+                                                                            <div class="col-12 col-lg-auto">
+                                                                                <span class="mb-2 fs-md-12px">
+                                                                                    {{ \Carbon\Carbon::parse($noti->created_at)->diffForHumans() }}
+                                                                                </span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </a>
                                                         </li>
                                                     @endif
-                                                    <hr>
                                                 @empty
+                                                    <li>
+                                                        <p class="p-3">No notification</p>
+                                                    </li>
                                                 @endforelse
                                             </ul>
                                         </li>
@@ -302,7 +411,9 @@
                                         <li class="nav-item dropdown">
                                             <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown"
                                                 aria-expanded="false">
-                                                <img class="avatar" src="{{ Auth::user()->image ? Auth::user()->image : Auth::user()->profile_photo_path }}" alt="" >
+                                                <img class="avatar"
+                                                    src="{{ Auth::user()->image ? Auth::user()->image : (Auth::user()->profile_photo_path ? Auth::user()->profile_photo_path : 'https://ui-avatars.com/api/?name=' . Auth::user()->name) }}"
+                                                    alt="">
                                             </a>
                                             <ul class="dropdown-menu">
                                                 <li> <a class="dropdown-item"

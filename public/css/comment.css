@@ -137,11 +137,11 @@ a:active {
     color: #960021;
 } */
 
-.fa-bell {
+/* .fa-bell {
     font-size: 20px;
     color: black;
     margin: 10px 0 0 80px;
-}
+} */
 
 .fa-bell:hover {
     cursor: pointer;
@@ -206,9 +206,9 @@ a:active {
     display: block;
 }
 
-.dropdown a:hover {
+/* .dropdown a:hover {
     background-color: #ddd;
-}
+} */
 
 .show {
     display: block;
@@ -240,7 +240,7 @@ a:active {
 
 
 /* end scroll up */
-
+/* 
 .back button {
     border-radius: 50px;
     border: none;
@@ -249,28 +249,25 @@ a:active {
     color: #000;
     margin: 50px 0 0 15px;
     background: none;
-}
+} */
 
-.back button:hover {
-    /* background-color: #960021; */
+/* .back button:hover {
     color: #960021;
     transition: .3s;
     cursor: pointer;
-}
+} */
 
-.fa-arrow-left {
+/* .fa-arrow-left {
     font-size: 16px;
     color: #000;
-    margin-left: 105px;
-    /* background: none; */
-}
+    margin-left: 105px
+} */
 
-.fa-arrow-left:hover {
-    /* background-color: #960021; */
+/* .fa-arrow-left:hover {
     color: #960021;
     transition: .3s;
     cursor: pointer;
-}
+} */
 
 .work {
     display: grid;
