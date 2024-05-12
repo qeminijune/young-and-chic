@@ -1,38 +1,25 @@
 /* @import url('https://fonts.cdnfonts.com/css/gentium-basic'); */
 
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600&display=swap');
-@import url('https://fonts.cdnfonts.com/css/priyati');
-@import url('https://fonts.cdnfonts.com/css/vogue');
-@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@400;500&display=swap');
-* {
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600&display=swap");
+@import url("https://fonts.cdnfonts.com/css/priyati");
+@import url("https://fonts.cdnfonts.com/css/vogue");
+@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@400;500&display=swap");
+/* * {
     margin: 0;
     padding: 0;
-    /* font-family: 'Nunito', sans-serif; */
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     outline: none;
-    /* border: none; */
     text-decoration: none;
     transition: all .2s linear;
     text-transform: none;
-}
-
+} */
 
 /* html {
     font-size: 62.5%;
     overflow-x: hidden;
 } */
-
-body {
-    background: white;
-    display: grid;
-    /* grid-template-rows: 500px 100px;
-    grid-template-columns: 1fr 30px 30px 30px 30px 30px 1fr; */
-    justify-content: center;
-    align-items: center;
-}
-
 
 /* .head .menulist li a.active {
     color: #960021;
@@ -130,7 +117,6 @@ header {
     text-decoration: none;
 }
 
-
 /* a:hover,
 a:active {
     text-decoration: underline overline;
@@ -146,9 +132,8 @@ a:active {
 .fa-bell:hover {
     cursor: pointer;
     color: #960021;
-    transition: .3s;
+    transition: 0.3s;
 }
-
 
 /* .fa-user {
     font-size: 20px;
@@ -214,7 +199,6 @@ a:active {
     display: block;
 }
 
-
 /* end header */
 
 #myBtn {
@@ -267,13 +251,11 @@ a:active {
 } */
 
 .manage {
-    width: 1230px;
     height: auto;
-    padding-bottom: 40px;
     background-color: #eee;
     box-shadow: 2px 2px 14px 0px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
-    margin: 50px 0 0 100px;
+    /* margin: 50px 0 0 100px; */
 }
 
 .manage img {
@@ -288,12 +270,19 @@ a:active {
     font-family: LINESEED;
 }
 
+.wrap-form-manage {
+    padding: 0px 1rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding-bottom: 2rem;
+}
+
 .edit-name {
-    margin: 20px 0 0 70px;
+    /* margin: 20px 0 0 70px; */
 }
 
 .pf13 {
-    margin: -50px 0 0 150px;
+    /* margin: -50px 0 0 150px; */
 }
 
 .pf13 div {
@@ -306,6 +295,11 @@ a:active {
     width: 100%;
     height: 260px;
     position: relative;
+}
+
+.pf13 {
+    margin: 0px 3rem;
+    margin-top: -50px;
 }
 
 .upload img {
@@ -332,108 +326,23 @@ a:active {
     cursor: pointer;
 }
 
-#tname {
-    font-family: LINESEED;
-    font-size: 20px;
-    margin-left: 70px;
-}
-
-#name {
-    width: 1120px;
+.input-manage {
+    width: 100%;
     padding: 12px 20px;
-    margin: 8px 0;
+    /* margin: 8px 0; */
     display: inline-block;
     border: none;
     border-radius: 50px;
     box-sizing: border-box;
-    margin-left: 50px;
+    /* margin-left: 50px; */
     font-family: LINESEED;
     font-size: 16px;
     text-transform: none;
     box-shadow: 2px 2px 14px 0px rgba(210, 210, 210, 0.2);
 }
 
-#taddress {
-    font-family: LINESEED;
-    font-size: 20px;
-    margin-left: 70px;
-}
-
-#address {
-    width: 1120px;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: none;
-    border-radius: 50px;
-    box-sizing: border-box;
-    margin-left: 50px;
-    font-family: LINESEED;
-    font-size: 16px;
-    text-transform: none;
-    box-shadow: 2px 2px 14px 0px rgba(210, 210, 210, 0.2);
-}
-
-#temail {
-    font-family: LINESEED;
-    font-size: 20px;
-    margin-left: 70px;
-}
-
-#email {
-    width: 1120px;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: none;
-    border-radius: 50px;
-    box-sizing: border-box;
-    margin-left: 50px;
-    font-family: LINESEED;
-    font-size: 16px;
-    text-transform: none;
-    box-shadow: 2px 2px 14px 0px rgba(210, 210, 210, 0.2);
-}
-
-#ttel {
-    font-family: LINESEED;
-    font-size: 20px;
-    margin-left: 70px;
-}
-
-#tel {
-    width: 1120px;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: none;
-    border-radius: 50px;
-    box-sizing: border-box;
-    margin-left: 50px;
-    font-family: LINESEED;
-    font-size: 16px;
-    text-transform: none;
-    box-shadow: 2px 2px 14px 0px rgba(210, 210, 210, 0.2);
-}
-
-#tbirthday {
-    font-family: LINESEED;
-    font-size: 20px;
-    margin-left: 70px;
-}
-
-#birthday {
-    width: 250px;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: none;
-    border-radius: 50px;
-    box-sizing: border-box;
-    margin: 20px 0 0 50px;
-    font-family: LINESEED;
-    font-size: 16px;
-    box-shadow: 2px 2px 14px 0px rgba(210, 210, 210, 0.2);
+.wrap-input label {
+    margin-bottom: 0.5rem;
 }
 
 #submit {
@@ -441,19 +350,16 @@ a:active {
     background-color: #960021;
     color: white;
     padding: 14px 20px;
-    margin: 8px 0;
     border: none;
     border-radius: 50px;
     cursor: pointer;
     font-family: LINESEED;
     font-size: 20px;
-    margin: 20px 0 0 990px;
 }
 
 #submit:hover {
     background-color: #000;
 }
-
 
 /* footer */
 
@@ -597,7 +503,6 @@ a:active {
     margin-top: 45px;
 }
 
-
 /* .profile-pic {
     border-radius: 50%;
     height: 160px;
@@ -631,3 +536,9 @@ form input[type="file"] {
     display: none;
     cursor: pointer;
 } */
+
+@media (max-width: 575.98px) {
+    .pf13 .upload{
+        margin: 0 auto;
+    }
+}

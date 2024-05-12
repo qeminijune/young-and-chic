@@ -17,4 +17,8 @@ class Work extends Model
     public function comments() {
         return $this -> hasMany(Comments::class, "work_id", "id")->orderBy("created_at", "desc");
     }
+
+    public function ratings() {
+        return $this -> hasMany(Ratings::class, "work_id", "id");
+    }
 }

@@ -8,7 +8,7 @@
             <div class="topic-pfupload my-5">
                 <div class="back">
                     <a class=" link-dark text-decoration-none d-inline-flex gap-4 align-items-center"
-                        href="{{ route('upload', Auth::user()->id) }}">
+                        href="{{ url()->previous() }}">
                         <i class="fas fa-arrow-left"></i>
                         GO BACK
                     </a>
@@ -33,7 +33,7 @@
                         </div>
                         <div class="role-parti">
                             <h1>Looking for Role</h1>
-                            <h2>{{ $job->participants }}</h2>
+                            <h2 class="text-capitalize">{{ $job->participants }}</h2>
                         </div>
                     </div>
                     <hr class="mt-5">
