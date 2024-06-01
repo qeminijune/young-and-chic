@@ -1,0 +1,110 @@
+// Import Bootstrap
+$primary: #960021;
+
+//btn
+$input-btn-padding-y:0.75rem;
+$input-btn-padding-x:2rem;
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px
+);
+
+a{
+  text-decoration: none;
+}
+
+//nav
+$navbar-light-hover-color: $primary;
+
+@import 'bootstrap/scss/bootstrap';
+
+.btn-home{
+  font-size: 1.5rem;
+}
+
+.section-1{
+  bottom: 50px;
+}
+
+.section-2{
+  left: 10%;
+  bottom: 50px;
+}
+
+@include media-breakpoint-down(xl) {
+  .section-2{
+    bottom: 80px;
+  }
+} 
+
+@include media-breakpoint-down(lg) {
+  .btn{
+    --bs-btn-padding-x: 1.5rem;
+    --bs-btn-padding-y: 0.5rem;
+  }
+  .section-1{
+    bottom: 30px;
+  }
+  .section-2{
+    left: 10%;
+    bottom: 50px;
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .section-1{
+    bottom: 10px;
+  }
+  .section-2{
+    left: 10%;
+    bottom: 50px;
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .btn-home{
+    font-size: 0.75rem;
+  }
+  .section-1{
+    bottom: 10px;
+  }
+  .section-2{
+    left: 10%;
+    bottom: 20px;
+  }
+}
+
+
+
+
+$theme-colors: (
+  "primary":    $primary,
+  "secondary":  $secondary,
+  "success":    $success,
+  "info":       $info,
+  "warning":    $warning,
+  "danger":     $danger,
+  "light":      $light,
+  "dark":       $dark
+);
+
+
+
+.btn-primary {
+    // --bs-btn-font-weight: 600;
+    // --bs-btn-color: var(--bs-white);
+    // --bs-btn-bg: var(--bd-violet-bg);
+    // --bs-btn-border-color: var(--bd-violet-bg);
+    // --bs-btn-hover-color: var(--bs-white);
+    --bs-btn-hover-bg: #000000;
+    // --bs-btn-hover-border-color: #{shade-color($bd-violet, 10%)};
+    // --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+    // --bs-btn-active-color: var(--bs-btn-hover-color);
+    --bs-btn-active-bg: #000000;
+    // --bs-btn-active-border-color: #{shade-color($bd-violet, 20%)};
+}

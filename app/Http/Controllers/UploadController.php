@@ -24,7 +24,7 @@ class UploadController extends Controller
         //     ->orderByDesc('count_rating')
         //     ->orderBy('work_id')
         //     ->get();
-        $works = Work::with("images", "user", "comments")->where("user_id", $id)->orderBy("created_at", "desc")->get();
+        $works = Work::with("images", "user", "comments")->select('works.*', DB::raw('COALESCE(SUM(ratings.rating),0) as total_rating'))->leftJoin("ratings", "works.id", "ratings.work_id")->where("works.user_id", $id)->groupBy('works.id')->orderBy("works.created_at", "desc")->get();
         $job = Job::where("user_id", $id)->where("status", "start")->first();
         $user = User::where("id", $id)->first();
         $averageRating = Ratings::join('works', 'works.id', '=', 'ratings.work_id')

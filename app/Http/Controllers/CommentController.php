@@ -42,11 +42,35 @@ class CommentController extends Controller
             $rating->update(['rating' => $request->input("rating")]);
         } else {
             $rate = new Ratings();
-            $rate->work_id=$id;
-            $rate->user_id=Auth::user()->id;
-            $rate->rating=$request->input("rating");
+            $rate->work_id = $id;
+            $rate->user_id = Auth::user()->id;
+            $rate->rating = $request->input("rating");
             $rate->save();
         }
         return back();
+    }
+
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'comment' => 'required',
+        ]);
+        $comment = Comments::find($id);
+        if(!$comment){
+            return response()->json(['success' => false], 404); 
+        }
+        $comment->comment = $request->input('comment');
+        $comment->update();
+        return response()->json(['success' => true], 200);
+    }
+
+    public function destroy($id)
+    {
+        $comment = Comments::find($id);
+        if(!$comment){
+            return response()->json(['success' => false], 404); 
+        }
+        $comment->delete();
+        return response()->json(['success' => true], 200);
     }
 }

@@ -1,38 +1,32 @@
 /* @import url('https://fonts.cdnfonts.com/css/gentium-basic'); */
 
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600&display=swap');
-@import url('https://fonts.cdnfonts.com/css/priyati');
-@import url('https://fonts.cdnfonts.com/css/vogue');
-@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@400;500&display=swap');
-* {
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600&display=swap");
+@import url("https://fonts.cdnfonts.com/css/priyati");
+@import url("https://fonts.cdnfonts.com/css/vogue");
+@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@400;500&display=swap");
+/* * {
     margin: 0;
     padding: 0;
-    /* font-family: 'Nunito', sans-serif; */
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     outline: none;
-    /* border: none; */
     text-decoration: none;
     transition: all .2s linear;
     text-transform: capitalize;
-}
-
+} */
 
 /* html {
     font-size: 62.5%;
     overflow-x: hidden;
 } */
 
-body {
+/* body {
     background: white;
     display: grid;
-    /* grid-template-rows: 500px 100px;
-    grid-template-columns: 1fr 30px 30px 30px 30px 30px 1fr; */
     justify-content: center;
     align-items: center;
-}
-
+} */
 
 /* .head .menulist li a.active {
     color: #960021;
@@ -130,14 +124,13 @@ header {
     text-decoration: none;
 }
 
-
 /* a:hover,
 a:active {
     text-decoration: underline overline;
     color: #960021;
 } */
 
-.fa-bell {
+/* .fa-bell {
     font-size: 20px;
     color: black;
     margin: 10px 0 0 80px;
@@ -147,8 +140,7 @@ a:active {
     cursor: pointer;
     color: #960021;
     transition: .3s;
-}
-
+} */
 
 /* .fa-user {
     font-size: 20px;
@@ -206,14 +198,13 @@ a:active {
     display: block;
 }
 
-.dropdown a:hover {
+/* .dropdown a:hover {
     background-color: #ddd;
-}
+} */
 
 .show {
     display: block;
 }
-
 
 /* end header */
 
@@ -238,10 +229,9 @@ a:active {
     transition: 0.3s;
 }
 
-
 /* end scroll up */
 
-.back button {
+/* .back button {
     border-radius: 50px;
     border: none;
     font-family: LINESEED;
@@ -249,34 +239,30 @@ a:active {
     color: #000;
     margin: 50px 0 0 15px;
     background: none;
-}
+} */
 
-.back button:hover {
-    /* background-color: #960021; */
+/* .back button:hover {
     color: #960021;
     transition: .3s;
     cursor: pointer;
-}
+} */
 
-.fa-arrow-left {
+/* .fa-arrow-left {
     font-size: 16px;
     color: #000;
     margin-left: 105px;
-    /* background: none; */
-}
+} */
 
 .fa-arrow-left:hover {
     /* background-color: #960021; */
     color: #960021;
-    transition: .3s;
+    transition: 0.3s;
     cursor: pointer;
 }
 
 .box-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-left: 50px;
+    max-width: 720px;
+    margin: 0 auto;
 }
 
 .jointeam-box {
@@ -285,19 +271,24 @@ a:active {
 }
 
 .box-image {
-    display: flex;
+    /* display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: center; */
     /* margin-left: 50px; */
+    text-align: center;
 }
 
 .box-image img {
-    width: 500px;
-    height: auto;
-    margin-top: 30px;
     border-radius: 30px;
-    object-fit: cover;
+    object-fit: contain;
+    max-height: 400px;
+}
+
+@media screen and (max-width: 768px) {
+    .box-image img {
+        max-height: 400px;
+    }
 }
 
 .box-pf {
@@ -308,59 +299,70 @@ a:active {
     margin-top: 30px;
 }
 
-.pf-name {
+.box-content .pf-name {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 16px;
 }
 
-.pf-name h5 {
+.box-content .pf-name h5 {
     font-size: 20px;
     font-family: LINESEED;
     color: gray;
-    margin: 30px 0 0 20px;
+    margin-bottom: 0px;
 }
 
-.pf img {
-    width: 60px;
-    height: 60px;
+.box-content .pf-name img {
+    width: 40px;
+    height: 40px;
     border-radius: 50px;
     object-fit: cover;
 }
 
-.jointeam-box p {
-    font-size: 24px;
+.box-content .pf-name p {
+    font-size: 20px;
     font-family: LINESEED;
+    font-weight: 600;
     color: black;
-    margin: 30px 0 0 20px;
+    margin-bottom: 0px;
 }
 
-.role-parti {
+.box-content .role-parti {
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-top: 20px;
+    gap: 16px;
 }
 
-.jointeam-box h1 {
+.box-content .role-parti h1 {
     font-size: 20px;
     font-family: LINESEED;
     font-weight: lighter;
     color: #979797;
-    /* margin: 30px 0 0 20px; */
+    margin-bottom: 0px;
 }
 
-.jointeam-box h2 {
+.box-content .role-parti h2 {
+    font-size: 24px;
+    font-family: LINESEED;
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 0px;
+}
+
+/* .jointeam-box h2 {
     font-size: 36px;
     font-family: LINESEED;
-    color: black;
+    color: #000000;
     margin-left: 25px;
-}
+} */
 
-.jointeam-box hr {
+/* .jointeam-box hr {
     border: 0.5px solid #bbb;
     margin: 50px;
-}
+} */
 
 .jointeam-box h3 {
     font-size: 20px;
@@ -375,16 +377,17 @@ a:active {
     font-size: 20px;
     font-family: LINESEED;
     font-weight: lighter;
-    color: #000;
+    color: #979797;
     text-align: center;
-    margin-top: 30px;
+    margin-bottom: 0px;
 }
 
-.new-apply p {
+.new-apply title {
     font-size: 24px;
     font-family: LINESEED;
     color: black;
     text-align: center;
+    font-weight: bold;
     margin-top: 50px;
 }
 
@@ -465,22 +468,12 @@ a:active {
     gap: 20px;
 }
 
-.pf1 {
-    padding: 0 100px;
-}
-
+.new-apply p,
 .accepted p {
     font-size: 24px;
     font-family: LINESEED;
     color: black;
-    /* margin: 50px 0 0 180px; */
-}
-
-.pf1 img {
-    width: 70px;
-    height: 70px;
-    border-radius: 50px;
-    object-fit: cover;
+    font-weight: bold;
     /* margin: 50px 0 0 180px; */
 }
 
@@ -489,6 +482,38 @@ a:active {
     font-family: LINESEED;
     color: black;
     /* margin: -60px 0 0 300px; */
+}
+.avatar{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    flex: auto 0 0;
+    object-fit: cover;
+}
+
+@media screen and (max-width: 575.98px) {
+    .box-content .pf-name h5,.box-content .pf-name p{
+        font-size: 14px;
+    }
+    .box-content .pf-name,.box-content .role-parti{
+        gap: 8px;
+    }
+    .box-content .role-parti h1,.box-content .role-parti h2{
+        font-size: 18px;
+    }
+    .jointeam-box h3,.jointeam-box h4{
+        font-size: 14px;
+    }
+    .new-apply p, .accepted p{
+        font-size: 18px;
+    }
+    .pf1 h1{
+        font-size: 14px;
+    }
+    .avatar{
+        width: 40px;
+        height: 40px;
+    }
 }
 
 .startbtn button {
@@ -511,7 +536,6 @@ a:active {
     margin-top: 20px;
     font-weight: bold;
 }
-
 
 /* footer */
 

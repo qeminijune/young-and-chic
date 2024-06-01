@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Kreait\Laravel\Firebase\Facades\Firebase;
 
 class ManageProfileController extends Controller
 {
@@ -17,8 +18,8 @@ class ManageProfileController extends Controller
     public function update(Request $request)
     {
         $request->validate([
-            "image" => "nullable|image|max:4096",
-            "bg" => "nullable|image|max:4096",
+            "image" => "nullable|image|max:2048",
+            "bg" => "nullable|image|max:2048",
             "name" => "required",
             "email" => "required",
         ], [
@@ -29,18 +30,22 @@ class ManageProfileController extends Controller
             "name.required" => "The name field is required.",
             "email.required" => "The email field is required.",
         ]);
-        //    dd($request->all());
         $user = User::find(auth()->user()->id);
         if ($request->hasFile("image")) {
             $user = auth()->user();
             $imageName = time() . "." . $request->image->extension();
-            $request->image->storeAs("images", $imageName);
+            $uploadedFile = fopen($request->file('image'), 'r');
+            Firebase::storage()->getBucket()->upload($uploadedFile, ["name" => $imageName]);
+            // $request->image->storeAs("images", $imageName);
             $user->image = '/images/' . $imageName;
         }
+
         if ($request->hasFile("bg")) {
             $user = auth()->user();
             $imageName = time() . "." . $request->bg->extension();
-            $request->bg->storeAs("images", $imageName);
+            $uploadedFile = fopen($request->file('bg'), 'r');
+            Firebase::storage()->getBucket()->upload($uploadedFile, ["name" => $imageName]);
+            // $request->bg->storeAs("images", $imageName);
             $user->bg = '/images/' . $imageName;
         }
         $user->name = $request->name;

@@ -3,41 +3,77 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/last-project.css') }}">
 @endsection
 @section('content')
-    <section>
-        <div class="topic-pfupload">
-            <div class="event">
-                <a href="/"><i class="fas fa-arrow-left"></i><button>GO BACK</button></a>
+    <div class="container">
+        <section>
+            <div class="topic-pfupload my-5">
+                <div class="back">
+                    <a class=" link-dark text-decoration-none d-inline-flex gap-4 align-items-center"
+                        href="{{ url()->previous() }}">
+                        <i class="fas fa-arrow-left"></i>
+                        GO BACK
+                    </a>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section>
-        <div class="box-project">
-            <div class="last-project">
-                @forelse ($jobs as $job)
-                    <div class="pj1">
-                        <img src="/images/{{ $job->image }}" alt="">
-                        <div class="pf-1">
-                            <img src="{{ $job->user->image ? $job->user->image : $job->user->profile_photo_url }}"
-                                alt="">
-                            <p>{{ $job->user->name }}</p>
+        <section>
+            <div class="box-project">
+                <div class="row">
+                    @forelse ($jobs as $job)
+                        <div class="col-md-4 col-lg-3">
+                            <div class="text-decoration-none text-dark"
+                                onclick="window.location='{{ route('jointeam', $job->id) }}'">
+                                <div class="card-product d-flex flex-sm-column justify-content-center">
+                                    <img class="card-product-image" src="{{ $job->image }}" alt="">
+                                    <div class="card-product-body flex-grow-1">
+                                        <div
+                                            class="d-flex gap-2 align-items-center justify-content-start justify-content-md-center">
+                                            <img width="20" height="20" class="card-product-avatar rounded-circle"
+                                                src={{ $job->user->image ? $job->user->image : ($job->user->profile_photo_path ? $job->user->profile_photo_path : 'https://ui-avatars.com/api/?name=' . urlencode($job->user->name) . '&background=0D8ABC&color=fff') }}
+                                                alt="">
+                                            <p class="mb-0 fw-bold fs-12px">{{ $job->user->name }}
+                                                <span class="text-body-tertiary text-capitalize">|
+                                                    {{ $job->user->type_user }}
+                                                </span>
+                                            </p>
+                                        </div>
+                                        <hr>
+                                        <div class="d-flex flex-column gap-3">
+                                            <div>
+                                                <h4 class="fs-6 text-md-center mb-2">
+                                                    <strong>Find {{ $job->participants }}</strong>
+                                                </h4>
+                                                <div class="d-flex gap-2 justify-content-start justify-content-md-center">
+                                                    <span
+                                                        class="py-1 text-primary px-2 rounded-pill border border-primary fs-12px text-capitalize">{{ $job->type }}</span>
+                                                    <span
+                                                        class="py-1 text-primary px-2 rounded-pill border border-primary fs-12px text-capitalize">{{ $job->employment }}</span>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <p class="hint fs-12px text-md-center mb-2">Looking For...</p>
+                                                <p class="ellipsis-2 fw-light fs-12px text-md-center mb-0">
+                                                    {{ $job->description }}</p>
+                                            </div>
+                                        </div>
+
+                                        @if (Auth::user()->type_user == 'participant')
+                                            @if (count($job->userApply) == 0)
+                                                <div class="text-center mt-4 d-md-block d-none">
+                                                    <a href="{{ route('apply', $job->id) }}"
+                                                        class="apply btn btn-primary rounded-pill" type="button">Apply</a>
+                                                </div>
+                                            @endif
+                                        @endif
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="role">
-                            <h1>Role</h1>
-                            <h2>{{ $job->participants }}</h2>
-                        </div>
-                        <hr>
-                        <h3>{{ $job->name }}</h3>
-                        <h4>{{ $job->description }}</h4>
-                        <h5>{{ $job->full_description }}</h5>
-                        <div class="btn-viewtm">
-                            <a href="{{ route('jointeam', $job->id) }}">View teammate</a>
-                        </div>
-                    </div>
-                @empty
-                    ไม่มีงาน
-                @endforelse
+                    @empty
+                        ไม่มีงาน
+                    @endforelse
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </div>
 @endsection

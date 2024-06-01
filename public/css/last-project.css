@@ -4,19 +4,6 @@
 @import url('https://fonts.cdnfonts.com/css/priyati');
 @import url('https://fonts.cdnfonts.com/css/vogue');
 @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@400;500&display=swap');
-* {
-    margin: 0;
-    padding: 0;
-    /* font-family: 'Nunito', sans-serif; */
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    outline: none;
-    /* border: none; */
-    text-decoration: none;
-    transition: all .2s linear;
-    text-transform: none;
-}
 
 
 /* html {
@@ -24,25 +11,16 @@
     overflow-x: hidden;
 } */
 
-body {
-    background: white;
-    display: grid;
-    /* grid-template-rows: 500px 100px;
-    grid-template-columns: 1fr 30px 30px 30px 30px 30px 1fr; */
-    justify-content: center;
-    align-items: center;
-}
-
 
 /* .head .menulist li a.active {
     color: #960021;
 } */
 
-#wrapper {
+/* #wrapper {
     width: 1440px;
     height: auto;
     margin: 0 auto;
-}
+} */
 
 header {
     width: 100%;
@@ -137,17 +115,17 @@ a:active {
     color: #960021;
 } */
 
-.fa-bell {
+/* .fa-bell {
     font-size: 20px;
     color: black;
     margin: 10px 0 0 80px;
-}
+} */
 
-.fa-bell:hover {
+/* .fa-bell:hover {
     cursor: pointer;
     color: #960021;
     transition: .3s;
-}
+} */
 
 
 /* .fa-user {
@@ -206,9 +184,9 @@ a:active {
     display: block;
 }
 
-.dropdown a:hover {
+/* .dropdown a:hover {
     background-color: #ddd;
-}
+} */
 
 .show {
     display: block;
@@ -258,12 +236,11 @@ a:active {
     cursor: pointer;
 }
 
-.fa-arrow-left {
+/* .fa-arrow-left {
     font-size: 16px;
     color: #000;
     margin-left: 105px;
-    /* background: none; */
-}
+} */
 
 .fa-arrow-left:hover {
     /* background-color: #960021; */
@@ -272,11 +249,11 @@ a:active {
     cursor: pointer;
 }
 
-.box-project {
+/* .box-project {
     max-width: 1200px;
     margin: 0 auto;
     padding: 3rem 2rem;
-}
+} */
 
 
 /* .last-project {

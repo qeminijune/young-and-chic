@@ -6,6 +6,7 @@ use App\Models\Image;
 use App\Models\Work;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Kreait\Laravel\Firebase\Facades\Firebase;
 
 class WorkController extends Controller
 {
@@ -26,12 +27,33 @@ class WorkController extends Controller
         foreach ($request->file('images') as $index => $imagefile) {
             $image = new Image();
             $imageName = time() . "-" . $index . '.' . $imagefile->extension();
-            $path = $imagefile->storeAs('images', $imageName);
-            $image->url = $path;
+            // $path = $imagefile->storeAs('images', $imageName);
+            $uploadImage = fopen($imagefile, 'r');
+            Firebase::storage()->getBucket()->upload($uploadImage, ["name" => $imageName]);
+            $image->url = '/images/' . $imageName;
             $image->work_id = $work->id;
             $image->save();
         }
 
         return back();
+    }
+
+    public function update($id, Request $request)
+    {
+        $request->validate([
+            "detail" => "required",
+        ]);
+        $work = Work::find($id);
+        $work->detail = $request->input("detail");
+        $work->update();
+
+        return back();
+    }
+
+    public function destroy($id)
+    {
+        $work = Work::find($id);
+        $work->delete();
+        return redirect()->route("upload", Auth::user()->id);
     }
 }
