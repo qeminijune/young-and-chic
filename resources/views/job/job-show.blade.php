@@ -4,6 +4,7 @@
     {{-- <link rel="stylesheet" type="text/css" href="{{ asset('css/common.css') }}"> --}}
 @endsection
 @section('head')
+    <link rel="stylesheet" href="sweetalert2.min.css">
 @endsection
 @section('content')
     @if (session()->has('success'))
@@ -260,8 +261,8 @@
 
                 <div class="row my-4">
                     <div class="d-none d-lg-block col-2"></div>
-                    <p class="title-job text-md-center col mb-0">Job announcement board ({{ count($jobs) }})</p>
-                    <div class="col-auto">
+                    <p class="title-job text-lg-center col mb-0">Job announcement board ({{ count($jobs) }})</p>
+                    <div class="col-auto @if (Auth::user()->type_user != 'designer') col-lg-2 @endif">
                         @if (Auth::user()->type_user == 'designer')
                             <button class="btn btn-outline-primary rounded-pill border-2 fw-bold" type="button"
                                 data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -320,8 +321,7 @@
             <div class="row gy-4">
                 @foreach ($jobs as $job)
                     <div class="col-md-4 col-lg-3">
-                        <div class="text-decoration-none text-dark"
-                            onclick="window.location='{{ route('jointeam', $job->id) }}'">
+                        <div href="{{ route('jointeam', $job->id) }}" class="text-decoration-none text-dark">
                             <div class="card-product d-flex flex-sm-column justify-content-center">
                                 <img class="card-product-image" src="/images/{{ $job->image }}" alt="">
                                 <div class="card-product-body flex-grow-1">
@@ -359,8 +359,8 @@
                                     @if (Auth::user()->type_user == 'participant')
                                         @if (count($job->userApply) == 0)
                                             <div class="text-center mt-4 d-md-block d-none">
-                                                <a href="{{ route('apply', $job->id) }}"
-                                                    class="apply btn btn-primary rounded-pill" type="button">Apply</a>
+                                                <button data-id="{{ $job->id }}"
+                                                    class="apply btn btn-primary rounded-pill">Apply</button>
                                             </div>
                                         @endif
                                     @endif
@@ -403,6 +403,7 @@
     </section>
 @endsection
 @section('script')
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
         integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -437,6 +438,31 @@
                 $('#exampleModal').modal('show');
             });
         @endif
+    </script>
+    <script>
+        $(document).ready(function(event) {
+            $(".apply").on("click", function(event) {
+                event.stopPropagation();
+                $id = $(this).data('id');
+                Swal.fire({
+                    title: 'Are you sure?',
+                    text: "You won't be able to revert this!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, apply it!',
+                    customClass: {
+                        confirmButton: "btn btn-primary",
+                        cancelButton: "btn btn-danger",
+                    }
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = `/apply/${$id}`;
+                    }
+                })
+            })
+        })
     </script>
     <script src="{{ asset('js/upload.js') }}"></script>
 @endsection

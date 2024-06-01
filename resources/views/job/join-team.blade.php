@@ -23,14 +23,14 @@
                         <img src="/images/{{ $job->image }}" alt="">
                     </div>
                     <div class="box-pf">
-                        <div class="pf-name">
+                        <a href="{{ route("upload", $job->user->id) }}" class="pf-name text-decoration-none">
                             <div class="pf">
                                 <img src="{{ $job->user->image ? $job->user->image : $job->user->profile_photo_url }}"
                                     alt="">
                             </div>
                             <p>{{ $job->user->name }}</p>
                             <h5>(Young Designer)</h5>
-                        </div>
+                        </a>
                         <div class="role-parti">
                             <h1>Looking for Role</h1>
                             <h2 class="text-capitalize">{{ $job->participants }}</h2>

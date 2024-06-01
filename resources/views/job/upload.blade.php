@@ -14,7 +14,7 @@
             <div class="topic-pfupload my-5">
                 <div class="back">
                     <a class=" link-dark text-decoration-none d-inline-flex gap-4 align-items-center"
-                        href="{{ url()->previous() }}">
+                        href="{{route('go-back')}}">
                         <i class="fas fa-arrow-left"></i>
                         GO BACK
                     </a>
@@ -134,11 +134,16 @@
                                     My
                                     Team</a>
                             @else
-                                <div class="btnjointeam">
+                                <a class="btn border border-dark rounded-pill p-3"
+                                    href="{{ route('jointeam', $job->id) }}"><i
+                                        class="fa-solid fa-user-group me-2"></i>Join
+                                    with
+                                    Me</a>
+                                {{-- <div class="btnjointeam">
                                     <a href="{{ route('jointeam', $job->id) }}"><i class="fa-solid fa-user-group"></i>Join
                                         with
                                         Me</a>
-                                </div>
+                                </div> --}}
                             @endif
                         @endif
 
@@ -173,12 +178,12 @@
                                         @forelse ($work->images as $index=>$image)
                                             @if ($index < 3)
                                                 <div class="post">
-                                                    <img src="{{ "$image->url" }}" />
+                                                    <img src="{{ $image->url }}" />
                                                 </div>
                                             @endif
                                             @if ($index == 3)
                                                 <div class="post position-relative more">
-                                                    <img class="" src="{{ "$image->url" }}" class="post" />
+                                                    <img class="" src="{{ $image->url }}" class="post" />
                                                     <span
                                                         class="position-absolute top-50 start-50 translate-middle text-white fs-5">
                                                         +{{ count($work->images) - 3 }}

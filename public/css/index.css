@@ -51,12 +51,8 @@ hr {
     grid-column: span 2;
 }
 
-@media screen and (max-width: 767px) {
-    .young-designer-grid {
-        grid-template-columns: repeat(2, minmax(140px, 1fr));
-        grid-auto-rows: 312px;
-        grid-auto-flow: dense;
-    }
+.flex-item{
+    padding: 0 1rem;
 }
 
 .menu {
@@ -149,6 +145,32 @@ hr {
     color: white;
     text-decoration: none;
 }
+.work-item{
+    position: relative;
+}
+
+.work-item::before{
+    content: " ";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    background:linear-gradient(0deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+}
+
+#modal-body .work-item{
+    display: inline-block;
+    min-width: 300px;
+    max-width: 80vw;
+    max-height: 80vh;
+}
+
+#modal-body .work-item img{
+    object-fit: contain !important;
+    height: 100% !important;
+}
+
 
 /* a:hover,
 a:active {
@@ -698,7 +720,7 @@ a:active {
     margin-top: 10px;
 }
 
-.work-de button {
+/* .work-de button {
     width: 300px;
     height: 60px;
     background-color: #960021;
@@ -713,7 +735,7 @@ a:active {
 .work-de button:hover {
     background-color: #000;
     transition: 0.5s;
-}
+} */
 
 .wrap-flex {
     max-width: 1120px;
@@ -1261,6 +1283,7 @@ input:nth-of-type(5):checked ~ main#carousel {
     width: 245px;
     height: 327px;
     transform: rotate(15deg);
+    margin: 0 auto;
 }
 
 .pf-designer > .mark {
@@ -1278,4 +1301,21 @@ input:nth-of-type(5):checked ~ main#carousel {
     object-fit: cover;
     border: 8px solid #fff;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+@media screen and (max-width: 575.98px) {
+    .work-de{
+        flex-direction: column;
+    }
+    .flex-item h2{
+        font-size: 2rem;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .young-designer-grid {
+        grid-template-columns: repeat(2, minmax(140px, 1fr));
+        grid-auto-rows: 312px;
+        grid-auto-flow: dense;
+    }
 }

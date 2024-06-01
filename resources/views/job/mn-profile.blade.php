@@ -23,7 +23,7 @@
                     <label for="bg">
                         <div class="bg" id="label-bg">
                             <div class="upload">
-                                <img src="{{ $user->bg ? $user->bg : '/images/bg-create-pic.png' }}">
+                                <img src="{{ $user->bg ? $user->bg : asset('images/bg-create-pic.png') }}">
                             </div>
                         </div>
                     </label>
@@ -50,7 +50,7 @@
                             <div class="pf13" id="label-profile">
                                 <div class="upload">
                                     <img class="pic"
-                                        src="{{ $user->image ? $user->image : '/images/bg-create-pic.png' }}">
+                                        src="{{ $user->image ? $user->image : asset('images/bg-create-pic.png') }}">
                                 </div>
                             </div>
                         </label>

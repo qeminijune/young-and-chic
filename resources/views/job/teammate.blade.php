@@ -15,9 +15,9 @@
         <div class="box-project">
             <div class="last-project">
                 <div class="pj1">
-                    <img src="images/pj1.jpg" alt="">
+                    <img src="{{asset('images/pj1.jpg')}}" alt="">
                     <div class="pf-1">
-                        <img src="images/profile.png" alt="">
+                        <img src="{{asset('images/profile.png')}}" alt="">
                         <p>Thanadol</p>
                     </div>
                     <div class="role">

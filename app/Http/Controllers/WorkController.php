@@ -37,4 +37,23 @@ class WorkController extends Controller
 
         return back();
     }
+
+    public function update($id, Request $request)
+    {
+        $request->validate([
+            "detail" => "required",
+        ]);
+        $work = Work::find($id);
+        $work->detail = $request->input("detail");
+        $work->update();
+
+        return back();
+    }
+
+    public function destroy($id)
+    {
+        $work = Work::find($id);
+        $work->delete();
+        return redirect()->route("upload", Auth::user()->id);
+    }
 }
