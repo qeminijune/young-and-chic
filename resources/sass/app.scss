@@ -93,6 +93,10 @@ $theme-colors: (
   "dark":       $dark
 );
 
+.btn{
+  --bs-btn-border-width:2px;
+}
+
 
 
 .btn-primary {

@@ -58,7 +58,22 @@
     margin: 230px 0 0 300px;
 }
 
-.btn-primary {
+.view-page {
+    min-height: 100vh;
+}
+
+.content {
+    max-width: 600px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.logo{
+    width: 100%;
+    max-width: 300px;
+}
+
+/* .btn-primary {
     width: 350px;
     height: 60px;
     border-radius: 50px;
@@ -77,4 +92,4 @@
     background-color: #960021;
     cursor: pointer;
     transition: 0.5s;
-}
+} */
