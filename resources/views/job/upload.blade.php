@@ -14,7 +14,7 @@
             <div class="topic-pfupload my-5">
                 <div class="back">
                     <a class=" link-dark text-decoration-none d-inline-flex gap-4 align-items-center"
-                        href="{{route('go-back')}}">
+                        href="{{ route('go-back') }}">
                         <i class="fas fa-arrow-left"></i>
                         GO BACK
                     </a>
@@ -216,6 +216,11 @@
                                 </div>
                             </a>
                         @empty
+                            <div class="d-flex flex-column justify-content-center align-items-center"
+                                style="min-height: 200px">
+                                <i class="fa-solid fa-box-open fs-1 text-body-tertiary"></i>
+                                <div class="text-center text-body-tertiary">Empty...</div>
+                            </div>
                         @endforelse
                     </section>
                 </div>

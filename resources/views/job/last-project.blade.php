@@ -70,7 +70,10 @@
                             </div>
                         </div>
                     @empty
-                        ไม่มีงาน
+                        <div class="d-flex flex-column justify-content-center align-items-center" style="min-height: 200px">
+                            <i class="fa-solid fa-box-open fs-1 text-body-tertiary"></i>
+                            <div class="text-center text-body-tertiary">Empty...</div>
+                        </div>
                     @endforelse
                 </div>
             </div>

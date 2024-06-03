@@ -23,41 +23,41 @@
     {{-- <link rel="stylesheet" type="text/css" href="{{ asset('css/all-event.css') }}"> --}}
     <!-- custom js file link  -->
     {{-- <script src="{{ asset('js/script.js') }}" defer></script> --}}
-    
+
     <script>
         /* When the user clicks on the button,toggle between hiding and showing the dropdown content */
         // function myFunction() {
-            //     document.getElementById("myDropdown").classList.toggle("show");
-            // }
-            
-            // function filterFunction() {
-                //     var input, filter, ul, li, a, i;
-                //     input = document.getElementById("myInput");
-                //     filter = input.value.toUpperCase();
-                //     div = document.getElementById("myDropdown");
-                //     a = div.getElementsByTagName("a");
-                //     for (i = 0; i < a.length; i++) {
-                    //         txtValue = a[i].textContent || a[i].innerText;
-                    //         if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                        //             a[i].style.display = "";
-                        //         } else {
-                            //             a[i].style.display = "none";
-                            //         }
-                            //     }
-                            // }
-                            </script>
+        //     document.getElementById("myDropdown").classList.toggle("show");
+        // }
 
-<style>
-    #myBtn {
-        display: none;
-        position: fixed;
-        bottom: 20px;
-        right: 30px;
-        z-index: 99;
-        font-size: 18px;
-        border: none;
-        outline: none;
-        background-color: black;
+        // function filterFunction() {
+        //     var input, filter, ul, li, a, i;
+        //     input = document.getElementById("myInput");
+        //     filter = input.value.toUpperCase();
+        //     div = document.getElementById("myDropdown");
+        //     a = div.getElementsByTagName("a");
+        //     for (i = 0; i < a.length; i++) {
+        //         txtValue = a[i].textContent || a[i].innerText;
+        //         if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        //             a[i].style.display = "";
+        //         } else {
+        //             a[i].style.display = "none";
+        //         }
+        //     }
+        // }
+    </script>
+
+    <style>
+        #myBtn {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 30px;
+            z-index: 99;
+            font-size: 18px;
+            border: none;
+            outline: none;
+            background-color: black;
             color: white;
             cursor: pointer;
             /* padding: 15px; */
@@ -211,7 +211,8 @@
                                         @endif
                                     </i>
                                 </a>
-                                <ul class="dropdown-menu dropdown-menu-end list-notification overflow-y-scroll" style="max-height:500px">
+                                <ul class="dropdown-menu dropdown-menu-end list-notification overflow-y-scroll"
+                                    style="max-height:500px">
                                     <li>
                                         <h6 class="dropdown-header">Notifiations</h6>
                                     </li>
@@ -273,7 +274,10 @@
                                         @endif
                                     @empty
                                         <li>
-                                            <p class="p-3">No notification</p>
+                                            <div class="d-flex flex-column justify-content-center align-items-center" style="min-height: 200px">
+                                                <i class="fa-regular fa-envelope-open fs-1 text-body-tertiary mb-2"></i>
+                                                <div class="text-center text-body-tertiary">Empty...</div>
+                                            </div>
                                         </li>
                                     @endforelse
                                 </ul>
@@ -341,7 +345,8 @@
                                                 @endif
                                             </i>
                                         </button>
-                                        <ul class="dropdown-menu list-notification overflow-y-scroll" style="max-height:500px">
+                                        <ul class="dropdown-menu list-notification overflow-y-scroll"
+                                            style="max-height:500px">
                                             <li>
                                                 <h6 class="dropdown-header">Notifications</h6>
                                             </li>
@@ -404,7 +409,10 @@
                                                 @endif
                                             @empty
                                                 <li>
-                                                    <p class="p-3">No notification</p>
+                                                    <div class="d-flex flex-column justify-content-center align-items-center" style="min-height: 200px">
+                                                        <i class="fa-regular fa-envelope-open fs-1 text-body-tertiary mb-2"></i>
+                                                        <div class="text-center text-body-tertiary">Empty...</div>
+                                                    </div>
                                                 </li>
                                             @endforelse
                                         </ul>
@@ -459,14 +467,14 @@
                     </div>
                 </div>
 
-                <div style="max-width: 280px" class="offcanvas offcanvas-start bg-primary d-md-none" tabindex="-1" id="offcanvasNavbar"
-                    aria-labelledby="offcanvasNavbarLabel">
+                <div style="max-width: 280px" class="offcanvas offcanvas-start bg-primary d-md-none" tabindex="-1"
+                    id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                     <div class="offcanvas-header">
                         <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
                             <img src="/images/logo-final-white.svg" class="logo" alt="">
                         </h5>
                         <i class="fa-regular fa-circle-xmark link-light fs-3" data-bs-dismiss="offcanvas"
-                        aria-label="Close"></i>
+                            aria-label="Close"></i>
                     </div>
                     <div class="offcanvas-body">
                         <ul class="navbar-nav mx-auto mb-2 mb-md-0 align-items-lg-center gap-md-4">

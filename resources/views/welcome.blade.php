@@ -8,7 +8,8 @@
             <div class="banner">
                 <img class="img-fluid" src="images/banner-home-v1.png">
                 <div class="position-absolute section-1 w-100 text-center start-50 translate-middle-x ">
-                    <a class="btn  btn-home btn-primary rounded-pill" href="{{ route('jobshow') }}">Find a Team and Create work
+                    <a class="btn  btn-home btn-primary rounded-pill" href="{{ route('jobshow') }}">Find a Team and Create
+                        work
                         now!!</a>
                 </div>
 
@@ -44,7 +45,8 @@
                     <h1>Working Of The Month</h1>
                     <h2>Best Young Designer<br>Of The Month</h2>
                     <h3>({{ \Carbon\Carbon::now()->format('F') }})</h3>
-                    <a href="{{ route('upload', $rating->user->id) }}"><button class="btn btn-home btn-primary rounded-pill mt-4">View Profile
+                    <a href="{{ route('upload', $rating->user->id) }}"><button
+                            class="btn btn-home btn-primary rounded-pill mt-4">View Profile
                             {{ $rating->user->name }}</button></a>
                 </div>
 
@@ -69,11 +71,12 @@
         <a href="#"><button>View All Works By Young Designer</button><i class="fas fa-chevron-right"></i></a>
     </div> --}}
 
-    <section>
-        <div>
-            <p class="text-center mt-4 fw-bold fs-3">Young Designer's Works (21)</p>
-            <div class="young-designer-grid">
-                {{-- <div class="span-1">
+    @if ($works->count() > 0)
+        <section>
+            <div>
+                <p class="text-center mt-4 fw-bold fs-3">Young Designer's Works ({{ $works->count() }})</p>
+                <div class="young-designer-grid">
+                    {{-- <div class="span-1">
                     <img class="w-100 h-100 object-fit-cover" src="images/Frame 28.jpg">
                 </div>
                 <div class="span-2">
@@ -104,42 +107,46 @@
                 <div class="span-1"><img class="w-100 h-100 object-fit-cover" src="images/Frame 16.jpg"></div>
                 <div class="span-1"><img class="w-100 h-100 object-fit-cover" src="images/Frame 17.jpg"></div>
                 <div class="span-1"><img class="w-100 h-100 object-fit-cover" src="images/Frame 24.jpg"></div> --}}
-                @php
-                    $spans = ['span-1', 'span-2', 'span-1', 'span-1', 'span-1', 'span-1', 'span-1'];
-                    $index = 0;
-                @endphp
+                    @php
+                        $spans = ['span-1', 'span-2', 'span-1', 'span-1', 'span-1', 'span-1', 'span-1'];
+                        $index = 0;
+                    @endphp
 
-                @foreach ($works as $work)
-                    @if ($work->images->isNotEmpty())
-                        <div class="work-item {{ $spans[$index % count($spans)] }}" data-id="{{ $work->user->id }}"
-                            data-bs-toggle="modal" data-bs-target="#galleryProfile">
-                            <img class="w-100 h-100 object-fit-cover" src="{{ $work->images->first()->url }}">
-                            <a class="upload-link" href="{{ route("upload", $work->user->id) }}">
-                                <p id="user-name" class="position-absolute bottom-0 left-0 px-4 py-2 text-center text-white fw-bold">
-                                    {{ $work->user->name }}</p></a>
-                        </div>
-                        @php $index++; @endphp
-                    @endif
-                @endforeach
-            </div>
+                    @foreach ($works as $work)
+                        @if ($work->images->isNotEmpty())
+                            <div class="work-item {{ $spans[$index % count($spans)] }}" data-id="{{ $work->user->id }}"
+                                data-bs-toggle="modal" data-bs-target="#galleryProfile">
+                                <img class="w-100 h-100 object-fit-cover" src="{{ $work->images->first()->url }}">
+                                <a class="upload-link" href="{{ route('upload', $work->user->id) }}">
+                                    <p id="user-name"
+                                        class="position-absolute bottom-0 left-0 px-4 py-2 text-center text-white fw-bold">
+                                        {{ $work->user->name }}</p>
+                                </a>
+                            </div>
+                            @php $index++; @endphp
+                        @endif
+                    @endforeach
+                </div>
 
-            <div class="modal fade" id="galleryProfile" tabindex="-1" aria-labelledby="galleryProfileLabel"
-                aria-hidden="true">
-                <div class="modal-dialog modal-fullscreen">
-                    <div class="modal-content bg-transparent">
-                        <div class="modal-body d-flex align-items-center justify-content-center" id="modal-body">
-                                <div id="close" class="text-end position-absolute top-0 end-0" style="padding: 20px"><i class="fas fa-close text-white link-light fs-3" data-bs-dismiss="modal"
+                <div class="modal fade" id="galleryProfile" tabindex="-1" aria-labelledby="galleryProfileLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-fullscreen">
+                        <div class="modal-content bg-transparent">
+                            <div class="modal-body d-flex align-items-center justify-content-center" id="modal-body">
+                                <div id="close" class="text-end position-absolute top-0 end-0" style="padding: 20px"><i
+                                        class="fas fa-close text-white link-light fs-3" data-bs-dismiss="modal"
                                         aria-label="Close"></i></div>
+                            </div>
                         </div>
                     </div>
                 </div>
+                {{-- <a href="#"><button>SEE MORE</button><i class="fas fa-chevron-right"></i></a> --}}
             </div>
-            {{-- <a href="#"><button>SEE MORE</button><i class="fas fa-chevron-right"></i></a> --}}
-        </div>
-    </section>
+        </section>
+    @endif
 @endsection
 @section('script')
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
         $(document).ready(function() {
             $(".upload-link").click(function(e) {

@@ -23,7 +23,7 @@
                         <img src="/images/{{ $job->image }}" alt="">
                     </div>
                     <div class="box-pf">
-                        <a href="{{ route("upload", $job->user->id) }}" class="pf-name text-decoration-none">
+                        <a href="{{ route('upload', $job->user->id) }}" class="pf-name text-decoration-none">
                             <div class="pf">
                                 <img src="{{ $job->user->image ? $job->user->image : $job->user->profile_photo_url }}"
                                     alt="">
@@ -72,11 +72,15 @@
                                         </form>
                                     </div>
                                 @empty
-                                    <div class="text-center text-body-tertiary">Empty...</div>
+                                    <div class="d-flex flex-column justify-content-center align-items-center"
+                                        style="min-height: 200px">
+                                        <i class="fa-solid fa-box-open fs-1 text-body-tertiary"></i>
+                                        <div class="text-center text-body-tertiary">Empty...</div>
+                                    </div>
                                 @endforelse
                             </div>
                         </div>
-                        
+
                     </section>
                 @else
                     @if (!empty($selfApply))
@@ -115,7 +119,11 @@
                             </div>
                         @empty
                             <div class="col-12">
-                                <div class="text-center text-lg-start text-body-tertiary">Empty...</div>
+                                <div class="d-flex flex-column justify-content-center align-items-center"
+                                    style="min-height: 200px">
+                                    <i class="fa-solid fa-box-open fs-1 text-body-tertiary"></i>
+                                    <div class="text-center text-body-tertiary">Empty...</div>
+                                </div>
                             </div>
                         @endforelse
                     </div>

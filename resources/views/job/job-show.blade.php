@@ -319,7 +319,7 @@
 
         <div class="container">
             <div class="row gy-4">
-                @foreach ($jobs as $job)
+                @forelse ($jobs as $job)
                     <div class="col-md-4 col-lg-3">
                         <div href="{{ route('jointeam', $job->id) }}" class="text-decoration-none text-dark">
                             <div class="card-product d-flex flex-sm-column justify-content-center">
@@ -368,7 +368,12 @@
                             </div>
                         </div>
                     </div>
-                @endforeach
+                @empty
+                <div class="d-flex flex-column justify-content-center align-items-center" style="min-height: 200px">
+                    <i class="fa-solid fa-box-open fs-1 text-body-tertiary"></i>
+                    <div class="text-center text-body-tertiary">Empty...</div>
+                </div>
+                @endforelse
             </div>
         </div>
 

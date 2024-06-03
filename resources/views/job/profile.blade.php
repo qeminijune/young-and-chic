@@ -30,8 +30,9 @@
                             {{-- <img src="{{ $user->image ? $user->image : "https://www.gravatar.com/avatar/" . md5( strtolower( trim( $user->email ) ) ) . "?d=" . urlencode( "https://i.pravatar.cc/" . rand( 1, 1000 )) . "&s=" . 1028;}}" alt="Atul Prajapati"> --}}
                             <img src="{{ $user->image ? $user->image : $user->profile_photo_url }}" alt="Atul Prajapati">
                             <p class="text"><a href="{{ route('upload', $user->id) }}"
-                                    style="color: white;text-decoration: none">{{ $user->name }}</a>
-                                ({{ $user->type_user }})
+                                    style="color: white;text-decoration: none">{{ $user->name }}
+                                    ({{ $user->type_user }})</a>
+
                             </p>
                             <ul>
                                 <li><a href="https://www.facebook.com/"><i class="fab fa-facebook"></i></a></li>
