@@ -50,7 +50,19 @@ return [
              *
              */
 
-            'credentials' => env('FIREBASE_CREDENTIALS', env('GOOGLE_APPLICATION_CREDENTIALS')),
+            'credentials' => [
+                'type' => env('FIREBASE_CREDENTIALS_TYPE'),
+                'project_id' => env('FIREBASE_CREDENTIALS_PROJECT_ID'),
+                'private_key_id' => env('FIREBASE_CREDENTIALS_PRIVATE_KEY_ID'),
+                'private_key' => env('FIREBASE_CREDENTIALS_PRIVATE_KEY'),
+                'client_email' => env('FIREBASE_CREDENTIALS_CLIENT_EMAIL'),
+                'client_id' => env('FIREBASE_CREDENTIALS_CLIENT_ID'),
+                'auth_uri' => env("FIREBASE_CREDENTIALS_AUTH_URI"),
+                'token_uri' => env("FIREBASE_CREDENTIALS_TOKEN_URI"),
+                'auth_provider_x509_cert_url' => env("FIREBASE_CREDENTIALS_AUTH_PROVIDER_X509_CERT_URL"),
+                'client_x509_cert_url' => env("FIREBASE_CREDENTIALS_CLIENT_X509_CERT_URL"),
+                'universe_domain' => env("FIREBASE_CREDENTIALS_UNIVERSE_DOMAIN"),
+            ],
 
             /*
              * ------------------------------------------------------------------------
